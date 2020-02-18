@@ -60,7 +60,7 @@ alberta_in,20,183,0	script	Chad	1_M_03,{
 	close;
 }
 
-alberta,131,139,2	script	Drunken Old Man	1_M_JOBGUIDER,{
+alberta,131,139,2	script	Deagle	1_M_JOBGUIDER,{
 	mes "[Deagle]";
 	mes "*^CCCCCCHiccup^000000*";
 	mes "Oq-O quê você está";
