@@ -17,5 +17,5 @@ Da mesma forma que o rAthena, Cronus, brAthena, Hercules e tantos outros disponi
 
 # Equipe Atual
 
-@HD Scripts -> https://rathena.org/board/profile/5287-hd-scripts/
-@TioHugo -> https://rathena.org/board/profile/11415-tiohugo/
+* @HD Scripts -> https://rathena.org/board/profile/5287-hd-scripts/
+* @TioHugo -> https://rathena.org/board/profile/11415-tiohugo/
