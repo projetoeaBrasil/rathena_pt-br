@@ -1,0 +1,132 @@
+//===== rAthena Script ======================================= 
+//= Renewal Merchant Job Quest
+//===== By: ================================================== 
+//= Kisuka
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Job Change to Merchant Class
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Kisuka]
+//= 1.1 Added support for Baby classes. [Euphy]
+//=============== Tradução PT-BR ================
+// HanzoBR - Disponibilizado para Projeto SOCERO
+//=============================================== 
+alberta_in,53,43,6	script	Mercador#mer	86,{
+	if (Upper == 1) {
+		if (Class == Job_Novice_High && (ADVJOB == Job_Whitesmith || ADVJOB == Job_Creator)) {
+			mes "[Chefe Mahnsoo]";
+			mes "Há quanto tempo!";
+			mes "Ei, você não desistiu do seu negócio né?";
+			mes "O que aconteceu?";
+			next;
+			mes "[Chefe Mahnsoo]";
+			mes "Whoa...";
+			mes "Você já esteve em Valhalla? Uau! Você percorreu um longo caminho!";
+			next;
+			if (!callfunc("F_CanChangeJob")) {
+				mes "[Chefe Mahnsoo]";
+				mes "Hmmm...";
+				mes "Parece que não está pronto para se tornar Mercador novamente. Termine as habilidades básicas primeiro.";
+				next;
+				mes "[Chefe Mahnsoo]";
+				mes "Não se preocupe, sempre teremos um espaço para você. Apenas volte quando estiver pronto certo?";
+				close;
+			}
+			mes "[Chefe Mahnsoo]";
+			mes "Deve ser o destino, nos encontrarmos novamente. Mais uma vez, deixe-me transformar você em um Mercador";
+			next;
+			skill "NV_TRICKDEAD",0,SKILL_PERM;
+			jobchange Job_Merchant_High;
+			skill "MC_CARTREVOLUTION",1,SKILL_PERM;
+			skill "MC_CHANGECART",1,SKILL_PERM;
+			skill "MC_LOUD",1,SKILL_PERM;
+			mes "[Chefe Mahnsoo]";
+			mes "Ahh, que nostálgico, como nos velhos tempos.";
+			mes "Ok, faça seu melhor!";
+			close;
+		}else{
+			mes "[Chefe Mahnsoo]";
+			mes "^333333*suspiro*^000000";
+			mes "Estou tão entediado";
+			mes "Quando vou ver minha linda flor?";
+			close;
+		}
+	}
+	mes "[Chefe Mahnsoo]";
+	mes "Ei, porque está aqui";
+	next;
+	switch(select("Quero ser Mercador.:Quero saber mais sobre Mercadores.:O que preciso para ser Mercador.:Nada não.")) {
+	case 1:
+		mes "[Chefe Mahnsoo]";
+		if(BaseJob != Job_Novice) {
+			if(BaseJob == Job_Merchant) {
+				mes ".....? Desculpe, o que você está dizendo?";
+				mes "Você já é um Mercador...";
+				mes "Hã? Já posso rir???";
+			}else{
+				mes "Ahh? Você está querendo fazer as duas coisas?";
+				mes "Por que não se dedica a sua Classe original?";
+				next;
+				mes "[Chefe Mahnsoo]";
+				mes "Temos ética nos negócios, você sabe...";
+			}
+			close;
+		}else{
+			mes "Quer ser Mercador? Hmm...";
+			next;
+			if (!callfunc("F_CanChangeJob")) {
+				mes "[Chefe Mahnsoo]";
+				mes "Mas para isto, seu nívela Base deve ser 9 e gastar todos seus pontos em habilidades básicas.";
+				next;
+				mes "[Chefe Mahnsoo]";
+				mes "Você não acha que precisamos saber habilidades básicas, embora apenas lidamos com dinheiro?";
+				close;
+			}
+			mes "[Chefe Mahnsoo]";
+			mes "Bom, você está pronto! Cumpriu os requisitos.";
+			mes "Agora o transformarei em Mercador.";
+			next;
+			mes "[Chefe Mahnsoo]";
+			mes "Parabéns, você virou Mercador!";
+			mes "Parabéns novamente por se tornar membro do Clã dos Mercadores e um de nós.";
+			callfunc "Job_Change",Job_Merchant;
+			getitem 1381,1;	// N_Battle_Axe
+			next;
+			mes "[Chefe Mahnsoo]";
+			mes "Certamente precizamos de jovens que tenham paixão para atingir nosso grande objetivo de obter 20% da moeda Mundial.";
+			mes "Entendeu?";
+			mes "Isto apenas significa que ganharemos MUITO DINHEIRO.";
+			close;
+		}
+	case 2:
+		mes "[Chefe Mahnsoo]";
+		mes "Mercador? Simplificando é a pessooa que vende e ganha dinheiro é um Mercador.";
+		mes "Não feito para combate sem habilidades especiais de ataque/recuperação, mas um mercador pode comprar coisas por um preço barato e vender por valor maior.";
+		next;
+		mes "[Chefe Mahnsoo]";
+		mes "Bom, o Mercador tem uma habilidade suprema chamada Mamonita que ataca o inimigo com seu dinheiro. nós podemos equipar tudo exceto Arcos, Bastões, e espadas de Duas Mãos";
+		mes "Mas podemos sempre comprar e vender estes itens em nossas lojas.";
+		mes "Sim, nós Mercadores sempre tempos dinheiro em mente, entendeu?";
+		close;
+	case 3:
+		mes "[Chefe Mahnsoo]";
+		mes "Para se tornar Mercador, deve atingir nível base 9 e concluir as habilidades básicas.";
+		next;
+		mes "[Chefe Mahnsoo]";
+		mes "Constumávamos receber uma Taxa em Zeny inicial antes. Não é difícil.";
+		mes "Mas tinha muitas pessoas que não conseguiam reunir a quantia e ficavam chorando";
+		next;
+		mes "[Chefe Mahnsoo]";
+		mes "Então recentemente decidimos que qualquer Aprendiz poderia tornar-se um Mercador.";
+		mes "Desde que, cumpra com os requisitos exigidos.";
+		close;
+	case 4:
+	    mes "[Chefe Mahnsoo]";
+	    mes "Você me fez perder tempo e clientes.";
+		mes "Nunca mais tome meu tempo a menos que seja necessário.";
+		close;
+	}
+}

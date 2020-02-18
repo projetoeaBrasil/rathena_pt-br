@@ -1,0 +1,170 @@
+/*.-----------------------------------------------------------------.
+  .    ____                          __                             .
+  .   /\  _`\                       /\ \__  __                      .
+  .   \ \ \/\_\  _ __    __     __  \ \ ,_\/\_\  __  __     __      .
+  .    \ \ \/_/_/\`'__\/'__`\ /'__`\ \ \ \/\/\ \/\ \/\ \  /'__`\    .
+  .     \ \ \s\ \ \ \//\  __//\ \d\.\_\ \ \_\ \ \ \ \_/ |/\  __/    .
+  .      \ \____/\ \_\\ \____\ \__/.\_\\ \__\\ \_\ \___/ \ \____\   .
+  .       \/___/  \/_/ \/____/\/__/\/_/ \/__/ \/_/\/__/   \/____/   .
+  .                                                                 .
+  .          2014~2018 © Creative Services and Development          .
+  .                      www.creativesd.com.br                      .
+  .-----------------------------------------------------------------.
+  . Script:                                                         .
+  .    Double Rate                                                  .
+  .-----------------------------------------------------------------.
+  . Autor: Romulo SM (sbk_)                            Versão: 1.0  .
+  .                                                                 .
+  . Compátivel:	brAthena r2755.                                     .
+  .-----------------------------------------------------------------.
+  . Descrição:                                                      .
+  .    Multiplica as Rates                                          .
+  *-----------------------------------------------------------------*/
+-	script	DoubleRate#main	-1,{
+OnInit:
+	// Reset
+	// Não remova, ele vai fazer o backup das configurações anteriores!
+	atcommand "@reloadbattleconf";
+	sleep 2000;
+	
+	// Configurações de Rates
+	set .DOUBLE_MULTIPLICATOR, 2;
+	set .DOUBLE_RATE_BASEEXP, getbattleflag("base_exp_rate");
+	set .DOUBLE_RATE_JOBEXP, getbattleflag("job_exp_rate");
+	
+	// Configurações das Quests
+	setarray $@DoubleRateItems[0],
+		// ID,  Quantidade
+		4001, 1,
+		909, 500,
+		938, 200,
+		1602, 1
+	;
+	
+OnChange:
+OnClock0000:
+	// 1 - segunda
+	// 5 - sexta
+	// 6 - sabado
+	// 0 - domingo
+	if( gettime(4) == 6 || gettime(4) == 0 ) {
+		set $DoubleRate,1;
+		set $DoubleRateDay,0;
+		set $DoubleRateQuest, 0;
+		announce "[Servidor]: A EXP de Base e Classe foram dobradas até meia noite de Domingo!",bc_yellow|bc_all;
+		setbattleflag "base_exp_rate", .DOUBLE_MULTIPLICATOR*.DOUBLE_RATE_BASEEXP;
+		setbattleflag "job_exp_rate", .DOUBLE_MULTIPLICATOR*.DOUBLE_RATE_JOBEXP;
+	}
+	else if( $DoubleRate && gettime(4) != 6 && gettime(4) != 0 ) {
+		set $DoubleRate,0;
+		set $DoubleRateDay, 0;
+		set $DoubleRateQuest, 0;
+		announce "[Servidor]: A EXP de Base e Classe retornaram ao normal!",bc_yellow|bc_all;
+		setbattleflag "base_exp_rate", .DOUBLE_MULTIPLICATOR*.DOUBLE_RATE_BASEEXP;
+		setbattleflag "job_exp_rate", .DOUBLE_MULTIPLICATOR*.DOUBLE_RATE_JOBEXP;
+	}
+	else if( $DoubleRateQuest && gettimetick(2) < $DoubleRateQuest ) {
+		announce "[Servidor]: A EXP de Base e Classe foram dobradas pela conclusão da Quest!",bc_yellow|bc_all;
+		setbattleflag "base_exp_rate", .DOUBLE_MULTIPLICATOR*.DOUBLE_RATE_BASEEXP;
+		setbattleflag "job_exp_rate", .DOUBLE_MULTIPLICATOR*.DOUBLE_RATE_JOBEXP;
+	}
+	
+	if( $DoubleRateLastDay != gettime(4) )
+		set $DoubleRateDay, 0;		
+	set $DoubleRateLastDay, gettime(4);
+	donpcevent"::OnSetDoubleRate";
+	end;
+}
+
+prontera,149,189,4	script	Avisos de Rate#npc	835,{
+	mes "^C71585[ Avisos Rates ]^000000";
+	if( $DoubleRate )
+		mes "A Quest para dobrar as rates de ^0000FFExperiência de Base e Classe^000000 é desativada aos finais de semana.";
+	else if( $DoubleRateQuest ) {
+		if( $DoubleRateDay >= 2 ) {
+			mes "No momento ninguém pode fazer a Quest para para dobrar as rates de ^0000FFExperiência de Base e Classe^000000.";
+			mes " ";
+		}
+		mes "Aproveite ainda restam " + callfunc("Time2Str", $DoubleRateQuest) + " de rates de ^0000FFExperiência de Base e Classe^000000 dobradas.";
+	}
+	else if( $DoubleRateDay >= 2 )
+		mes "Já foi feito duas vezes a quest para dobrar as rates de ^0000FFExperiência de Base e Classe^000000, volte amanhã.";
+	else {
+		mes "Deseja fazer a quest de para dobrar as rates de ^0000FFExperiência de Base e Classe^000000 por duas horas?";
+		next;
+		if( select("- Sim, por favor.", "- Não, obrigado.") == 1 ) {
+			set .@chk, 0;
+			mes "^C71585[ Placa de Rate ]^000000";
+			for( set .@i, 0; .@i < getarraysize($@DoubleRateItems); set .@i, .@i + 2 ) {
+				if( countitem($@DoubleRateItems[.@i]) < $@DoubleRateItems[.@i+1] )
+					set .@chk, 1;
+			}
+			
+			if( .@chk ) {
+				mes "Você precisa me trazer:";
+				for( set .@i, 0; .@i < getarraysize($@DoubleRateItems); set .@i, .@i + 2 ) {
+					if( countitem($@DoubleRateItems[.@i]) < $@DoubleRateItems[.@i+1] ) {
+						mes "^FF0000" + $@DoubleRateItems[.@i+1] + "x " + getitemname($@DoubleRateItems[.@i]) + ".^000000";
+						set .@chk, 1;
+					}
+					else
+						mes "^0000FF" + $@DoubleRateItems[.@i+1] + "x " + getitemname($@DoubleRateItems[.@i]) + ".^000000";
+				}
+				mes " ";
+				mes "Volte quando me trazer estes itens.";
+			}
+			else {
+				for( set .@i, 0; .@i < getarraysize($@DoubleRateItems); set .@i, .@i + 2 )
+					delitem $@DoubleRateItems[.@i], $@DoubleRateItems[.@i+1];
+				
+				set $DoubleRateQuest, gettimetick(2)+7200;
+				set $DoubleRateDay, $DoubleRateDay + 1;
+				set .@multi, getvariableofnpc(.DOUBLE_MULTIPLICATOR, "DoubleRate#main");
+				set .@base, getvariableofnpc(.DOUBLE_RATE_BASEEXP, "DoubleRate#main");
+				set .@job, getvariableofnpc(.DOUBLE_RATE_JOBEXP, "DoubleRate#main");
+				setbattleflag "base_exp_rate", .@multi*.@base;
+				setbattleflag "job_exp_rate", .@multi*.@job;
+				donpcevent"::OnSetDoubleRate";
+				announce "[Servidor]: " + strcharinfo(0) + ": concluiu a Quest Double Rate!! A rate de Base e Classe foram dobradas pela conclusão da Quest!",bc_yellow|bc_all;
+				mes "Parabéns!!";
+				mes "Você completou a quest, aproveite duas horas de rates ^0000FFExperiência de Base e Classe^000000 dobrada!";
+			}
+			close;
+		}
+		mes "^C71585[ Placa de Rate ]^000000";
+		mes "Tudo bem, fale comigo caso queira fazer a quest.";
+	}
+	close;
+	
+OnSetDoubleRate:
+	set .@base_rate, getbattleflag("base_exp_rate")/10000;
+	set .@job_rate, getbattleflag("job_exp_rate")/10000;
+	
+	if( .@base_rate <= 0 )
+		set .@base_rate, 10000;
+	if( .@job_rate <= 0 )
+		set .@job_rate, 10000;
+	
+	delwaitingroom;
+	waitingroom "Base: " + .@base_rate + "x / Classe: " + .@job_rate + "x", 0;
+	end;
+	
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer60000:
+	if( !$DoubleRate && $DoubleRateQuest && gettimetick(2) >= $DoubleRateQuest ) {
+		set $DoubleRateQuest, 0;
+		set .@multi, getvariableofnpc(.DOUBLE_MULTIPLICATOR, "DoubleRate#main");
+		set .@base, getvariableofnpc(.DOUBLE_RATE_BASEEXP, "DoubleRate#main");
+		set .@job, getvariableofnpc(.DOUBLE_RATE_JOBEXP, "DoubleRate#main");
+		announce "[Servidor]: A rate de Base e Classe foram dobradas pela conclusão da Quest!",bc_yellow|bc_all;
+		setbattleflag "base_exp_rate", .@multi*.@base;
+		setbattleflag "job_exp_rate", .@multi*.@job;
+		donpcevent"::OnSetDoubleRate";
+	}
+	stopnpctimer;
+	initnpctimer;
+	end;
+}

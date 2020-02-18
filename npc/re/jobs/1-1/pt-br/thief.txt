@@ -1,0 +1,213 @@
+//===== rAthena Script ======================================= 
+//= Renewal Thief Job Quest
+//===== By: ================================================== 
+//= Kisuka
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Job Change to Thief Class
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Kisuka]
+//= 1.1 Added support for Baby classes. [Euphy]
+//=============== Tradução PT-BR ================
+// HanzoBR - Disponibilizado para Projeto SOCERO
+//===============================================
+moc_prydb1,39,129,2	script	Guia de Gatuno#thief	69,{
+	if (Upper == 1) {
+		if (ADVJOB == Job_Assassin_Cross || ADVJOB == Job_Stalker) {
+			if (Class == Job_Novice_High) {
+				mes "[Guia de Gatuno]";
+				mes "Hã? Eu conheço você? Me parece familiar, não tem irmão gêmeo não né?";
+				next;
+				if (!callfunc("F_CanChangeJob")) {
+					mes "[Guia de Gatuno]";
+					mes "Ora ora, você está interessado em ser um ladrão? Você é fraco ainda, precisa de mais treinamento.";
+					next;
+					mes "[Guia de Gatuno]";
+					mes "Aprenda as habilidades básicas primeiro novato.";
+					close;
+				}
+				mes "[Guia de Gatuno]";
+				mes "Aparentemente você tem fama, e tem trabalhado duro. Irei promovê-lo agora mesmo a Gatuno.";
+				next;
+				skill "NV_TRICKDEAD",0,SKILL_PERM;
+				jobchange Job_Thief_High;
+				skill "TF_SPRINKLESAND",1,SKILL_PERM;
+				skill "TF_BACKSLIDING",1,SKILL_PERM;
+				skill "TF_PICKSTONE",1,SKILL_PERM;
+				skill "TF_THROWSTONE",1,SKILL_PERM;
+				mes "[Guia de Gatuno]";
+				mes "Desde que se tornou um Gatuno, viva como um.";
+				mes "Até breve...";
+				close;
+			}else{
+				mes "[Guia de Gatuno]";
+				if (Sex == SEX_MALE)
+					mes "Fala aí cara!";
+				else
+					mes "Nossa nossa em gatinha, fiu fiu";
+				close;
+			}
+		}else{
+			mes "[Guia de Gatuno]";
+			if (Sex == SEX_MALE)
+				mes "Fala aí cara!";
+			else
+				mes "Fiu fiu gatinha.";
+			mes "Você é muito linda para querer ser uma ladra, estou ocupado. Até mais.";
+			close;
+		}
+	}
+	if(q_job_thief == 1) {
+		mes "[Guia de Gatuno]";
+		mes "Ehh... Você parece ser "+(Sex == SEX_MALE?"o riquinho":"a princesa")+", "+strcharinfo(0)+", da corte Real. Por que está aqui neste lugar sujo?";
+		next;
+		mes "[Guia de Gatuno]";
+		mes "Não te conheço e nunca te vi e não estou encarregado de te fazer um Gatuno. Mas, aceito algum bang entendeu?";
+		mes "Se quer mesmo virar um Gatuno, pergunte para o cara do meu lado..";
+		close;
+	}
+	mes "[Guia de Gatuno]";
+	if(BaseJob != Job_Novice) {
+		if(BaseJob == Job_Thief) {
+			mes "Qual é? Algum problema?";
+			close;
+		}else{
+			mes "Mas o que...?";
+			if(Sex == SEX_MALE) {
+				mes "Hm, você já é "+jobname(Class)+", cabeção!";
+				next;
+				mes "[Guia de Gatuno]";
+				mes "Eai, mano.";
+			}else{
+				next;
+				mes "[Guia de Gatuno]";
+				mes "Eai, gatinha.";
+			}
+			mes "Por que está aqui? Volte de onde veio.";
+			close;
+		}
+	}
+	mes "Ehh... Você parece ser "+(Sex == SEX_MALE?"o riquinho":"a princesa")+", "+strcharinfo(0)+", da corte Real. Por que está aqui neste lugar sujo?";
+	next;
+	if(select("Eu quero virar Gatuno.:Nada não, só passando....") == 2) {
+		mes "[Guia de Gatuno]";
+		mes "Você sabe que não pode ser um ladrão...";
+		mes "O que está pensando?";
+		close;
+	}
+	mes "[Guia de Gatuno]";
+	mes "Sério mesmo que está feliz disto?";
+	mes "Você está mesmo me dizendo que quer virar Gatuno e está feliz com isto?";
+	mes "Saia gritando por aí que vai roubar de outras pessoas e está orgulhoso disto.";
+	next;
+	mes "[Guia de Gatuno]";
+	mes "Você quer ser um Gatuno do mal?";
+	next;
+	switch(select("Sim, muito mal.:Não.:E você?")) {
+	case 1:
+		mes "[Guia de Gatuno]";
+		mes "Sério? Tem muita gente estranha feito você...";
+		next;
+		break;
+	case 2:
+		mes "[Guia de Gatuno]";
+		mes "Então por que está aqui? Não é fácil, então não brinque comigo.";
+		next;
+		break;
+	case 3:
+		mes "[Guia de Gatuno]";
+		mes "hãn..? eu?";
+		mes "Eu sou um perfeito ladrão, nasci para isto. Não ligo para esta conversa...";
+		mes "Enquanto você bobeava, roubei sua carteira, hahahahahha";
+		next;
+		break;
+	}
+	mes "[Guia de Gatuno]";
+	mes "De qualquer forma, lá fora, nunca diga que quer tornar-se ladrão.";
+	next;
+	mes "[Guia de Gatuno]";
+	mes "Então quer se candidatar a Gatuno?";
+	next;
+	if(select("Sim, quero.:Não, ta louco?.") == 2) {
+		mes "[Guia de Gatuno]";
+		mes "Que seja, faça o que quiser.";
+		close;
+	}
+	mes "[Guia de Gatuno]";
+	mes "Certo, agora me fale seu nome.";
+	next;
+	mes " - "+strcharinfo(0)+"";
+	next;
+	mes "Então "+strcharinfo(0)+"";
+	next;
+	if (!callfunc("F_CanChangeJob")) {
+		mes "[Guia de Gatuno]";
+		mes "Posso ver que você tem vontade de virar Gatuno...";
+		mes "Mas só isto não te ajuda em nada...";
+		mes "Primeiro treine as habilidades básicas até o nível 9.";
+		close;
+	}
+	mes "[Guia de Gatuno]";
+	mes "Fiz umas ligações e levantei sua capivara. Vejo que tem uma lista criminosa de respeito.";
+	mes ""+strcharinfo(0)+", você conseguiu, passou no teste.";
+	next;
+	mes "[Guia de Gatuno]";
+	mes "Não te conheço e nunca te vi e não estou encarregado de te fazer um Gatuno. Mas, aceito algum bang entendeu?";
+	mes "Se você quer ser um ladrão, pergunte ao cara do meu lado.";
+	set q_job_thief,1;
+	close;
+}
+
+moc_prydb1,42,133,2	script	Parceiro#thief	118,{
+	if(q_job_thief == 1) {
+		mes "[Parceiro]";
+		mes "Ora então você passou na entrevista com ";
+		mes "Ótimo, te aceito.";
+		mes "Vamos começar a cerimônia!";
+		next;
+		mes "[Comandante dos Gatunos]";
+		mes "'partir de hoje'";
+		mes "'Você está pronto, eu declaro oficialmente "+strcharinfo(0)+" como membro do Clã dos Gatunos '";
+		callfunc "Job_Change",Job_Thief;
+		set q_job_thief,0;
+		getitem 13041,1;	// N_Main_Gauche
+		next;
+		mes "[Comandante dos Gatunos]";
+		mes "'Parabéns por virar Gatuno.'";
+		mes "'De agora em diante, siga as nossas regras e ganhe respeito.'";
+		next;
+		mes "'Se falhar conosco...'";
+		mes "'Acho bom nunca mais fechar os olhos. Iremos atrás de você...'";
+		next;
+		mes "'De qualquer forma, espero que seja um ótimo ladrão.'";
+		next;
+		mes "[Jeremias]";
+		mes "Heee~Yaaaa~! Parabéns meu amigo.";
+		mes "Eu sou o Jeremias, responsável pelo Recursos Humanos daqui";
+		mes "Não tenho certeza de quando, mas nos veremos ainda...";
+		next;
+		mes "[Jeremias]";
+		mes "Fiz o que pude fazer, agora vá! E não ocupe meu tempo mais.";
+		mes "Até breve.";
+		close;
+	}
+	if(BaseJob != Job_Novice) {
+		if(BaseJob == Job_Thief) {
+			mes "[Jeremias]";
+			mes "Não tenho nada de especial para fazer. Então continue seu caminho.";
+			mes "Quem sabe mais tarde...";
+		}else{
+			mes "[Parceiro]";
+			mes "Hey hey, você não é aprendiz nem Gatuno.";
+			mes "Está maluco? Por que está nesta casa?";
+		}
+		close;
+	}
+	mes "[Parceiro]";
+	mes "Ohh... O que um novato tão jovem faz aqui?";
+	mes "Se você deseja ser um Gatuno, fale com a senhora mal-humorada do meu lado.";
+	close;
+}

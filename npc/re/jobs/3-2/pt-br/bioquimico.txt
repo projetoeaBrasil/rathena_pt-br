@@ -1,0 +1,1039 @@
+//===== rAthena Script ======================================= 
+//= Genetic Job Quest
+//===== By: ================================================== 
+//= Muad_Dib, Aeomin
+//===== Current Version: ===================================== 
+//= 1.4.2a
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Job change Quest from Alchemist / Creator -> Genetic.
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Masao]
+//= 1.1 Fixed Scatter Stuff NPCs [JayPee].
+//= 1.2 Updated dialogue. Credits to Muad_Dib. [Joseph]
+//= 1.3 Updated script, optimized. [Euphy]
+//= 1.3a Moved warps to separate file. [Euphy]
+//= 1.4 Added VIP features. [Euphy]
+//= 1.4.1 Tradução PT-BR [Battousai]
+//= 1.4.2 Revisado PT-BR [HD Scripts]
+//= 1.4.2a Alguns erros de português [HD Scripts]
+//============================================================
+
+alde_alche,35,186,5	script	Membro da União de Alquimistas	1_M_SIGNALCHE,{
+	mes "[Membro da União Alquimista]";
+	if (BaseLevel > 98 && JobLevel > 49){
+		if (BaseJob == Job_Alchemist) {
+			if (SkillPoint != 0) {
+				mes "- Você ainda tem pontos de habilidade não utilizados. Volte quando utilizar todos eles. -";
+				close;
+			}
+			if (job_gen == 0) {
+				mes "Nossa União de Alquimistas traz muitas promoções e investigações para alquimistas novatos.";
+				next;
+				mes "[Membro da União de Alquimistas]";
+				mes "Nós nos espalhamos por todos os cantos de Rune-Midgard e somos ativos em muitos campos como: ciências ou métodos de produção de itens especiais.";
+				next;
+				mes "[Membro da União Alquimista]";
+				mes "Chamamos os membros novos da nossa União de ^3131FF'Bioquímicos'^000000.";
+				next;
+				mes "[Membro da União Alquimista;]";
+				mes "Os bioquímicos são aqueles que alcançaram seu potencial máximo no mundo da alquimia. Eles são os que atualmente lideram a alquimia por toda Rune-Midgard.";
+				next;
+				mes "[Membro da União Alquimista;]";
+				mes "Parece que você é um especialista nessa área, que tal conversar com outros bioquímicos?";
+				next;
+				mes "[Membro da União de Alquimistas]";
+				mes "Não a muito tempo havia um bioquímico que anunciou uma nova vida após pesquisas de estudo a respeito.";
+				next;
+				mes "[Membro da União de Alquimistas]";
+				mes "O seu estudo pode te ajudar a adqurir conhecimento e se tornar um Bioquímico!";
+				next;
+				mes "[Membro da União de Alquimistas]";
+				mes "Que som é esse? Você quer conhecer um bioquímico? ";
+				next;
+				switch(select("Claro, eu quero conhecer um bioquímico.:Não eu não quero conhecer ninguém.")) {
+				case 1:
+					mes "[Membro da União Alquimista]";
+					mes "Escolha sábia!";
+					mes "O famoso bioquímico 'Devries'.";
+					next;
+					mes "[Membro da União de Alquimistas]";
+					mes "Você pode encontrá-lo no Laboratório da Alquimia na parte ocidental de Lighthalzen. Há também outro bioquímico que estuda armas lá, se quiser você também pode visitá-lo.";
+					set job_gen,1;
+					setquest 2215;
+					close;
+				case 2:
+					mes "[Membro da União Alquimista]";
+					mes "Não está interessado no estudo da vida?";
+					close;
+				}
+			}
+				mes "O famoso bioquímico estuda no laboratório de Alquimia, a noroeste de Lighthalzen.";
+				mes "Se você estiver interessado, vá e encontre-se com ele.";
+			close;
+		}
+	}
+	mes "Nossa União de Alquimistas traz muitas promoções e investigações para alquimistas novatos.";
+	next;
+	mes "[Membro da União Alquimista]";
+	mes "Nós nos espalhamos por todos os cantos de Rune-Midgard e somos ativos em muitos campos como: ciências ou métodos de produção de itens especiais.";
+	next;
+	mes "[Membro da União Alquimista]";
+	mes "Chamamos os membros novos da nossa União de ^3131FF'Bioquímicos'^000000.";
+	next;
+	mes "[Membro da União Alquimista]";
+	mes "Os bioquímicos são aqueles que alcançaram seu potencial máximo no mundo da alquimia. Eles são os que atualmente lideram a alquimia por toda Rune-Midgard.";
+	close;
+}
+
+job3_gen01,25,58,3	script	Devries#gen	4_LGTSCIENCE,{
+	if (SkillPoint != 0) {
+		mes "- Você ainda tem pontos de habilidade para usar. -";
+		close;
+	}
+	if (job_gen == 1) {
+		mes "[Devries]";
+		mes "Oh! A amostra de planta de sanguessugas C está murchando novamente. ";
+		mes "Devo mudar os ingredientes e ter cuidado com o crescimento?";
+		mes "Bem, vamos lá";
+		next;
+		mes "[Devries]";
+		mes "Hã? Um estranho?";
+		mes "Pelo que vejo você está estudando alquimia também, certo?";
+		next;
+		mes "[Devries]";
+		mes "As pessoas dizem que o número dos alquimistas está aumentando hoje em dia, embora não hajam muitos que estudem esse campo corretamente!";
+		next;
+		mes "[Devries]";
+		mes "Eles estão todos muito preocupados dizendo coisas como, 'Olhe o dano que minha bomba causa!' ou 'meu homunculo não é o mais bonito?'";
+		next;
+		mes "[Devries]";
+		mes "A União dos Alquimistas estava dizendo que apoiaria os pesquisadores, mas na verdade o que você tem que estudar é apenas 'esporos que podem ser facilmente levantados'!";
+		next;
+		mes "[Devries]";
+		mes "Graças a isso, existem esporos em todos os lugares em meu laboratório! Existem esporos em toda parte! ";
+		next;
+		select("Por que você fala assim?");
+		mes "[Devries]";
+		mes "Porque sou de Rune-Midgard!";
+		mes "Você já foi para Rune-Midgard? Todos em Rune-Midgard falam assim.";
+		next;
+		switch(select("Impossível?!:Eu também sou de Rune-Midgard.")) {
+		case 1:
+			mes "[Devries]";
+			mes "Impossível?";
+			mes "Você vem de uma aldeia de Rune-Midgard?";
+			mes "A minha aldeia é muito grande, todos lá falam assim.";
+			break;
+		case 2:
+			emotion ET_THROB;
+			mes "[Devries]";
+			mes "Realmente! É por isso que eu senti uma espécie de atmosfera familiar em torno de você.";
+			mes "Encontrei uma pessoa da cidade Schwartzwald, é um prazer em conhecê-lo!";
+			break;
+		}
+		next;
+		mes "- Thump!! -";
+		next;
+		emotion ET_ANGER;
+		mes "[Devries]";
+		mes "Ughhhhh! Ele começou de novo!";
+		next;
+		select("Que som é esse?");
+		mes "[Devries]";
+		mes "É o som de um experimento que está sendo realizado pelo meu companheiro de quarto, Demi Calberine..";
+		mes "Ele está construindo uma artilharia, por isso faz tanto barulho.";
+		next;
+		emotion ET_CRY;
+		mes "[Devries]";
+		mes "Olha isso!";
+		mes "Meus esporos e plantas estão todos assustados!";
+		mes "Eu não posso fazer o meu trabalho com esses sons barulhentos que me dá tanto estresse.";
+		next;
+		mes "- Crunch Crunch -";
+		next;
+		mes "[Devries]";
+		mes "Quando eu não me sinto bem, eu como biscoitos artesanais feitos pelo Sr. Orleans.";
+		next;
+		mes "[Devries]";
+		mes "É um biscoito de alta qualidade que vem de Prontera. Quando como, parece que eu estou flutuando e indo até Asgard.";
+		mes "A suavidade do biscoito doce abafa os sons pertubantes do Demi Calberine.";
+		next;
+		mes "[Devries]";
+		mes "Quer experimentar um?";
+		mes "Ah, eu comi tudo.";
+		next;
+		mes "[Devries]";
+		mes "Mas está tudo bem! No 2º andar do meu quarto, há caixas desses biscoitos!";
+		mes "Eu não consigo parar de comprá-los. Hohoho. ";
+		next;
+		mes "- Zooooooooooooooooing -";
+		specialeffect EF_ENDURE;
+		next;
+		specialeffect EF_REPAIRWEAPON,AREA,"#from1to2gen";
+		mes "- (Sons estridentes)!!! -";
+		next;
+		specialeffect EF_CRASHEARTH;
+		mes "- Bump! Bump! Bump! -";
+		next;
+		mes "[Devries]";
+		mes "..................";
+		next;
+		mes "[Devries]";
+		mes "Yoooooooooooow";
+		mes "Yipeeeeeeeeee!!!";
+		next;
+		mes "[Devries]";
+		mes "Demiiiiiiiiiiiiiiiiiiiiiiii!!!";
+		mes "Demiiiiiiiiiiiiiiiiiiiii!!!";
+		next;
+		mes "-Ei Devries-";
+		mes "-precisa se acalmar. -";
+		set job_gen,2;
+		close;
+	} else if (job_gen == 2) {
+		mes "[Devries]";
+		mes "Yipeeeeeeeeee!!!";
+		mes "Demiiiiii!!!";
+		mes "Demiiiiiiiii!!!";
+		next;
+		mes "- Hmm. -";
+		mes "- O que vai fazer? Calma. -";
+		close;
+	} else if (job_gen == 3) {
+		mes "[Devries]";
+		mes "Yipeeeeeeeeee!!!";
+		mes "Demiiiiii!!!";
+		mes "Demiiiiiiiii!!!";
+		next;
+		select("O que está acontecendo Devries.");
+		mes "- Devries pegue um biscoito -";
+		mes "- Embora seja um biscoito para animais -";
+		mes "- Coma tudo. -";
+		next;
+		mes "- Crunch Crunch Crunch -";
+		mes "- Crunch Crunch Crunch -";
+		mes "- Crunch Crunch Crunch -";
+		next;
+		mes "[Devries]";
+		mes "Ah, o doce sabor amanteigado permanece no final da minha língua.";
+		mes "Isso realmente me dá paz de espírito.";
+		next;
+		emotion ET_HNG;
+		mes "[Devries]";
+		mes "Demi está estudando duro hoje também";
+		mes "Huhuhu. Ela é realmente esforçada.";
+		next;
+		mes "- Esse biscoito mudou seu humor. -";
+		emotion ET_BEST, playerattached();
+		next;
+		mes "[Devries]";
+		mes "Você ama estudar alquimia?";
+		next;
+		mes "[Devries]";
+		mes "Ah, espere, ainda não nos apresentamos.";
+		mes "Meu nome é Devries.";
+		mes "Estou muito interessado em fazer as coisas vivas que mostram o crescimento novo e peculiar.";
+		next;
+		mes "[Devries]";
+		mes "Qual seu nome, jovem alquimista?";
+		next;
+		select("Eu sou "+strcharinfo(0)+".");
+		mes "[Devries]";
+		mes "Ah, "+strcharinfo(0)+".";
+		mes "Esse é um nome muito incomum. Prazer em conhecê-lo.";
+		next;
+		mes "[Devries]";
+		mes "Eu não consigo memorizar bem os nomes.";
+		mes "Então eu vou te chamar de <Popo>. Está bem?";
+		next;
+		select("Está..");
+		mes "[Devries]";
+		mes "Ótimo...";
+		mes "Popo, você já ouviu falar da minha pesquisa?";
+		mes "Você veio aqui por causa disso, estou certo?";
+		next;
+		switch(select("Não.:Sim.") == 1){
+		case 1:
+			mes "[Devries]";
+			mes "Bem.";
+			mes "Você não precisa ser tímido.";
+			break;
+		case 2:
+			mes "[Devries]";
+			mes "Está convicto?";
+			mes "Bem, como eu esperava existe algo que faz aso essias virem até aqui.";
+			break;
+		}
+		next;
+		mes "[Devries]";
+		mes "Quando você me viu naquele estado fervoroso, você se lembrou o que eu disse antes e o que me acalma.";
+		next;
+		mes "[Devries]";
+		mes "Eu gosto da maneira como você gerencia a si mesmo e tem o cuidado de se lembrar de pequenos detalhes.";
+		mes "Você tem o talento para se tornar um Bioquímico.";
+		next;
+		mes "[Devries]";
+		mes "^FF0000Se você se tornar um bioquímico, você não pode largar a alquimia e os estudos bioquímicos .^000000";
+		mes "Se está tudo bem para você, o que acha de tentar?";
+		next;
+		if (select("Vou tentar mais tarde.:Eu quero me tornar um Bioquímico!") == 1){
+			mes "[Devries]";
+			mes "Tudo bem.";
+			mes "Mesmo que seu conhecimento não seja grande como o de um Bioquímico, conhecimentos fundamentais também são importantes.";
+			mes "Popo, volte aqui quando terminar seus estudos.";
+			set job_gen,4;
+			close;
+			}
+			mes "[Devries]";
+			mes "Bom";
+			mes "Vamos lá!";
+			set job_gen,5;
+			close;
+	} else if (job_gen == 4) {
+		mes "[Devries]";
+		mes "Popo!";
+		mes "Você está pronto para tentar?";
+		next;
+		if (select("Não.:Sim!") == 1){
+			mes "[Devries]";
+			mes "Você deve fazer o seu melhor! Não há um caminho fácil quando se procura conhecimento!";
+			close;
+			}
+			mes "[Devries]";
+			mes "Muito bem!";
+			mes "Vamos lá!";
+			set job_gen,5;
+			close;
+	} else if (job_gen == 5) {
+		mes "[Devries]";
+		mes "O que você acha de plantas, Popo";
+		mes "você gosta plantas? Que tipo de plantas você gosta? ";
+		next;
+		mes "- Boom, Boom, Boom -";
+		next;
+		emotion ET_SWEAT;
+		mes "[Devries]";
+		mes "Ah, por favor me diga que Demi Calberine não está começando novamente?";
+		mes "Por favor, diga-me que estou errado... Por favor... Demi, por favor...";
+		next;
+		mes "[Devries]";
+		mes "Do que eu estava falando mesmo?";
+		mes "Ah, lembrei. As plantas são muito importantes na alquimia.";
+		next;
+		mes "[Devries]";
+		mes "A alquimia pode fazer a flora crescer imensamente, então podem te ajudar na batalha...";
+		next;
+		mes "- Boom!! Boom!! Boom!! Boom!! -";
+		next;
+		emotion ET_THINK;
+		mes "[Devries]";
+		mes ".......................";
+		next;
+		emotion ET_THINK;
+		mes "[Devries]";
+		mes "Técnicas, plantas são relativamente fáceis de...";
+		next;
+		mes "- Boom!!!!!! -";
+		next;
+		emotion ET_THINK;
+		mes "[Devries]";
+		mes "Bem preste atenção...";
+		next;
+		mes "- Pop!!!!!! -";
+		mes "- Keeeeeeeeeeeeeh!!!! -";
+		mes "- Boooooooooooooom!!!! -";
+		mes "- Boom!! Boom!! Boom!! -";
+		next;
+		emotion ET_THINK;
+		mes "[Devries]";
+		mes ".......................";
+		next;
+		emotion ET_THINK;
+		mes "[Devries]";
+		mes "Popo.";
+		next;
+		emotion ET_THINK;
+		mes "[Devries]";
+		mes "Irei lhe propor um teste para se tornar um Bioquímico.";
+		next;
+		mes "[Devries]";
+		mes "O tema é <Um Sistema Perfeito de Isolamento de Barulhos>!";
+		mes "Por favor, pense numa maneira de salvar-me do barulho de Demi Calberine, use as plantas e o equipamento experimental que está aqui no 1º andar do laboratório.";
+		next;
+		mes "[Devries]";
+		mes "Bem, é melhor começar!";
+		set job_gen,6;
+		close;
+	} else if (job_gen == 6) {
+		mes "[Devries]";
+		mes "O tema é <Um Sistema Perfeito de Isolamento de Barulhos>!";
+		mes "Por favor, pense numa maneira de salvar-me do barulho de Demi Calberine, use as plantas e o equipamento experimental que está aqui no 1º andar do laboratório.";
+		next;
+		mes "[Devries]";
+		mes "Existem alguns guias no armário que você pode utilizar.";
+		mes "Bem, é melhor começar!";
+		close;
+	} else if (job_gen > 6 && job_gen < 60) {
+		mes "[Devries]";
+		mes "Existe um problema?";
+		next;
+		if (select("Nada.: O experimento falhou.") == 1){
+			mes "[Devries]";
+			mes "Melhor começar, ou eu vou começar a gritar!!!";
+			close;
+			}
+			mes "[Devries]";
+			mes "Por que não começa?";
+			mes "Por que você está me perguntando tais coisas?";
+			set job_gen,7;
+			if (checkquest(2209) == 1) erasequest 2209;
+			if (checkquest(2210) == 1) erasequest 2210;
+			if (checkquest(2211) == 1) erasequest 2211;
+			if (checkquest(2212) == 1) erasequest 2212;
+			if (checkquest(2213) == 1) erasequest 2213;
+			if (checkquest(2214) == 1) erasequest 2214;
+			close;
+	} else if (job_gen == 60 || job_gen == 61) {
+		mes "- Zing Zing Zigi Zigi -";
+		next;
+		mes "- Zing Zing Zigi Zigi -";
+		next;
+		mes "[Devries]";
+		mes "O que diabos a Demi Calberine está fazendo?";
+		mes "É algo realmente barulhento.";
+		next;
+		mes "[Devries]";
+		mes "Seu estudo está pronto, Popo?";
+		mes "Dê-me as sementes.";
+		next;
+		if (countitem(6273) == 0 && countitem(6272) == 0) {
+			mes "[Devries]";
+			mes "O que é isso?";
+			mes "Como você pode dizer que isso foi feito com seu estudo?";
+			mes "Apresse-se e comece de novo.";
+			set job_gen,7;
+		} else {
+			mes "[Devries]";
+			mes "Bem, eu vou olhar as sementes, Popo.";
+			mes "Qual o resultado?";
+			next;
+			mes "[Devries]";
+			mes "Quando você colocar uma semente em um Super Cultivador e ajustar a temperatura...";
+			next;
+			mes "[Devries]";
+			mes "Droga!";
+			next;
+			if (job_gen == 60) {
+				specialeffect EF_FLASHER,AREA,"Super Cultivator#gen";
+				specialeffect EF_PHARMACY_OK,AREA,"Super Cultivator#gen";
+				mes "[Devries]";
+				mes "Popo, olha só isso!";
+				mes "Isso é realmente uma planta misteriosa!";
+				next;
+				mes "[Devries]";
+				mes "O interior do cultivador agora está cheio de caules espinhosos!";
+				mes "É como se as hastes estivessem fazendo uma parede e crescendo muito resistente e elas estão ficando enroladas!";
+				next;
+				mes "[Devries]";
+				mes "É isso, Popo!";
+				mes "As propriedades desta planta podem ser usadas para muitas aplicações!";
+				next;
+				mes "[Devries]";
+				mes "Isso é realmente ótimo, Popo.";
+				mes "Eu sabia que você tinha condições, mas sua capacidade está além do que eu imaginava!";
+				next;
+				mes "[Devries]";
+				mes "Vou contar o resultado para a União de Alquimistas.";
+				mes "Enviarei uma carta de recomendação dizendo que sua capacidade é muito grande e que você poderá ser um membro brilhante.";
+				next;
+				mes "[Devries]";
+				mes "Conseguir uma resposta da União vai demorar algum tempo, então você poderia em seguida: um momento!";
+				mes "Por que você não vai conhecer a Demi Calberine?";
+				next;
+				mes "[Devries]";
+				mes "Ela é uma colega bioquímica, especializando-se em mini canhões.";
+				mes "Dê uma olhada em seus resultados de experimentos.";
+				mes "Você poderia dar essa mensagem para ela? Se sim, então diga que ela realize seus experimentos tranquilamente.";
+				delitem 6273,1; // Semente para Experimento
+				set job_gen,62;
+				changequest 2215,2216;
+			} else {
+				specialeffect EF_SPELLBREAKER,AREA,"Super Cultivator#gen";
+				specialeffect EF_PHARMACY_FAIL,AREA,"Super Cultivator#gen";
+				mes "[Devries]";
+				mes "Uh oh! Você falhou, Popo.";
+				mes "Ela não irá crescer, ela já murchou.";
+				mes "É melhor começar de novo!";
+				delitem 6272,1; //Experiment_Seed
+				set job_gen,7;
+			}
+		}
+		if (checkquest(2209) == 1) erasequest 2209;
+		if (checkquest(2210) == 1) erasequest 2210;
+		if (checkquest(2211) == 1) erasequest 2211;
+		if (checkquest(2212) == 1) erasequest 2212;
+		if (checkquest(2213) == 1) erasequest 2213;
+		if (checkquest(2214) == 1) erasequest 2214;
+		close;
+	} else if (job_gen > 61 && job_gen < 76) {
+		if (checkquest(2223,HUNTING) == 2) {
+			mes "[Devries]";
+			mes "Ah, espere um segundo. ";
+			mes "Parece que o correio chegou.";
+			set job_gen,76;
+			completequest 2223;
+			close;
+		}
+		mes "[Devries]";
+		mes "Você pode ir ver a Demi Calberine enquanto espera por uma resposta da União.";
+		close;
+	} else if (job_gen == 76) {
+		mes "[Devries]";
+		mes "Popo!";
+		mes "Eu tenho boas notícias para você!";
+		next;
+		if (checkweight(1201,2) == 0 || MaxWeight - Weight < 2000) {
+			mes "- Espere um minuto -!";
+			mes "- Você está carregando -";
+			mes "- muitos itens com você. -";
+			mes "- Por favor, tente novamente -";
+			mes "- após reduzir um pouco do seu peso.-";
+			close;
+		}
+		mes "[Devries]";
+		if (BaseJob != Job_Alchemist || BaseLevel < 99 || JobLevel < 50) {
+			mes "Parece que você ainda não está pronto para ouvir o que diz a carta.";
+			close;
+		}
+		if (checkcart()){
+			mes "Primeiro, tire esse carrinho pesado e sujo, ele não combina com você.";
+			close;
+		}
+		if (SkillPoint != 0) {
+			mes "Parece que você ainda tem habilidades a se aprender.";
+			close;
+		}
+		mes "Uma carta chegou da União Alquimista.";
+		mes "Eu vou lê-la para você, Popo!";
+		next;
+		mes "<Caro Senhor Devries,>";
+		mes "<Estamos muito conscientes das atividades brilhantes que você tem mostrado ultimamente.>";
+		next;
+		mes "<Senhor. Devries>";
+		mes "Ele é da minha cidade natal.";
+		next;
+		mes "<Ouvi uma notícia muito boa de que seus resultados de pesquisa estão dando grandes passos na alquimia.>";
+		mes "<Tenho certeza que você será uma grande inspiração para outros alquimistas.>";
+		next;
+		mes "<Venho falar sobre!>";
+		mes "<Era uma planta nova que faz plantas crescer super-rápido, descoberto por um alquimista chamado, "+strcharinfo(0)+">";
+		next;
+		mes "<Muitos outros alquimistas da União alquimista estão tendo grande interesse por ela.>";
+		next;
+		mes "<Estamos ansiosos para mais volumes de documentos de estudo e os resultados, especialmente a partir de outros geneticistas que ouviram esta notícia.>";
+		next;
+		mes "<acho que "+strcharinfo(0)+" tem bastante habilidade e talento para ser um bioquímico.> ";
+		next;
+		mes "<Esperamos atividades notáveis de agora em diante como um bioquímico.> ";
+		next;
+		mes "<A União Alquimista está orgulhosa de Devries e da Senhorita Demi Calberine e "+strcharinfo(0)+" por serem pessoas talentosas e excelentes.>";
+		mes "<Esperamos que bom frutos sejam rendidos.>";
+		next;
+		mes "[Devries]";
+		if (ismounting()) {
+			mes "Você está utilizando uma montaria,";
+			mes "utilizando-a você não poderá trocar de classe.";
+			mes "Por favor remova sua montaria e tente novamente!";
+			close;
+		}
+		mes "Parabéns, Popo!";
+		mes "Você é um bioquímico de agora em diante!!!!";
+		jobchange roclass(eaclass()|EAJL_THIRD);
+		set job_gen,77;
+		getitem 5752,1; // Toque de Midas
+		getitem 2795,1; // Anel de Maçã Verde
+		next;
+		mes "[Devries]";
+		mes "Assim como a União, também estou ansioso para ver suas atividades incríveis sendo um bioquímico.";
+		mes "Vamos treinar arduamente juntos! Você se tornará o melhor bioquímico!";
+		close;
+	} else if (job_gen == 77) {
+		mes "[Devries]";
+			mes "Popo, quer se juntar ao meu clube que Ama Orleans? É um clube para aqueles que amam os biscoitos de lá. E fique tranquilo, nós não pensamos em fazer coisas estranhas com o Charles Orleans.";
+		close;
+	}
+	mes "[Devries]";
+	mes "Por que você olhando assim pra mim?";
+	close;
+}
+
+job3_gen01,83,72,3	script	Caixa de Entrega#generic	HIDDEN_NPC,{
+	mes "- É uma grande caixa. -";
+	if (job_gen == 2) {
+		next;
+		switch(select("Abrir a caixa.:Verificar o endereço.:Nada.")) {
+		case 1:
+			mes "- Há vários sacos de biscoitos cuidadosamente embalados na caixa. -";
+			next;
+			switch(select("Pegar um saco de biscoitos.:Nada.")) {
+			case 1:
+				mes "- Você tirou um dos sacos de biscoito que estavam dentro da caixa. -";
+				set job_gen,3;
+				close;
+			case 2:
+				mes "Você não faz nada.";
+				close;
+			}
+		case 2:
+			mes "[De: Reino de Rune-Midgard, Prontera, Charles Orleans]";
+			mes "[Destinatário: República de Schwartzwald, Lighthalzen, Devries]";
+			close;
+		case 3:
+			mes "Você não vai fazer nada.";
+			close;
+		}
+	}
+	close;
+}
+
+job3_gen01,12,56,3	script	Planta Guia#generic	HIDDEN_NPC,{
+	mes "<A mais fácil alquimia no mundo>";
+	mes "Escrito por Bob Ross.";
+	next;
+	switch(select("Animais:Plantas:Minerais:Etc")){
+	case 1:
+		mes "...A utilização de animais em alquimia pode ser facilmente praticada por qualquer pessoa.";
+		mes "Você pode colocar os animais que você deseja usar na bandeja branca, imaginar o que quer e então praticar a alquimia.";
+		mes "É muito fácil.";
+		next;
+		mes "...Usamos a alquimia em animais para poder preservá-los.";
+		mes "Então eu não irei mencioná-los.";
+		close;
+	case 2:
+		mes "...O guia da alquimia usando plantas é fácil de seguir, mesmo para uma criança.";
+		mes "Você pode colocar as plantas em cima da mesa e quebrar ou cortá-las, conectá-las usando uma ferramenta simples, e então é so fazer a alquimia.";
+		mes "Esse é realmente um método extraordinário.";
+		next;
+		mes "...As plantas geralmente utilizadas para alquimia são Planta Bigibibi e Muka árvores que têm espinhos afiados";
+		if (job_gen == 6)
+			set job_gen,7;
+		close;
+	case 3:
+		mes "...Utilizar minerais na alquimia é muito fácil";
+		mes "você pode colocar os minerais que você deseja numa caixa muito bem trabalhada e essoar qualquer canção e praticar a alquimia.";
+		mes "Esssa é realmente uma maneira bastante fácil.";
+		next;
+		mes "...Um mineral que é usado geralmente na alquimia é o 'Fracon', que não custa muito.";
+		close;
+	case 4:
+		mes "...Alquimia é a coisa mais fácil do mundo.";
+		mes "Este escritor mostra uma demonstração de alquimia com cobalto azul na frente de estudantes a cada semana e sempre recebe um grande aplauso.";
+		mes "Tenho certeza que você será um melhor alquimista no momento em que você ler este livro.";
+		close;
+	}
+}
+
+function	script	Genetic_Job_Plant	{
+	if (job_gen == 7) {
+		if (checkquest(getarg(0)) == -1 || checkquest(getarg(0)) == 0) {
+			mes "- "+getarg(2)+" -";
+			next;
+			switch(select("Usá-la como um material?.:Não usá-la.")) {
+			case 1:
+				if (getarg(3,0)) set .@str$,"some of the ";
+				mes "- Você adquiriu "+.@str$+getarg(1)+". -";
+				setquest getarg(0);
+				close;
+			case 2:
+				mes "- Esta planta não parece apropriada para um experimento. -";
+				close;
+			}
+		}
+		mes "- Você adquiriu uma "+getarg(1)+". -";
+		close;
+	} else if (job_gen == 6) {
+		mes "Informações relacionadas a esta planta podem ser encontradas no guia de plantas no gabinete.";
+		close;
+	}
+	mes "- "+getarg(2)+" -";
+	close;
+}
+
+job3_gen01,36,55,3	script	Planta Bigibibi#gen	CLEAR_NPC,{
+	callfunc "Genetic_Job_Plant",2209,"Planta Bigibibi","O tamanho é muito grande para ser grama normal, por isso é chamado de Planta Bigibibi.";
+	end;
+}
+job3_gen01,36,45,3	script	Árvore Muka#gen	CLEAR_NPC,{
+	callfunc "Genetic_Job_Plant",2210,"Árvore Muka","Esta é a árvore de Muka, ela protege seu interior delicado com espinhos afiados.",1;
+	end;
+}
+job3_gen01,42,55,3	script	Vinha Bogi#gen	CLEAR_NPC,{
+	callfunc "Genetic_Job_Plant",2211,"Vinha Bogi","Essa é uma Vinha Bogi, ela cresce muito rápido.",1;
+	end;
+}
+job3_gen01,30,58,3	script	Aolatura#gen	CLEAR_NPC,{
+	callfunc "Genetic_Job_Plant",2212,"Aolatura","Essa é conhecida por flor Aolatura.";
+	end;
+}
+job3_gen01,30,63,3	script	Congra#gen	CLEAR_NPC,{
+	callfunc "Genetic_Job_Plant",2213,"Congra","É uma planta que tem um tronco grande e sólido e com folhas enormes.";
+	end;
+}
+job3_gen01,32,38,3	script	Grama Grudenta#gen	CLEAR_NPC,{
+	callfunc "Genetic_Job_Plant",2214,"Grama Grudenta","Não sei o nome mas é pegajosa e pode furar a qualquer coisa.";
+	end;
+}
+
+job3_gen01,7,50,3	script	Mesa de Testes#gen	CLEAR_NPC,{
+	if (job_gen == 7) {
+		mes "- Esta é uma tabela de teste com uma grande quantidade de equipementos. Com ela podemos estudar as combinações de plantas. -";
+		next;
+		if (select("Realizar um experimento.:Não realizar um experimento.") == 1){
+			mes "- Não é o momento de começar um experimento. -";
+			close;
+		}
+		if ((checkquest(2209) == -1 || checkquest(2209) == 0) &&
+		    (checkquest(2210) == -1 || checkquest(2210) == 0) &&
+		    (checkquest(2211) == -1 || checkquest(2211) == 0) &&
+		    (checkquest(2212) == -1 || checkquest(2212) == 0) &&
+		    (checkquest(2213) == -1 || checkquest(2213) == 0) &&
+		    (checkquest(2214) == -1 || checkquest(2214) == 0)) {
+			mes "["+strcharinfo(0)+"]";
+			mes "Hmm, eu preciso reunir materiais de planta primeiro.";
+			close;
+		}
+		mes "O que farei com estes materiais de planta?";
+		next;
+		select("Quebrar.:Esmagar em pedaços pequenos.:Esmagar.");
+		while (1) {
+			mes "O que devo fazer agora?";
+			next;
+			if (rand(2))
+				select("Queimar em Cinzas.:Mergulhar em água destilada.:Vaporizar.");
+			else
+				select("Colocar em um frasco de teste e misturar.:Congelar.:Aquecer.");
+			if (!rand(7)) break;
+		}
+		mes "O que devo fazer agora?";
+		next;
+		select("Injetá-lo em sementes.");
+		mes "Qual semente você quer usar?";
+		next;
+		select("Teste de semente - Tipo A:Teste de semente - Tipo B:Teste de semente- Tipo C:Teste de semente Tipo - D");
+		mes "Eu usarei os materiais escolhidos no teste.";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "Bom. Agora eu posso deixar Devries olhar esta semente!";
+		if ((checkquest(2209) == -1 || checkquest(2209) == 0) &&
+		    (checkquest(2210) == -1 || checkquest(2210) == 0) &&
+		    (checkquest(2211) == -1 || checkquest(2211) == 0)){
+			set job_gen,61;
+			getitem 6272,1; //Experiment_Seed
+			close;
+		}
+		if (checkquest(2209) == 1) set job_gen,job_gen+10;
+		if (checkquest(2210) == 1) set job_gen,job_gen+10;
+		if (checkquest(2211) == 1) set job_gen,job_gen+10;
+		set .@score, job_gen + JobLevel - 20;
+		if (rand(1,100) < .@score) {
+			set job_gen,60;
+			getitem 6273,1; //Altered_Seed
+			close;
+		} else {
+			set job_gen,61;
+			getitem 6272,1; //Experiment_Seed
+			close;
+		}
+	} else if (job_gen > 7 && job_gen < 60) {
+		mes "- Parece que o experimento falhou. É Melhor começar de novo. -";
+		set job_gen,7;
+		if (countitem(6273)) delitem 6273,1; //Altered_Seed
+		if (countitem(6272)) delitem 6272,1; //Experiment_Seed
+		if (checkquest(2209) == 1) erasequest 2209;
+		if (checkquest(2210) == 1) erasequest 2210;
+		if (checkquest(2211) == 1) erasequest 2211;
+		if (checkquest(2212) == 1) erasequest 2212;
+		if (checkquest(2213) == 1) erasequest 2213;
+		if (checkquest(2214) == 1) erasequest 2214;
+		close;
+	} else if (job_gen == 60 || job_gen == 61) {
+		mes " - Parece que preciso deixar que Devries olhe esta semente! -";
+		end;
+	}
+	mes "- Esta é uma tabela de teste com uma grande quantidade de equipementos. Com ela podemos estudar as combinações de plantas. -";
+	close;
+}
+
+job3_gen01,21,67,3	script	Super Cultivator#gen	CLEAR_NPC,{
+	end;
+}
+
+job3_gen01,91,48,3	script	Demi Calberine#gen	4_F_SCIENCE,{
+	mes "[Demi Calberine]";
+	if (job_gen < 62) {
+		mes "Hmm ~ onde vai esse parafuso?";
+		close;
+	} else if (job_gen == 62) {
+		mes "Oh o carrinho azul ~";
+		mes "Posso carregar meu canhão~";
+		mes "Quero atirar com esse canhão para sempre, haha ~~";
+		next;
+		mes "[Demi Calberine]";
+		mes "Hm ~ onde está o parafuso?";
+		mes "Você não tem parafusos suficientes? Posso encomendar novos?";
+		next;
+		select("Olá~?");
+		mes "[Demi Calberine]";
+		mes "Encomendar novos~?";
+		mes "Quando fiz você... Quem é você? ";
+		next;
+		mes "[Demi Calberine]";
+		mes "Oh, meu Deus!";
+		mes "Ei! Por favor me ajude!";
+		next;
+		mes "[Demi Calberine]";
+		mes "Eu preciso de peças para o Mini Canhão, mas não consigo encontrá-las!";
+		next;
+		mes "[Demi Calberine]";
+		mes "Ugh ~ acho que elas estão por aqui em algum lugar.";
+		mes "Eu só preciso de 12! Eu preciso terminar as outras partes... Por favor você poderia me ajudar?! ";
+		changequest 2216,2217;
+		set job_gen,63;
+		close;
+	} else if (job_gen > 62 && job_gen < 74) {
+		mes "Ah, oh não, oh não~~~";
+		mes "Você encontrou as peças? Não, ainda não? Você prometeu, por favor apresse-se!";
+		close;
+	} else if (job_gen == 74) {
+		mes "Com esse carrinho, o poder de fogo não será tão grande, então vamos colocá-lo desta forma...";
+		next;
+		select("Eu tenho as peças.");
+		mes "[Demi Calberine]";
+		mes "Ah, meu Deus!";
+		mes "Você me assustou!";
+		mes "Ah, são esses parafusos!";
+		mes "Onde você os encontrou?";
+		next;
+		select("Você me pediu para encontrá-los!");
+		mes "[Demi Calberine]";
+		mes "Nossa? É sério?";
+		mes "Eu pedi mesmo? Hohohohoho.";
+		mes "Eu tinha esquecido! Hohohoho.";
+		next;
+		mes "[Demi Calberine]";
+		mes "Por favor, um momento.";
+		mes "Será feito rapidamente.";
+		next;
+		mes "- Snap Snap Snap -";
+		next;
+		mes "[Demi Calberine]";
+		mes "OK, eu conectei o canhão no carrinho... Agora vamos testar o desempenho?";
+		next;
+		mes "- Sizlle... -";
+		next;
+		mes "- Pop! Pop! Pop! Pop! -";
+		next;
+		mes "[Demi Calberine]";
+		mes "ótimo! Sucesso! ";
+		mes "Caramba. Você foi de grande ajuda para mim. Hehehe.";
+		mes "Muito obrigado.";
+		next;
+		mes "[Demi Calberine]";
+		mes "Ah, a propósito o que fez você vir até aqui?";
+		mes "Você veio aqui para encomendar algo?";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "Eu sou um aspirante a bioquímico.";
+		mes "Ouvi que você estava estudando sobre mini-canhões portáteis.";
+		next;
+		mes "[Demi Calberine]";
+		mes "Sim, eu sei lidar com muitos tipos de canhões.";
+		mes "Hoje em dia, existem muitos que querem remodelar seus carrinhos depois de saberem que eu criei novas funções adicionais como mini-canhões.";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "Remodelar Carrinhos?";
+		next;
+		mes "[Demi Calberine]";
+		mes "Sim, você não gosta de andar com carrinhos?";
+		mes "Eu adoro os carrinhos!";
+		next;
+		mes "[Demi Calberine]";
+		mes "Carrinhos não servem mais apenas para carregar peso.";
+		mes "Você pode instalar um canhão em um carrinho para torná-lo mais poderoso.";
+		next;
+		mes "[Demi Calberine]";
+		mes "Devries parece que está estudando experiências infantis.";
+		mes "Eu não entendo por que esses trabalhos de pesquisa ficam tão popular.";
+		emotion ET_HNG;
+		next;
+		mes "[Demi Calberine]";
+		mes "Veja este mini-canhão.";
+		mes "Este é o menor e mais leve canhão no mundo.";
+		mes "Isso é o que eu faço, não é lindo ~?";
+		emotion ET_COOL;
+		next;
+		select("Posso remodelar meu carrinho?");
+		mes "[Demi Calberine]";
+		mes "Infelizmente, para remodelar seu carrinho é necessário que você seja um Bioquímico.";
+		mes "É uma regra da União Alquimista, então por isso eu não posso fazer nada.";
+		next;
+		mes "[Demi Calberine]";
+		mes "Mas não fique desapontado.";
+		mes "Você também pode se tornar um Bioquímico!";
+		mes "Hahaha.";
+		next;
+		mes "[Demi Calberine]";
+		mes "Veja bem, você não pode simplesmente remodelar qualquer carrinho.";
+		next;
+		mes "[Demi Calberine]";
+		mes "Você deve praticar suas habilidades de carrinho sempre que tiver um tempo até você se torne um Bioquímico.";
+		mes "Seus músculos estarão lidando com seu carrinho em uma harmonia poderosa e seu carrinho irá se mover muito bem.";
+		next;
+		mes "[Demi Calberine]";
+		mes "Se você quiser, ^FF0000Eu vou te mostrar um lugar.^000000";
+		mes "^FF0000TDevries não gosta muito de lá^000000, mas lá é o melhor lugar. Haha.";
+		next;
+		mes "[Demi Calberine]";
+		mes "Que tal você praticar andando com seu carrinho?";
+		mes "Quando você andar com seu carrinho pelo menos ^FF0000100^000000 vezes, você pode se livrar do estresse e do carro haha.";
+		next;
+		mes "[Demi Calberine]";
+		mes "Bem, eu preciso começar a trabalhar no próximo pedido.";
+		mes "Venha e me encontre sempre que você precisar de treinamento.";
+		mes "Te ajudarei sempre que precisar.";
+		next;
+		mes "- chocalho -";
+		next;
+		mes "- O que é isso?-";
+		set job_gen,75;
+		changequest 2217,2223;
+		close2;
+		warp "job3_gen01",23,32;
+		end;
+	} else if (job_gen == 75) {
+		if (checkquest(2223,HUNTING) == 2) {
+			mes "Parece que a Senhorita Devries descobriu como usar sua caneta de esporos.";
+			mes "É engraçado olhar o rosto dela depois que você derrotou todos os Esporos.";
+			close;
+		}
+		mes "Suspiro, você ainda não terminou?";
+		mes "Você ainda quer continuar treinando?";
+		next;
+		switch(select("Sim.:Não.")) {
+		case 1:
+			mes "[Demi Calberine]";
+			mes "Divirta-se treinando com seu carrinho. ~";
+			close2;
+			warp "job3_gen01",23,32;
+			end;
+		case 2:
+			mes "[Demi Calberine]";
+			mes "É uma vergonha! Eu queria ver o rosto irritado de Devries.";
+			close;
+		}
+	} else if (job_gen > 75) {
+		mes "Parece que a Senhorita Devries descobriu como usar sua caneta de esporo.";
+		mes "É engraçado quando você se olha depois de ter matado os esporos.";
+		close;
+	}
+}
+
+-	script	Materiais Espalhados#gen	-1,{
+	if (job_gen > 62 && job_gen < 74) {
+		mes "- Há tantas coisas espalhadas no chão por isso o laboratório está um caos. -";
+		next;
+		mes "- Você encontrou um pequeno fragmento de metal. -";
+		set job_gen, job_gen+1;
+		specialeffect EF_BASH;
+		disablenpc strnpcinfo(0);
+		initnpctimer;
+		close;
+	} else if (job_gen == 74) {
+		mes "- Espero que junte todas as partes. -";
+		close;
+	}
+	end;
+OnTimer7000:
+	enablenpc strnpcinfo(0);
+	stopnpctimer;
+	end;
+}
+job3_gen01,84,45,3	duplicate(Materiais Espalhados#gen)	Materiais Espalhados#gen1	HIDDEN_NPC
+job3_gen01,77,41,3	duplicate(Materiais Espalhados#gen)	Materiais Espalhados#gen2	HIDDEN_NPC
+job3_gen01,78,57,3	duplicate(Materiais Espalhados#gen)	Materiais Espalhados#gen3	HIDDEN_NPC
+job3_gen01,89,59,3	duplicate(Materiais Espalhados#gen)	Materiais Espalhados#gen4	HIDDEN_NPC
+job3_gen01,90,51,3	duplicate(Materiais Espalhados#gen)	Materiais Espalhados#gen5	HIDDEN_NPC
+job3_gen01,83,27,3	duplicate(Materiais Espalhados#gen)	Materiais Espalhados#gen6	HIDDEN_NPC
+job3_gen01,74,45,3	duplicate(Materiais Espalhados#gen)	Materiais Espalhados#gen7	HIDDEN_NPC
+
+job3_gen01,18,39,3	script	Perigo#gen	2_BULLETIN_BOARD,{
+	mes "= Perigo =";
+	mes "Se você mexer nos meus esporos, eu vou gritar!!!";
+	if (job_gen < 75) close;
+	next;
+	switch(select("Sair da sala.: Ficar parado.")) {
+	case 1:
+		mes "- É melhor sair. -";
+		close2;
+		warp "job3_gen01",21,38;
+		end;
+	case 2:
+		mes "- Eu quero continuar aqui. -";
+		close;
+	}
+}
+
+job3_gen01,80,12,1	script	Estoque de Revistas#gen	HIDDEN_NPC,{
+	mes "- 'Bomba mensal!' As revistas estão desorganizadas. -";
+	close;
+}
+
+job3_gen01,83,20,1	script	Cama#gen	HIDDEN_NPC,{
+	mes "- Um conjunto de cobertores escolhido com cuidado deve ser muito bom para esta cama suja. -";
+	close;
+}
+
+job3_gen01,85,25,1	script	Livro Aberto#gen	HIDDEN_NPC,{
+	mes "< Você quer usar o meu quarto? Você tem bastante zenys? Há bastante quartos? Vá para a loja de departamentos de Lighthalzen imediatamente para conseguir os melhores quartos! >";
+	next;
+	mes "< Velas de luxo irão iluminar seu quarto, um espelho dourado enorme, você não pode perder tudo isso! >";
+	close;
+}
+
+job3_gen01,81,81,0	script	#dbroom	HIDDEN_WARP_NPC,2,2,{
+OnTouch:
+	mes "- É uma sala que parece um armazém, existem tantas coisas aqui. -";
+	close;
+}
+
+job3_gen01,24,32,0	script	Visão de Devries	HIDDEN_WARP_NPC,2,2,{
+OnTouch:
+	if (checkquest(2223,HUNTING) == 2) {
+		mapannounce "job3_gen01","Devries: O que? Tinha um gatinho perdido no meio dos esporos?",bc_map,"0x99CC00"; //FW_NORMAL 12 0 0
+		emotion ET_HUK, playerattached();
+		warp "job3_gen01",21,38;
+	}
+	end;
+}
+
+job3_gen01,26,34	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,23,33	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,21,30	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,26,34	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,23,33	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,21,30	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,26,34	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,23,33	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,21,30	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,26,34	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,23,33	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,21,30	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,26,34	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,23,33	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,21,30	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,26,34	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,23,33	monster	Esporo Venenoso	1428,1,7000
+job3_gen01,21,30	monster	Esporo Venenoso	1428,1,7000

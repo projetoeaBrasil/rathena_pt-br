@@ -1,0 +1,87 @@
+//==============================================================//
+//   _    _ _____     _____           _       _                 //
+//  | |  | |  __ \   / ____|         (_)     | |                //
+//  | |__| | |  | | | (___   ___ _ __ _ _ __ | |_ ___           //
+//  |  __  | |  | |  \___ \ / __| '__| | '_ \| __/ __|          //
+//  | |  | | |__| |  ____) | (__| |  | | |_) | |_\__ \          //
+//  |_|  |_|_____/  |_____/ \___|_|  |_| .__/ \__|___/          //
+//   Hurican Dooders Script's ™        | |                      //
+//                                     |_|                      //
+//                                                              //
+// Premia o jogador com itens aleatórios!			//
+// Versão 1.2                                                   //
+// Compatibilidade: Cronus & brAthena                           //
+// 								//
+// 						Changelog	//
+// 								//
+//	03/09/2017 - Criado Script 				//
+//	06/09/2017 - Adicionado NPCTalk.			//
+//==============================================================//
+
+prontera,139,225,5	script	Elion#HD	4_F_FAIRY,{
+
+	set .ns$,"[^0000EEElion^000000]"; 				// Nome do NPC
+	set .@chance, 70;								// % de chance de ganhar algum item da lista
+	set .@nec, 671;									// Item necessário pra troca: Moeda de Ouro 1x
+	setarray .@itens[0],							// Itens começo
+	5451,	5452,	5453,	5377,
+	5800,	5306,	2204,	2202,
+	5506,	5507,	5335,
+	5310,	5313,	5333,	5200,
+	5198,	5426,	5446,	5387,
+	5499,	5495,	5471,	5379, 
+	5448, 	5378, 	5564, 	5567, 
+	5293, 	5325, 	5491, 	5462, 
+	5463; 
+
+	mes .ns$;
+	mes "Quero ver se você tem sorte.";
+	mes "Me entregue alguns itens";
+	mes "e a sorte que vai definir";
+	mes "qual deles poderá ser seu!";
+	next;
+	mes .ns$;
+	mes "São eles:";
+	mes " ";
+	for(set .@i,0; .@i < getarraysize(.@itens);set .@i,.@i+1){
+		mes "["+(.@i+1)+"] ^0000FF"+getitemname(.@itens[.@i])+"^000000";
+	}
+	next;
+	mes .ns$;
+	mes "Para isso, vou precisar de:";
+	mes "1x ^0000FF"+getitemname(.@nec)+"^000000";
+	mes " ";
+	mes "^EE0000Lembre-se: o item necessário, será consumido, independente se ganhará algo ou não.^000000";
+	switch(select("Tentar minha sorte (^EE0000Consumir 1 Moeda^000000)","Sair")){
+		case 1:
+			next;
+			if(countitem(.@nec) < 1){ mes .ns$; mes "Você não possui "+getitemname(.@nec)+""; close; }
+			delitem .@nec,1;
+			if(.@chance >= rand(100)){
+				for(set .@i,0; .@i < getarraysize(.@itens);set .@i,.@i+1){
+					mes .ns$;
+					setd .@seleciona, .@itens[rand(getarraysize(.@itens))];
+					getitem getd(.@seleciona),1;
+					npctalk "O jogador "+strcharinfo(0)+" ganhou "+getitemname(getd(.@seleciona))+"....";
+					mes "Parabéns! Vejo que a sorte está do seu lado!";
+					mes "Obrigado.";
+					close;
+				}
+			}
+			mes .ns$;
+			mes "Infelizmente, não ganhou nada :(";
+			mes "Mais sorte na próxima.";
+			close;
+		
+		case 2:
+			close;
+	}
+
+	OnPCLoadMapEvent:
+		if(strcharinfo(3) == "prontera")
+		showevent QTYPE_EVENT,1;
+		end;
+
+}
+
+prontera	mapflag	loadevent

@@ -1,0 +1,3 @@
+// teste shop
+//prontera,146,185,4	cashshop	Kafra Shop Employee	116,12259:1
+prontera,146,185,4	shop	Kafra Shop Employee	116,12259:1
