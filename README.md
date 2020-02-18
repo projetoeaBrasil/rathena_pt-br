@@ -1,3 +1,5 @@
+Seja bem vindo ao repositório oficial do Projeto eaBrasil 2.0!
+
 # rathena-pt-br
 Tradução do rAthena para a linguagem Português do Brasil.
 
@@ -10,3 +12,10 @@ O desenvolvimento em questões de emulador e source serão completamente respons
 E o por isso, os créditos continuarão sendo completamente deles. O intuito aqui é realizar somente as traduções dos arquivos disponiveis no repositório do rAthena para a comunidade brasileira, e lusófona também, num repositório próprio.
 
 Da mesma forma que o rAthena, Cronus, brAthena, Hercules e tantos outros disponibilizam gratuitamente seu código fonte, toda tradução feita no eaBrasil será disponível também gratuitamente.
+
+===============
+
+# Equipe Atual
+
+@HD Scripts -> https://rathena.org/board/profile/5287-hd-scripts/
+@TioHugo -> https://rathena.org/board/profile/11415-tiohugo/
