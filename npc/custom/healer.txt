@@ -15,9 +15,9 @@
 
 -	script	Healer	-1,{
 
-	.@Price = 5000;	// Zeny required for heal
-	.@Buffs = 5000;	// Also buff players? (1: yes / 0: no)
-	.@Delay = 5;	// Heal delay, in seconds
+	.@Price = 0;	// Zeny required for heal
+	.@Buffs = 0;	// Also buff players? (1: yes / 0: no)
+	.@Delay = 0;	// Heal delay, in seconds
 
 	if (@HD > gettimetick(2))
 		end;
@@ -25,7 +25,7 @@
 		message strcharinfo(0), "Healing costs " + callfunc("F_InsertComma",.@Price) + " Zeny.";
 		if (Zeny < .@Price)
 			end;
-		if (select("^0055FFHeal and buffs^000000:^777777Cancel^000000") == 2)
+		if (select("^0055FFHeal^000000:^777777Cancel^000000") == 2)
 			end;
 		Zeny -= .@Price;
 	}
@@ -38,7 +38,6 @@
 		sc_start SC_BLESSING,240000,10;
 	}
 	if (.@Delay)
-	mes "Delay 5 seconds";
 		@HD = gettimetick(2) + .@Delay;
 	end;
 }
@@ -67,7 +66,7 @@ morocc,153,97,6	duplicate(Healer)	Healer#mor	909
 moscovia,220,191,4	duplicate(Healer)	Healer#mos	909
 niflheim,212,182,5	duplicate(Healer)	Healer#nif	909
 payon,179,106,4	duplicate(Healer)	Healer#pay	909
-prontera,155,180,4	duplicate(Healer)	Healer#prt	478
+prontera,162,193,4	duplicate(Healer)	Healer#prt	909
 rachel,125,116,6	duplicate(Healer)	Healer#rac	909
 splendide,201,153,4	duplicate(Healer)	Healer#spl	909
 thor_camp,249,74,4	duplicate(Healer)	Healer#thor	909

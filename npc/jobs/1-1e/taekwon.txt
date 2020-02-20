@@ -12,7 +12,7 @@
 //= 1.5 Split into renewal [Lemongrass]
 //============================================================
 
--	script	Phoenix::PhoeenixTKJobChange	-1,{
+-	script	Phoenix::PhoenixTKJobChange	-1,{
 	if(Upper == 2) {
 		mes "[Phoenix]";
 		mes "Hello, child.";

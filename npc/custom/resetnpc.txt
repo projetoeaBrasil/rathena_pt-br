@@ -13,7 +13,7 @@
 //============================================================
 prontera,150,193,4	script	Reset Girl	124,{
 	//	 		Skills,	Stats,	Both,	Limit
-	setarray .@Reset,	500000,	500000,	900000,	5;
+	setarray .@Reset,	5000,	5000,	9000,	0;
 	mes "[Reset Girl]";
 	if(.@Reset[3] && reset_limit > .@Reset[3]) {
 		mes "Sorry you can only reset "+callfunc("F_InsertPlural",.@Reset[3],"time")+" in your life.";

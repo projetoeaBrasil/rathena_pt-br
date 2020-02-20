@@ -98,7 +98,7 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 
 		set .@failchance,rand(100);
 		if (.faildestroy==1) {
-			if(.@failchance < 50) {
+			if(.@failchance < 2) {
 				next;
 				failedremovecards .@part,0;
 				mes "[Wise Old Woman]";
@@ -106,7 +106,7 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 				close;
 			}
 
-			if(.@failchance < 50) {
+			if(.@failchance < 8) {
 				if (.@failtype == 1) {
 					next;
 					failedremovecards .@part,1;
@@ -125,7 +125,7 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 			}
 		}
 
-		if(.@failchance < 50) {
+		if(.@failchance < 10) {
 			next;
 			failedremovecards .@part,3;
 			mes "[Wise Old Woman]";
