@@ -21,119 +21,124 @@
 //= 1.9 Removed some 'clever' script constructs [ultramage]
 //= 2.0 Updated to official version - Thanks to Omega for
 //=     his first try [SinSloth] 1.10b - removed .GATs [Lupus]
-//= 2.1 S·bio Chifre de Touro now deletes all items. Thanks to yyCC. [L0ne_W0lf]
+//= 2.1 Wise Bull Horn now deletes all items. Thanks to yyCC. [L0ne_W0lf]
 //= 2.1a Corrected a Typo error ";;". [Samuray22]
 //= 2.1b Corrected some typos errors. (bugreport:1549) [Samuray22]
 //= 2.1c Fixed some missing/messed up item checks. (bugreport:2693) [Kisuka]
 //= 2.2 Updated to match AEGIS script and Added Quest Log commands. [Kisuka]
 //============================================================
+//===================== Tradu√ß√£o PT-BR ==========
+// Tradu√ß√£o: Weed0
+// Revisado: HD Scripts - Projeto eaBrasil
+//=============================================== 
 
 que_ng,152,167,3	script	Mestre Miller	901,{
 	if (Upper == 2) {
 		mes "[Mestre Miller]";
-		mes "[Mestre Miller]";
-		mes "Bem, voce nao È uma ador·vel criancinha?";
-		mes "Onde est· sua mamae?";
-		mes "Esse lugar È perigoso, entao, por favor, v· logo para casa, ok?";
+		mes "Bem, voc√™ n√£o √© uma";
+		mes "ador√°vel criancinha?~";
+		mes "Onde est√° sua mam√£e?";
+		mes "Esse lugar √© perigoso, ent√£o";
+		mes "por favor, v√° logo para casa, ok?";
 		close;
 	}
 	if (Class == Job_Novice) {
 		if (!callfunc("F_CanChangeJob")) {
 			mes "[Mestre Miller]";
 			mes "Interessado em se tornar um Justiceiro, eh?";
-			mes "Voce tem potencial, mas nao tem experiencia suficiente.";
+			mes "voc√™ tem potencial, mas n√£o tem experiencia suficiente.";
 			mes "Treine mais um pouco, e depois volte, entendeu?";
 			close;
 		}
 		if (GUNS_Q == 0) {
 			mes "[Mestre Miller]";
-			mes "Eu sou Miller, um treinador de Justiceiros e guardiao em tempo integral de Lady Selena.";
-			mes "Pois bem, do que voce precisa?";
-			mes "Se nao for importante, entao nao tenho tempo a perder com voce.";
+			mes "Eu sou Miller, um treinador de Justiceiros e guardi√£o em tempo integral de Lady Selena.";
+			mes "Pois bem, do que voc√™ precisa?";
+			mes "Se n√£o for importante, ent√£o n√£o tenho tempo a perder com voc√™.";
 			next;
 			if(select("Nada.:Eu quero me tornar um Justiceiro.") == 1) {
 				mes "[Mestre Miller]";
-				mes "Nao disperdice meu tempo.";
-				mes "Se voce quiser se tornar um Justiceiro, volte e fale comigo";
+				mes "N√£o disperdice meu tempo.";
+				mes "Se voc√™ quiser se tornar um Justiceiro, volte e fale comigo";
 				close;
 			}
 			mes "[Mestre Miller]";
-			mes "Hm. Voce È muito jovem, mas seus olhos dizem que voce È bastante ambicioso.";
-			mes "Voce ter· que passar em nossa entrevista e curso educacional para se tornar um Justiceiro.";
-			mes "Voce quer se candidatar ao cargo?";
+			mes "Hm. voc√™ √© muito jovem, mas seus olhos dizem que voc√™ √© bastante ambicioso.";
+			mes "voc√™ ter√° que passar em nossa entrevista e curso educacional para se tornar um Justiceiro.";
+			mes "voc√™ quer se candidatar ao cargo?";
 			next;
 			if(select("Me de algum tempo para pensar.:Com certeza!") == 1) {
 				mes "[Mestre Miller]";
-				mes "CompreensÌvel.";
-				mes "Se voce decidir que quer se tornar um Justiceiro, entao me conte imediatamente.";
-				mes "Eu te ajudarei a comeÁar.";
+				mes "Compreens√≠vel.";
+				mes "Se voc√™ decidir que quer se tornar um Justiceiro, ent√£o me conte imediatamente.";
+				mes "Eu te ajudarei a come√ßar.";
 				close;
 			}
 			mes "[Mestre Miller]";
-			mes "”timo, Ûtimo.";
-			mes "Muito bem, entao vamos comeÁar.";
-			mes "Leve esta carta para o Sr. S·bio Chifre de Touro, em Payon.";
-			mes "Ele È um xama que ir· julgar se voce È ou nao qualificado para se tornar um Justiceiro.";
+			mes "√ìtimo, √≥timo.";
+			mes "Muito bem, ent√£o vamos come√ßar.";
+			mes "Leve esta carta para o Sr. S√°bio Chifre de Touro, em Payon.";
+			mes "Ele √© um xama que ir√° julgar se voc√™ √© ou n√£o qualificado para se tornar um Justiceiro.";
 			set GUNS_Q,1;
 			setquest 6020;
 			close;
 		}
 		else if (GUNS_Q == 1) {
 			mes "[Mestre Miller]";
-			mes "Leve essa carta de apresentaÁao que escrevi para o Sr. S·bio Chifre de Touro, em Payon.";
-			mes "Ele te testar· para ver se voce pode se tornar um Justiceiro.";
+			mes "Leve essa carta de apresenta√ßao que escrevi para o Sr. S√°bio Chifre de Touro, em Payon.";
+			mes "Ele te testar√° para ver se voc√™ pode se tornar um Justiceiro.";
 			close;
 		}
 		else if (GUNS_Q == 2) {
 			mes "[Mestre Miller]";
-			mes "Hmm... o S·bio Chifre de Touro te pediu para coletar os itens que precisa para fazer o amuleto?";
+			mes "Hmm... o S√°bio Chifre de Touro te pediu para coletar os itens que precisa para fazer o amuleto?";
 			mes "Hm. Eu acho que isso faz parte do teste.";
 			close;
 		}
 		else if (GUNS_Q == 3) {
 			mes "[Mestre Miller]";
-			mes "O S·bio Chifre de Touro te pediu um pouco de leite?";
-			mes "Ele deve gostar de voce, j· que est· pedindo favores.";
+			mes "O S√°bio Chifre de Touro te pediu um pouco de leite?";
+			mes "Ele deve gostar de voc√™, j√° que est√° pedindo favores.";
 			mes "Boa sorte, amigo.";
 			close;
 		}
 		else if (GUNS_Q == 4) {
 			mes "[Mestre Miller]";
-			mes "Eu espero ouvir boas notÌcias de voce em breve.";
-			mes "Voce sabe, eu nao tenho d˙vida que voce ir· se tornar um Justiceiro.";
+			mes "Eu espero ouvir boas not√≠cias de voc√™ em breve.";
+			mes "voc√™ sabe, eu n√£o tenho d√∫vida que voc√™ ir√° se tornar um Justiceiro.";
 			close;
 		}
 		else if (GUNS_Q == 5) {
 			if (SkillPoint != 0) {
 				mes "[Mestre Miller]";
-				mes "Hey, voce tem Pontos de Habilidades sobrando.";
+				mes "Hey, voc√™ tem Pontos de Habilidades sobrando.";
 				mes "Use-os antes de vir falar comigo de novo.";
 				close;
 			}
 			mes "[Mestre Miller]";
-			mes "Oh, voce me trouxe um amuleto do S·bio Chifre de Touro?";
-			mes "J· tem um tempo que ele nao d· um pra ninguÈm...";
-			mes "Estou muito orgulhoso de voce!";
+			mes "Oh, voc√™ me trouxe um amuleto do S√°bio Chifre de Touro?";
+			mes "J√° tem um tempo que ele n√£o d√° um pra ningu√©m...";
+			mes "Estou muito orgulhoso de voc√™!";
 			next;
 			mes "[Mestre Miller]";
-			mes "Se o S·bio Chifre de Touro aprova, entao eu nao tenho motivos para rejeitar voce.";
-			mes "Tudo bem entao, vou promove-lo a Justiceiro.";
+			mes "Se o S√°bio Chifre de Touro aprova, ent√£o eu n√£o tenho motivos para rejeitar voc√™.";
+			mes "Tudo bem ent√£o, vou promove-lo a Justiceiro.";
 			mes "Mas primeiro, deixe-me explicar sobre nossa classe mais detalhadamente.";
 			next;
 			mes "[Mestre Miller]";
-			mes "Como um Justiceiro, voce deve manter sua arma com voce o tempo todo.";
-			mes "A Guilda dos Justiceiros mantÈm o controle de todas as Armas e ProjÈteis, entao voce sÛ pode obte-las dos membros da nossa guilda.";
+			mes "Como um Justiceiro, voc√™ deve manter sua arma com voc√™ o tempo todo.";
+			mes "A Guilda dos Justiceiros mant√©m o controle de todas as Armas e Proj√©teis, ent√£o voc√™ s√≥ pode obte-las dos membros da nossa guilda.";
 			next;
 			mes "[Mestre Miller]";
-			mes "Nao se preocupe, os membros da Guilda dos Justiceiros podem ser encontrados em quase todos os lugares.";
-			mes "Enfim, tem que ser desta maneira, por ordem da nossa lÌder da guilda, Lady Selena.";
+			mes "N√£o se preocupe, os membros da Guilda dos Justiceiros podem ser encontrados em quase todos os lugares.";
+			mes "Enfim, tem que ser desta maneira, por ordem da nossa l√≠der da guilda, Lady Selena.";
 			next;
 			mes "[Mestre Miller]";
-			mes "Voce pode ter a chance de conhece-la um dia desses.";
-			mes "De qualquer forma, agora temos que controlar a venda de armas e projÈteis para mante-los longe de pessoas m·s ou irrespons·veis.";
+			mes "voc√™ pode ter a chance de conhece-la um dia desses.";
+			mes "De qualquer forma, agora temos que controlar a venda de armas e proj√©teis para mante-los longe de pessoas m√°s ou irrespons√°veis.";
 			next;
 			mes "[Mestre Miller]";
-			mes "De qualquer forma, para mim È sempre um prazer conversar com outro Justiceiro, entao mantenha contato.";
+			mes "De qualquer forma, para mim √© sempre um prazer conversar com outro Justiceiro, ent√£o mantenha contato.";
 			mes "Que o poder da Terra te proteja em todas as suas aventuras~";
 			callfunc "Job_Change",Job_Gunslinger;
 			set GUNS_Q,6;
@@ -148,70 +153,70 @@ que_ng,152,167,3	script	Mestre Miller	901,{
 	} else {
 		if (Class == Job_Gunslinger) {
 			mes "[Mestre Miller]";
-		mes "Oh! A quanto tempo nao te vejo, amigo. Como vai?";
-		mes "Espero que voce tenha mantido sua arma bem cuidada.";
-		mes "Cuide dela, e ela cuidar· de voce. Lembre-se disso.";
+		mes "Oh! A quanto tempo n√£o te vejo, amigo. Como vai?";
+		mes "Espero que voc√™ tenha mantido sua arma bem cuidada.";
+		mes "Cuide dela, e ela cuidar√° de voc√™. Lembre-se disso.";
 			close;
 		} else {
 			mes "[Mestre Miller]";
-			mes "Se voce nao tem nenhum assunto a tratar comigo, entao, por favor, siga seu caminho.";
+			mes "Se voc√™ n√£o tem nenhum assunto a tratar comigo, ent√£o, por favor, siga seu caminho.";
 			close;
 		}
 	}
 }
 
-payon,184,65,3	script	S·bio Chifre de Touro	866,{
+payon,184,65,3	script	S√°bio Chifre de Touro	866,{
 	if (GUNS_Q == 1) {
-		mes "[S·bio Chifre de Touro]";
-		mes "Ol·, jovem lobo. Que assuntos te trazem r minha presenÁa?";
+		mes "[S√°bio Chifre de Touro]";
+		mes "Ol√°, jovem lobo. Que assuntos te trazem r minha presen√ßa?";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "O Sr. Miller me mandou entregar esta carta a voce.";
+		mes "O Sr. Miller me mandou entregar esta carta a voc√™.";
 		mes "Na verdade, estou interessado em me tornar um Justiceiro...";
 		next;
-		mes "[S·bio Chifre de Touro]";
-		mes "Miller, voce disse?";
-		mes "Hm, o Raposa Negra nao costuma escrever apresentaÁoes para qualquer um que ele nao acredita que ser· um bom Justiceiro";
+		mes "[S√°bio Chifre de Touro]";
+		mes "Miller, voc√™ disse?";
+		mes "Hm, o Raposa Negra n√£o costuma escrever apresenta√ßoes para qualquer um que ele n√£o acredita que ser√° um bom Justiceiro";
 		mes "Sim, eu acho que sei por que ele o mandou a mim.";
 		next;
-		mes "[S·bio Chifre de Touro]";
-		mes "Posso ver em seus olhos que tem um bom coraÁao e um forte senso de responsabilidade.";
-		mes "Tudo o que precisa È da benÁao da Terra para te proteger como Justiceiro.";
+		mes "[S√°bio Chifre de Touro]";
+		mes "Posso ver em seus olhos que tem um bom cora√ßao e um forte senso de responsabilidade.";
+		mes "Tudo o que precisa √© da ben√ßao da Terra para te proteger como Justiceiro.";
 		next;
-		mes "[S·bio Chifre de Touro]";
-		mes "Eu posso fazer um amuleto que demonstrar· seu desejo em se tornar um guerreiro da Terra, para que o apresente ao Mestre dos Justiceiros.";
+		mes "[S√°bio Chifre de Touro]";
+		mes "Eu posso fazer um amuleto que demonstrar√° seu desejo em se tornar um guerreiro da Terra, para que o apresente ao Mestre dos Justiceiros.";
 		mes "Vou precisar destes itens...";
 		next;
-		mes "[S·bio Chifre de Touro]";
+		mes "[S√°bio Chifre de Touro]";
 		mes "^3355FF1 Tronco^000000,";
 		mes "^3355FF3 Felpas^000000,";
-		mes "^3355FF3 ZargÙnios^000000,";
+		mes "^3355FF3 Zarg√¥nios^000000,";
 		mes "^3355FF10 Cascas^000000,";
 		mes "^3355FF3 Ervas Verdes^000000,";
-		mes "e ^3355FF3 Cascos Arco-Õris^000000.";
+		mes "e ^3355FF3 Cascos Arco-√çris^000000.";
 		next;
-		mes "[S·bio Chifre de Touro]";
-		mes "Depois que eu terminar o amuleto, voce deve lev·-lo ao Raposa Negra, e ele ir· o ajudar a alcanÁar seu objetivo de se tornar um Justiceiro.";
+		mes "[S√°bio Chifre de Touro]";
+		mes "Depois que eu terminar o amuleto, voc√™ deve lev√°-lo ao Raposa Negra, e ele ir√° o ajudar a alcan√ßar seu objetivo de se tornar um Justiceiro.";
 		set GUNS_Q,2;
 		changequest 6020,6021;
 		close;
 	}
 	else if (GUNS_Q == 2) {
 		if (countitem(912) < 3 || countitem(914) < 3 || countitem(1019) < 1 || countitem(935) < 10 || countitem(511) < 3 || countitem(1013) < 3) {
-			mes "[S·bio Chifre de Touro]";
-			mes "Eu posso fazer um amuleto que demonstrar· seu desejo em se tornar um guerreiro da Terra, para que o apresente ao Mestre dos Justiceiros.";
+			mes "[S√°bio Chifre de Touro]";
+			mes "Eu posso fazer um amuleto que demonstrar√° seu desejo em se tornar um guerreiro da Terra, para que o apresente ao Mestre dos Justiceiros.";
 			mes "Vou precisar destes itens...";
 			next;
-			mes "[S·bio Chifre de Touro]";
+			mes "[S√°bio Chifre de Touro]";
 			mes "^3355FF1 Tronco^000000,";
 			mes "^3355FF3 Felpas^000000,";
-			mes "^3355FF3 ZargÙnios^000000,";
+			mes "^3355FF3 Zarg√¥nios^000000,";
 			mes "^3355FF10 Cascas^000000,";
 			mes "^3355FF3 Ervas Verdes^000000,";
-			mes "e ^3355FF3 Cascos Arco-Õris^000000.";
+			mes "e ^3355FF3 Cascos Arco-√çris^000000.";
 			next;
-			mes "[S·bio Chifre de Touro]";
-			mes "Depois que eu terminar o amuleto, voce deve lev·-lo ao Raposa Negra, e ele ir· o ajudar a alcanÁar seu objetivo de se tornar um Justiceiro.";
+			mes "[S√°bio Chifre de Touro]";
+			mes "Depois que eu terminar o amuleto, voc√™ deve lev√°-lo ao Raposa Negra, e ele ir√° o ajudar a alcan√ßar seu objetivo de se tornar um Justiceiro.";
 			close;
 		}
 		delitem 912,3; // Zargon
@@ -222,67 +227,67 @@ payon,184,65,3	script	S·bio Chifre de Touro	866,{
 		delitem 1013,3; // Colorful_Shell
 		set GUNS_Q,3;
 		changequest 6021,6022;
-		mes "[S·bio Chifre de Touro]";
-		mes "Ah, voce voltou com tudo que eu preciso.";
+		mes "[S√°bio Chifre de Touro]";
+		mes "Ah, voc√™ voltou com tudo que eu preciso.";
 		mes "Por favor, me de algum tempo para fazer o amuleto.";
-		mes "Se voce voltar daqui a pouco, eu devo ter terminado.";
+		mes "Se voc√™ voltar daqui a pouco, eu devo ter terminado.";
 		close;
 	}
 	else if (GUNS_Q == 3) {
-		mes "[S·bio Chifre de Touro]";
-		mes "Oh, voce chegou na hora.";
-		mes "J· faz um tempo que nao faÁo um desses amuletos, entao devo estar um pouco enferrujado.";
+		mes "[S√°bio Chifre de Touro]";
+		mes "Oh, voc√™ chegou na hora.";
+		mes "J√° faz um tempo que n√£o fa√ßo um desses amuletos, ent√£o devo estar um pouco enferrujado.";
 		mes "Ainda assim, isso realmente me leva de volta para os dias de minha juventude.";
 		next;
-		mes "[S·bio Chifre de Touro]";
-		mes "Eu estive servindo nesta posiÁao de escolher pessoas dignas do amuleto do Justiceiro por algumas dÈcadas.";
-		mes "Mas antes disso, eu era um jovem aventureiro, como voce.";
+		mes "[S√°bio Chifre de Touro]";
+		mes "Eu estive servindo nesta posi√ßao de escolher pessoas dignas do amuleto do Justiceiro por algumas d√©cadas.";
+		mes "Mas antes disso, eu era um jovem aventureiro, como voc√™.";
 		next;
-		mes "[S·bio Chifre de Touro]";
-		mes "Parece que foi ontem que eu ganhei meu prÛprio amuleto do Justiceiro, um guerreiro da Terra.";
+		mes "[S√°bio Chifre de Touro]";
+		mes "Parece que foi ontem que eu ganhei meu pr√≥prio amuleto do Justiceiro, um guerreiro da Terra.";
 		mes "Foi quando eu conheci o pai de Selena.";
-		mes "Como o tempo pode passar tao r·pido?";
+		mes "Como o tempo pode passar tao r√°pido?";
 		next;
-		mes "[S·bio Chifre de Touro]";
+		mes "[S√°bio Chifre de Touro]";
 		mes "Ah...";
 		mes "Eu realmente aprecio toda a ajuda de Selena e do Raposa Negra em ajuda em recrutar jovens Justiceiros.";
-		mes "Eu estou bastante velho agora, e nao consigo fazer tudo sozinho.";
+		mes "Eu estou bastante velho agora, e n√£o consigo fazer tudo sozinho.";
 		mes "*Suspiro...*";
-		mes "Assim È a vida.";
+		mes "Assim √© a vida.";
 		next;
-		mes "[S·bio Chifre de Touro]";
-		mes "Antes de voce ir, posso pedir um pequeno favor?";
+		mes "[S√°bio Chifre de Touro]";
+		mes "Antes de voc√™ ir, posso pedir um pequeno favor?";
 		mes "Estou com sede, e eu gostaria de um copo de leite gelado.";
-		mes "Voce poderia me trazer algum?";
+		mes "voc√™ poderia me trazer algum?";
 		set GUNS_Q,4;
 		changequest 6022,6023;
 		close;
 	}
 	else if (GUNS_Q == 4) {
 		if (countitem(519) < 1) {
-			mes "[S·bio Chifre de Touro]";
-			mes "[S·bio Chifre de Touro]";
-			mes "Eu sou um velho homem que, em breve, se reunir· com a Mae Terra.";
-			mes "Voce faria um favor a este velho Justiceiro de me trazer um copo de ^3131FFleite^000000 gelado, por favor?";
+			mes "[S√°bio Chifre de Touro]";
+			mes "[S√°bio Chifre de Touro]";
+			mes "Eu sou um velho homem que, em breve, se reunir√° com a Mae Terra.";
+			mes "voc√™ faria um favor a este velho Justiceiro de me trazer um copo de ^3131FFleite^000000 gelado, por favor?";
 			close;
 		}
 		delitem 519,1; // Milk
 		set GUNS_Q,5;
 		changequest 6023,6024;
-		mes "[S·bio Chifre de Touro]";
+		mes "[S√°bio Chifre de Touro]";
 		mes "Oh, obrigado por sua generosidade!";
-		mes "Eu vejo que voce me trouxe um pouco de leite.";
-		mes "Ahhhh, delÌcia...";
+		mes "Eu vejo que voc√™ me trouxe um pouco de leite.";
+		mes "Ahhhh, del√≠cia...";
 		next;
-		mes "[S·bio Chifre de Touro]";
-		mes "Eu admiro a paciencia, gentileza, e bondade que voce provou trazendo isto para mim.";
-		mes "Sim, essas sao caracterÌsticas que todos nÛs queremos ter.";
+		mes "[S√°bio Chifre de Touro]";
+		mes "Eu admiro a paciencia, gentileza, e bondade que voc√™ provou trazendo isto para mim.";
+		mes "Sim, essas sao caracter√≠sticas que todos n√≥s queremos ter.";
 		next;
-		mes "[S·bio Chifre de Touro]";
-		mes "Agora, por favor, leve esse amuleto para Miller, o Raposa Negra, com toda minha aprovaÁao.";
-		mes "Eu espero que voce use sua arma para apoiar a justiÁa como um nobre guerreiro da Terra.";
+		mes "[S√°bio Chifre de Touro]";
+		mes "Agora, por favor, leve esse amuleto para Miller, o Raposa Negra, com toda minha aprova√ßao.";
+		mes "Eu espero que voc√™ use sua arma para apoiar a justi√ßa como um nobre guerreiro da Terra.";
 		next;
-		mes "[S·bio Chifre de Touro]";
+		mes "[S√°bio Chifre de Touro]";
 		mes "Eeh~Yeah~Eeh~Hooom";
 		mes "Eeh~Yeah~Eeh~Hooom";
 		mes "Maaaaarrraaa Neeey~";
@@ -290,11 +295,11 @@ payon,184,65,3	script	S·bio Chifre de Touro	866,{
 		close;
 	}
 	else if (GUNS_Q == 5) {
-		mes "[S·bio Chifre de Touro]";
-		mes "Por favor, leve esse amuleto para Miller, o Raposa Negra, com toda a minha aprovaÁao.";
-		mes "Eu espero que voce use sua arma para apoiar a justiÁa como um nobre guerreiro da Terra.";
+		mes "[S√°bio Chifre de Touro]";
+		mes "Por favor, leve esse amuleto para Miller, o Raposa Negra, com toda a minha aprova√ßao.";
+		mes "Eu espero que voc√™ use sua arma para apoiar a justi√ßa como um nobre guerreiro da Terra.";
 		next;
-		mes "[S·bio Chifre de Touro]";
+		mes "[S√°bio Chifre de Touro]";
 		mes "Eeh~Yeah~Eeh~Hooom";
 		mes "Eeh~Yeah~Eeh~Hooom";
 		mes "Maaaaarrraaa Neeey~";
@@ -302,13 +307,13 @@ payon,184,65,3	script	S·bio Chifre de Touro	866,{
 		close;
 	}
 	else if (GUNS_Q == 6) {
-		mes "[S·bio Chifre de Touro]";
-		mes "Faz muito tempo que nao te vejo.";
-		mes "Espero que tenha se tornado uma fera inteligente, que usa seus poderes como Justiceiro para protecer o que È bom e justo.";
+		mes "[S√°bio Chifre de Touro]";
+		mes "Faz muito tempo que n√£o te vejo.";
+		mes "Espero que tenha se tornado uma fera inteligente, que usa seus poderes como Justiceiro para protecer o que √© bom e justo.";
 		close;
 	}
 	else {
-		mes "[S·bio Chifre de Touro]";
+		mes "[S√°bio Chifre de Touro]";
 		mes "Zzzzzz~";
 		mes "^333333*Ufa*^000000";
 		close;

@@ -19,357 +19,457 @@
 //= 2.3 NPC "Esseray" calls Ex. Super Novice script when enabled. [Euphy]
 //= 2.4 Added an Ex. Super Novice dialog check. [Euphy]
 //============================================================ 
+//===================== TraduÃ§Ã£o PT-BR ==========
+// TraduÃ§Ã£o: Protimus
+// Revisado: HD Scripts - Projeto eaBrasil
+//=============================================== 
 
 
 aldeba_in,223,167,3	script	Tzerero#sn	709,{
 	if (BaseJob == Job_SuperNovice) {
 		mes "[Tzerero]";
-		mes "Você é um membro do Clube do Aprendiz.";
-		mes "Você recebeu seu treinamento";
-		mes "e chegou próximo à perfeição.";
-		mes "Aprender é a sua profissão!";
+		mes "Eu creio que vocÃª esteja gostando";
+		mes "da sua vida como Super Aprendiz, certo? Ah,";
+		mes "bom bom...justo como eu esperava.";
+		mes "Certamente, a luz da simplicidade estÃ¡ brilhando dentro de vocÃª...";
 		next;
 		mes "[Tzerero]";
-		mes "Espero que você continue a aprender,";
-		mes "e promover a existência e";
-		mes "o talento de um Aprendiz.";
+		mes "Eu te encorajo a viver a";
+		mes "vida como o Senhor Kimu-Shaun faz...";
+		mes "Torne-se um Cara de Todas as Barganhas...";
+		mes "...e um mestre do nada.";
 		close;
 	}
 	if (countitem(938) > 29 && countitem(907) > 29 && SUPNOV_Q == 1) {
-		delitem 938,30; // Muco Pegajoso
-		delitem 907,30; // Resina
+		delitem 938,30; //Sticky_Mucus
+		delitem 907,30; //Resin
 		mes "[Tzerero]";
-		mes "Eu pressinto que o que você quer";
-		mes "é ser alguém humilde, que vive para aprender";
-		mes "o maior número de coisas possível. ";
-		mes "Esse será seu destino se você ";
-		mes "se juntar ao Clube do Aprendiz.";
+		mes "Ah, vocÃª trouxe os";
+		mes "itens que eu pedi!";
+		mes "VocÃª provou-se digno";
+		mes "de juntar-se Ã  nossa";
+		mes "Sociedade dos Super Aprendizes.";
 		next;
 		mes "[Tzerero]";
-		mes "Ok, então agora eu farei o que foi combinado";
-		mes "e transformarei você em um";
-		mes "^3355FFSuper Apren--^000000Hã!? ";
-		mes "O que é isso atrás de você!?";
+		mes "EntÃ£o, como prometido, eu vou";
+		mes "mudar sau classe para";
+		mes "^3355FFSuper Apre--^000000HÃ£?";
+		mes "O que Ã© isso atrÃ¡s de vocÃª?";
 		next;
-		select("Hã?:O quê?");
-		mes "^3355FF Você se vira e olha ";
-		mes "- mas não há nada -";
-		mes "Que coisa estranha!^000000";
+		select("HÃ£?:O que Ã© isso?");
+		mes "^3355FFVocÃª olha para trÃ¡s, mas...";
+		mes "NÃ£o hÃ¡ nada de lÃ¡.";
+		mes "Algo suspeito estÃ¡ acontecendo aqui!^000000";
 		next;
 		completequest 6010;
 		callfunc "F_ClearJobVar";
 		getitem 2339,1; //G_Strings
-		if (Upper==0) jobchange Job_SuperNovice;
+		if (Upper==0) jobchange Job_Super_Novice;
 		if (Upper==2) jobchange Job_Super_Baby;
 		mes "[Tzerero]";
-		mes "Hahahahaha! Você caiu nessa!";
-		mes "Fazer pegadinhas desse tipo é uma das";
-		mes "diversões favoritas do Clube do Aprendiz.";
-		mes "O que achou da";
-		mes "habilidade de Tzerero?";
+		mes "Haha! Te peguei!";
+		mes "EntÃ£o...gostou da minha piada?";
+		mes "Tudo bem, vamos esquecer isso...";
 		next;
 		mes "[Tzerero]";
-		mes "Hmm... Pegadinhas não são tão importantes.";
-		mes "O que importa mesmo é ";
-		mes "ter se tornado um Super Aprendiz.";
+		mes "Um homem crescido como eu";
+		mes "teria que ter uma boa razÃ£o";
+		mes "para sair carregando";
+		mes "por aÃ­ com uma Cueca.";
 		next;
 		mes "[Tzerero]";
-		mes "E aqui está um presente para você ";
-		mes "por ter se juntado ao nosso Clube.";
-		mes "É uma das lendárias armaduras";
-		mes "criadas pelo Sr. Kimu-Shon!";
+		mes "O importante Ã© que...";
+		mes "vocÃª se juntou Ã  estimada categoria";
+		mes "dos grandes Super Aprendizes.";
 		next;
 		mes "[Tzerero]";
-		mes "Viva uma vida de diversão ";
-		mes "e aprendizado,";
-		mes "faça o nosso Clube brilhar.";
-		mes "E viva uma vida feliz!";
+		mes "Considere essa Cueca um presente...";
+		mes "HÃ¡ rumores que esta peÃ§a de roupa";
+		mes "Ã© usada pelo Senhor Kimu-Shaun,";
+		mes "nosso legedÃ¡rio fundador do clube,";
+		mes "nos tempos remotos na luta pela";
+		mes "simplicidade exemplar.";
+		next;
+		mes "[Tzerero]";
+		mes "VÃ¡, e aproveite sua nova vida";
+		mes "como um Super Aprendiz! Aventure-se";
+		mes "e ajude o homem comum enquanto";
+		mes "for um, ao mesmo tempo...";
 		close;
 	}
 	if (SUPNOV_Q == 1) {
 		mes "[Tzerero]";
-		mes "Hmm, eu acho que você se esqueceu";
-		mes "de trazer alguma coisa...";
-		mes "Vou repetir.";
-		mes "Não se esqueça!";
+		mes "HÃ£? VocÃª esqueceu o que eu";
+		mes "pedi de vocÃª? Ok,";
+		mes "Vou te dizer mais um vez.";
+		mes "Por favor lembre";
+		mes "desta vez...";
 		next;
 		mes "[Tzerero]";
-		mes "Você precisa trazer: ";
-		mes "^FF0000 30 Mucos Pegajosos^000000 e";
-		mes "^FF0000 30 Resinas^000000";
-		mes "Não se esqueça!";
+		mes "Eu te disse para me trazer";
+		mes "^FF000030 Muco Pegajoso^000000 a";
+		mes "^FF000030 Resina^000000.";
 		close;
 	}
 	if (BaseJob == Job_Novice && Upper != 1) {
 		mes "[Tzerero]";
-		mes "...Hmm? Eu percebo em você ";
-		mes "um grande desejo de aprender...";
+		mes "...Hmm?";
+		mes "Pare.";
+		mes "Deixe eu olhar para vocÃª.";
 		next;
 		mes "[Tzerero]";
-		emotion ET_THINK;
-		mes "Sim! Olhando de perto, eu vejo";
-		mes "que você tem a ânsia do Super Aprendiz!";
+		mes ".....";
+		mes ".......";
+		mes ".........";
+		emotion e_dots;
 		next;
 		mes "[Tzerero]";
-		mes "Que tal? Junte-se ao Clube do Aprendiz";
-		mes "e seja alguém humilde, que vive para aprender novidades.";
-		mes "Viva uma vida humilde e não se prenda a uma só classe.";
-		mes "Você deseja curtir a vida e";
-		mes "divertir-se com a eterna busca de novidades?";
+		mes "Eu vejo que a luz";
+		mes "da simplicidade brilha";
+		mes "dentro de vocÃª...";
 		next;
 		mes "[Tzerero]";
-		mes "Ao se juntar ao nosso clube";
-		mes "você passará por uma pequena transformação.";
-		mes "Deixará de ser um Aprendiz";
-		mes "para ser um Super Aprendiz!";
+		mes "Porque vocÃª nÃ£o se junta a nÃ³s,";
+		mes "jovem Aprendiz? Junte-se";
+		mes "a nÃ³s e aprenda a sutil";
+		mes "grandeza de ser";
+		mes "simples...";
 		next;
-		switch(select("Sim! Quero me juntar a vocês!:Não, obrigado...:Pode me dar mais detalhes?")) {
+		mes "[Tzerero]";
+		mes "Aceite minha oferta...";
+		mes "Jogue fora essa sua";
+		mes "roupa marron, empoeirada";
+		mes "e resplandeÃ§a sendo...";
+		next;
+		mes "[Tzerero]";
+		mes "...um ^CE6300Super Aprendiz^000000.";
+		next;
+		switch(select("Aceitar a oferta.:Rejeitar a oferta.:Ouvir mais cuidadosamente.")) {
 		case 1:
 			if (!callfunc("F_CanChangeJob")) {
 				mes "[Tzerero]";
-				mes "Ops... Que pena!";
-				mes "Você ainda não está pronto para isso.";
-				mes "Seu nível de classe deve ser 10 para poder";
-				mes "se juntar a nós. Volte depois, ok?";
+				mes "Hmm...Mas vocÃª realmente";
+				mes "aprecia o valor de";
+				mes "buscar forÃ§a na";
+				mes "fraqueza? VocÃª precisa";
+				mes "provar para mim que vocÃª";
+				mes "Ã© um verdadeiro fracassado.";
+				next;
+				mes "[Tzerero]";
+				mes "Viva a vida como um Aprendiz...";
+				mes "E volte quando";
+				mes "tiver aprendido";
+				mes "as Habilidade BÃ¡sicas...";
+				mes "CresÃ§a na simplicidade e";
+				mes "torne-se um Aprendiz de nÃ­vel 10...";
 				close;
 			}
 			if (BaseLevel < 45) {
 				mes "[Tzerero]";
-				mes "Ops... Que pena!";
-				mes "Você ainda não está pronto para isso.";
-				mes "Seu nível de base deve ser ao menos 45 para poder";
-				mes "se juntar a nós. Volte depois, ok?";
+				mes "Hmm...Mas vocÃª realmente";
+				mes "valoriza o estilo de vida relaxado";
+				mes "do aventureiro banal?";
+				mes "Prove para mim que vocÃª nÃ£o";
+				mes "cobiÃ§a poder...";
+				next;
+				mes "[Tzerero]";
+				mes "Vida a vida mundanamente...";
+				mes "Torne-se um Aprendiz de nÃ­vel 45...";
+				mes "AÃ­ entÃ£o poderÃ¡ se juntar a nÃ³s...";
 				close;
 			}
 			mes "[Tzerero]";
-			mes "Oh! Que ótimo! Você tem mesmo a alma do Aprendiz!";
-			mes "Não se acham muitos como você";
-			mes "hoje em dia!";
-			mes "Parabéns! Você fez uma excelente escolha!";
+			mes "Posso ver em seus olhos";
+			mes "a determinaÃ§Ã£o para";
+			mes "viver a vida com simplicidade...";
 			next;
 			mes "[Tzerero]";
-			mes "Honestamente, nada é melhor que a liberdade.";
-			mes "Não acha?";
+			mes "SÃ³ os verdadeiramente sÃ¡bios podem";
+			mes "ver que ser comum e banal";
+			mes "Ã© a melhor maneira";
+			mes "de viver a vida.";
 			next;
 			mes "[Tzerero]";
-			mes "Apesar de sermos muito humildes,";
-			mes "ainda é preciso  um pouco mais que querer";
-			mes "para se juntar a nós. ";
-			mes "Há um pequeno teste de qualificação...";
+			mes "No entanto, nÃ£o acolhemos";
+			mes "qualquer um para nossa sociedade.";
+			mes "VocÃª primeiro preÃ§isa passar por nosso";
+			mes "teste de qualificaÃ§Ã£o.";
 			next;
 			mes "[Tzerero]";
-			mes "Para provar sua paixão pela simplicidade da vida,";
-			mes "eu gostaria que você fosse atrás de monstros fáceis ";
-			mes "e trouxesse alguns itens comuns.";
-			mes "Hmm... Traga ^FF0000Mucos pegajosos^000000 e ^FF0000Resinas^000000";
-			mes "Que tal?";
+			mes "Para este teste, vocÃª vai precisar";
+			mes "trazer para mim alguns itens que";
+			mes "sÃ£o soltos de monstros";
+			mes "bem comuns.";
 			next;
 			mes "[Tzerero]";
-			mes "Junte 30 de cada um";
-			mes "e traga-os para mim.";
-			mes "Simples, não? Hahaha!";
+			mes "Hmmmm...";
+			mes "^FF000030 Mucos Pegajosos^000000";
+			mes "e ^FF000030 Resinas^000000";
+			mes "serÃ£o convenientes para testar a sua";
+			mes "habilidade em lutar contra inimigos fracos.";
+			next;
+			mes "[Tzerero]";
+			mes "AlÃ©m disso, o nÃºmero 30";
+			mes "Ã© significante. NÃ£o tem";
+			mes "nada de especial...Ã© sÃ³";
+			mes "um nÃºmero comum.";
+			mes "Hahahahaha~";
 			next;
 			set SUPNOV_Q,1;
 			setquest 6010;
 			mes "[Tzerero]";
-			mes "Boa sorte!";
+			mes "Boa sorte, meu amigo.";
 			close;
 		case 2:
 			mes "[Tzerero]";
-			mes "Ora, você ainda não percebeu a beleza";
-			mes "da vida humilde de um aprendiz.";
-			mes "Tudo bem, é o que você escolheu";
-			mes "para sua vida.";
+			mes "Bem, bem...eu creio que";
+			mes "a valorizaÃ§Ã£o da vida simples";
+			mes "Ã© difÃ­cil para vocÃª";
+			mes "para vocÃª compreender. EstÃ¡...tudo bem...";
+			mes "A vida Ã© sua.";
 			next;
 			mes "[Tzerero]";
-			mes "Se mudar de idéia,";
-			mes "me procure.";
+			mes "Mas, se alguma vez vocÃª ver";
+			mes "a luz da simplicidade, vocÃª";
+			mes "serÃ¡ bem vido me visitando";
+			mes "a qualquer hora...";
 			next;
 			mes "[Tzerero]";
-			mes "Ah... Talvez, quando o Clube crescer";
-			mes "ou se tornar mais influente,";
-			mes "As condições para juntar-se a nós sejam maiores,";
-			mes "quem sabe? Eu aconselho você";
-			mes "a se decidir logo.";
+			mes "Como nosso clube de Aprendizes";
+			mes "fica mais popular e";
+			mes "ganhamos mais seguidores,";
+			mes "nÃ³s poderÃ­amos um teste";
+			mes "um teste mais difÃ­cil...";
 			close;
 		case 3:
 			mes "[Tzerero]";
-			mes "Hum-hum, deixe-me contar algo sobre o clube.";
-			mes "O fundador do Clube do Aprendiz e";
-			mes "presidente de honra do clube,";
-			mes "Sr. Kimu-shon";
-			mes "se sente triste pelas pessoas terem";
-			mes "esquecido a beleza de uma vida de aprendizado...";
-			next;
-			mes "- 10 minutos depois -";
-			mes "- continua o sermão -";
-			mes "- de Tzerero -";
+			mes "Nossa Sociedade dos Aprendizes foi fundada";
+			mes "pelo legendÃ¡rio Senhor";
+			mes "Kimu-Shaun...talvez o";
+			mes "maior homem da nossa geraÃ§Ã£o.";
 			next;
 			mes "[Tzerero]";
-			mes "...e essa é a razão ";
-			mes "da existência do Clube do Aprendiz.";
-			mes "Se o Clube do Aprendiz crescer mais,";
-			mes "com certeza esses conceitos";
-			mes "vão virar perguntas de um teste de admissão.";
+			mes "Ele percebeu que havia";
+			mes "muito sofrimento no";
+			mes "mundo, especialmente entre";
+			mes "pessoas comuns de";
+			mes "Rune-Midgard...";
+			next;
+			mes "[Tzerero]";
+			mes "Ele aprendeu vÃ¡rias habilidades";
+			mes "de todas as diferentes pessoas";
+			mes "que conheceu...mas desde entÃ£o ele nÃ£o";
+			mes "fica em um lugar por muito tempo,";
+			mes "tornou-se o Cara de Todas as Barganhas...";
+			mes "...e um mestre do nada.";
+			next;
+			mes "[Tzerero]";
+			mes "Na partilha a dor do";
+			mes "homem comum, ele";
+			mes "se torna...";
+			mes "o homem comum";
+			mes "de sempre.";
+			next;
+			mes "[Tzerero]";
+			mes "Os membros da nossa sociedade";
+			mes "tentam viver como o Senhor";
+			mes "Kimu-Shaun faz, de acordo com";
+			mes "os principios que ele estabeleceram antes de nÃ³s...";
 			close;
 		}
-	} else {
-		if (BaseJob == Job_SuperNovice) {
+	}
+	else {
+		if (BaseJob == Job_Super_Novice) {
 			mes "[Tzerero]";
-			mes "Você é um membro do Clube do Aprendiz.";
-			mes "Você recebeu seu treinamento";
-			mes "e chegou próximo à perfeição.";
-			mes "Aprender é a sua profissão!";
+			mes "Como vocÃª gosta de viver";
+			mes "a vida simplesmente como um Super";
+			mes "Aprendiz? Tenho certeza que";
+			mes "vocÃª estÃ¡ aproveitando~";
 			next;
 			mes "[Tzerero]";
-			mes "Espero que você continue a aprender,";
-			mes "e promover a existência e";
-			mes "o talento de um Aprendiz.";
+			mes "Por favor creÃ§a como um Super";
+			mes "Aprendiz ajudando o";
+			mes "homem comum enquanto for";
+			mes "um, ao mesmo tempo...";
+			next;
+			mes "[Tzerero]";
+			mes "Eu te encorajo a";
+			mes "crescer como Super";
+			mes "Aprendiz, e ser";
+			mes "um exemplo vivendo";
+			mes "uma vida";
+			mes "excepcionalmente mundana.";
 			close;
 		}
 		mes "[Tzerero]";
-		mes "Hmm, você não é um Aprendiz.";
-		mes "Meu nome é Tzerero";
-		mes "e eu sou o encarregado do Clube do Aprendiz.";
+		mes "OlÃ¡, eu sou Tzerero,";
+		mes "o diretor executivo";
+		mes "extra oficial da Grande";
+		mes "Sociedade dos Aprendizes.";
 		next;
 		mes "[Tzerero]";
-		mes "Não há lugar em nosso clube,";
-		mes "para alguém como você, que já tem uma classe definida...";
-		mes "Agora que você já decidiu seu caminho na vida";
-		mes "não há mais como voltar atrás.";
-		mes "Por favor, compreenda nossa posicão.";
+		mes "Hmmm...vocÃª parace ser";
+		mes "uma pessoa bem acima da mÃ©dia.";
+		mes "Sim, vocÃª Ã© definitivamente mais";
+		mes "'extraordinÃ¡rio' do que";
+		mes "'normal...'";
 		next;
 		mes "[Tzerero]";
-		mes "Cada um tem que seguir seu próprio caminho.";
-		mes "São as diferenças que tornam a vida bonita.";
-		mes "Siga a vida que escolheu,";
-		mes "e seja feliz!";
+		mes "*Suspiro* Acho que vocÃª";
+		mes "nunca conseguirÃ¡ entender";
+		mes "nosso modo de vida, as";
+		mes "sutil grandeza em";
+		mes "ser normal. Mas";
+		mes "estÃ¡ estÃ¡ tudo bem.";
+		next;
+		mes "[Tzerero]";
+		mes "Bem ... hÃ¡ milhares";
+		mes "de pessoas diferentes neste";
+		mes "mundo, entÃ£o eu apenas tentar aceitar";
+		mes "todas as nossas diferenÃ§as.";
+		mes "Espero que vocÃª tambÃ©m.";
 		close;
 	}
 }
 
-aldeba_in,216,169,5	script	Esere#sn	86,{
+aldeba_in,216,169,5	script	Esseray#sn	86,{
 	if (Class == Job_Super_Novice_E || Class == Job_Super_Baby_E) {
-		mes "[Esere]";
-		mes "You! Stronger than before.";
-		mes "I knew you could pass the test~";
+		mes "[Esseray]";
+		mes "VocÃª! Mais forte do que antes.";
+		mes "Eu sabia que passaria no teste~";
 		close;
 	}
-	if (BaseJob == Job_SuperNovice) {
+	if (BaseJob == Job_Super_Novice) {
 		if (checkre(0))
 			callfunc "Esseray_Ex";
-		mes "[Esere]";
-		mes "Ei, você é um membro do Clube do Aprendiz!";
-		mes "E como está se sentindo com isso?";
-		mes "é muito bom ser um Super Aprendiz, não é?";
+		mes "[Esseray]";
+		mes "Hum? Ei, vocÃª Ã© um membro";
+		mes "da nossa grande Sociedade dos Aprendizes,";
+		mes "nÃ£o Ã©? Este clube nÃ£o";
+		mes "estÃ¡ melhor nunca?!";
 		next;
-		mes "[Esere]";
-		mes "Andar por aí, se divertindo e aprendendo...";
-		mes "Vivendo uma vida simples! Perfeito!";
-		mes "Eu sou um dos favoritos do nosso líder,";
-		mes "o Tzerero, conhece?!";
+		mes "[Essaray]";
+		mes "Vivendo a vida mundanamente,";
+		mes "de acordo com os princÃ­pios";
+		mes "do Senhor Kimu-Shaun...";
+		mes "Este Ã© o maior em ser normal!";
+		next;
+		mes "[Esseray]";
+		mes "Vamos tentar levar a nossa vida";
+		mes "o mais normal quanto pudermos!";
+		mes "Para o seu conhecimento, eu sou";
+		mes "o membro nÃºmero um,";
+		mes "abaixo do Senhor Tzerero";
+		mes "Ã© claro!";
 		close;
 	}
 	if (BaseJob == Job_Novice && Upper != 1) {
-		mes "[Esere]";
-		mes "Você ainda não viu a beleza";
-		mes "de viver uma vida humilde para sempre?";
-		mes "Poxa, veja! A vida pode ser pura diversão,";
-		mes "basta você querer. Hehe.";
+		mes "[Esseray]";
+		mes "Hah ~ vocÃª nÃ£o sabe nada";
+		mes "sobre ser uma pessoa normal ainda!";
+		mes "Porque nÃ£o se juntar Ã  nossa Sociedade";
+		mes "de Aprendizes? Este clube Ã© o melhor do mundo~";
 		next;
-		mes "[Esere]";
-		mes "Aprendizes são o máximo! Hahaha!";
+		mes "[Esseray]";
+		mes "Yup, Super Aprendizes";
+		mes "sÃ£o os melhores personagens!";
+		mes "Hahahahahahahaha!";
 		close;
 	}
 	else {
-		mes "[Esere]";
-		mes "Que pena, você se afastou da vida simples.";
-		mes "Agora é tarde demais,";
-		mes "não adianta se arrepender...";
-		mes "Bom, então você deve continuar com a vida que escolheu";
-		mes "cheia de regras e limitações. Bom... Foi escolha sua.";
+		mes "[Esseray]";
+		mes "Bah~! VocÃª Ã© melhor que";
+		mes "a mÃ©dia...Que coisa, vocÃª pode";
+		mes "atÃ© mesmo ser 'especial'.";
+		mes "Que vergonha! Bem...";
+		mes "Espero que vocÃª continue";
+		mes "a viver sua vida positivamente.";
 		close;
 	}
 }
 
-aldebaran,54,238,5	script	Recepcionista Kafra#sn	117,{
-	if (BaseJob == Job_SuperNovice) {
-		mes "[Recepcionista Kafra]";
+aldebaran,54,238,5	script	FuncionÃ¡ria Kafra#sn	117,{
+	if (BaseJob == Job_Super_Novice) {
+		mes "[FuncionÃ¡ria Kafra]";
 		if (Sex == SEX_MALE)
-			mes "Olá, Senhor Super Aprendiz~";
+			mes "OlÃ¡, Senhor Super Aprendiz~";
 		else
-			mes "Olá, Senhorita Super Aprendiz.";
-		mes "Hmm? Então você é um Super Aprendiz?";
-		mes "Como? Você está triste";
-		mes "porque as outras Kafras não deixam";
-		mes "que você alugue um carrinho?";
-		mes "Nah, não se preocupe mais com isso!";
+			mes "OlÃ¡, Madame Super Aprendiz!";
+		mes "VocÃª deve estar realmente";
+		mes "desapontado com as outras";
+		mes "FuncionÃ¡rias Kafra que nÃ£o lhe";
+		mes "permitiram alugar um carrinho delas.";
+		mes "Mas nÃ£o se preocupe agora...";
 		next;
-		mes "[Recepcionista Kafra]";
-		mes "Devido a insistentes pedidos,";
-		mes "nós criamos um carrinho especialmente";
-		mes "para os Super Aprendizes!";
-		mes "mas parece que a direção da Companhia das Kafras";
-		mes "não gostou muito da idéia.";
-		mes "Então temos que oferecer esse serviço secretamente... Hihi.";
+		mes "[FuncionÃ¡ria Kafra]";
+		mes "Eu estou aqui para da suporte a vocÃªs";
+		mes "provendo carrinhos...";
 		next;
-		mes "[Recepcionista Kafra]";
-		mes "Hihi, mas chega de papo!";
-		mes "Então, você vai querer alugar o carrinho?";
-		mes "A taxa é 1,900 zeny.";
+		mes "[FuncionÃ¡ria Kafra]";
+		mes "^3355FF*sussurros*^000000";
+		mes "^555555Eu nÃ£o estou fazendo isso";
+		mes "por causa que Ã© contra a";
+		mes "polÃ­tica da nossa compania. Mas eu";
+		mes "realmente senti pena dos Super Aprendizes";
+		mes "...entÃ£o aqui estou eu.^000000";
 		next;
-		if (select("Sim:Não, obrigado") == 1) {
-			mes "[Recepcionista Kafra]";
-			mes "Ah, você precisa verificar algo!";
-			mes "Você já aprendou a habilidade";
-			mes "Empurrar Carrinho?";
-			mes "Eu posso alugar o carrinho para você a qualquer momento,";
-			mes "mas se você não tiver aprendido essa habilidade,";
-			mes "você só vai desperdiçar seus preciosos zeny.";
+		mes "[FuncionÃ¡ria Kafra]";
+		mes "De qualquer forma, vocÃª gostarÃ­a de alugar um carrinho? O serviÃ§o custa 1.900 zeny.";
+		next;
+		if (select("Alugar um carrinho.:Cancelar.") == 1) {
+			mes "[FuncionÃ¡ria Kafra]";
+			mes "Ah, sÃ³ tem uma coisa...";
+			mes "VocÃª aprendeu a habilidade";
+			mes "'Usar Carrinho'? Eu sÃ³ posso alugar o";
+			mes "carrinho para vocÃª, mas se vocÃª ainda";
+			mes "nÃ£o aprendeu a usÃ¡-lo, vocÃª sÃ³";
+			mes "estarÃ¡ gastando seu dinheiro.";
 			next;
-			mes "[Recepcionista Kafra]";
-			mes "E lembre-se, isso é secreto.";
-			mes "Nunca comente sobre isso";
-			mes "com ninguém, ok?";
+			mes "[FuncionÃ¡ria Kafra]";
+			mes "EntÃ£o tenha certeza que vocÃª jÃ¡";
+			mes "possui a habilidade 'Usar Carrinho'.";
 			next;
-			if (select("Vou querer um!:Não, obrigado.") == 1) {
+			if (select("Alugar um carrinho.:Cancelar.") == 1) {
 				if (checkcart()) {
-					mes "[Recepcionista Kafra]";
-					mes "Você já têm um carrinho.";
-					mes "Volte quando precisar de mim!";
+					mes "[FuncionÃ¡ria Kafra]";
+					mes "Ah, vocÃª jÃ¡ tem um carrinho equipado.";
 					close;
 				}
-				if (Zeny >= 1899) {
+				if (Zeny > 1899) {
 					set RESRVPTS, RESRVPTS + 190;
 					set Zeny, Zeny-1900;
 					if (getskilllv("MC_PUSHCART") > 0) setcart;
-					mes "[Recepcionista Kafra]";
-					mes "[Recepcionista Kafra]";
-					mes "Muito obrigada pela preferência.";
-					mes "Mesmo não sendo oficial,";
-					mes "Eu sou uma Kafra e";
-					mes "é um prazer serví-lo!";
+					mes "[FuncionÃ¡ria Kafra]";
+					mes "Obrigado por usar meu serviÃ§o.";
+					mes "Embora o que eu estja fazendo";
+					mes "nÃ£o seja o que legÃ­tmamente as outras";
+					mes "FuncionÃ¡rias Kafra fazem, eu firmemente";
+					mes "acredito que esteja fazendo o certo para os personagens.";
 					close;
-				} else {
-					mes "[Recepcionista Kafra]";
-					mes "Você não tem dinheiro suficiente.";
-					mes "O preço pelo aluguel do carrinho é 1900 zeny.";
+				}
+				else {
+					mes "[FuncionÃ¡ria Kafra]";
+					mes "Eu sinto muito, mas nÃ£o tem zeny suficiente com vocÃª. O serviÃ§o custa 1.900 zeny.";
 					close;
 				}
 			}
-			mes "[Recepcionista Kafra]";
-			mes "Volte se mudar de idéia!";
+			mes "[FuncionÃ¡ria Kafra]";
+			mes "Por favor volte sempre.";
+			mes "Obrigado por usar meus serviÃ§os.";
 			close;
 		}
-		mes "[Recepcionista Kafra]";
-		mes "Volte se mudar de idéia!";
+		mes "[FuncionÃ¡ria Kafra]";
+		mes "Por favor volte sempre.";
+		mes "Obrigado por usar meus serviÃ§os.";
 		close;
 	}
-	mes "[Recepcionista Kafra]";
-	mes "Bem vindo! Err, me desculpe...";
-	mes "Acho que não posso fazer nada por você.";
-	mes "Por favor, procure";
-	mes "outra Kafra para ajudá-lo.";
+	mes "[FuncionÃ¡ria Kafra]";
+	mes "Bom di--Oopa...!";
+	mes "Eu nÃ£o acho que posso prover";
+	mes "os serviÃ§os que vocÃª quer...";
+	mes "Por favor fale com outra";
+	mes "FuncionÃ¡ria Kafra. Eu peÃ§o desculpas";
+	mes "por este incoveniente...";
 	close;
 }
 

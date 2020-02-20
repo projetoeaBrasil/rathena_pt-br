@@ -14,25 +14,29 @@
 //= 1.2 Made numbers into constants. [Vicious]
 //= 1.3 Now saves/restores all the quest skills [Lupus]
 //============================================================ 
+//===================== Tradu√ß√£o PT-BR ==========
+// Tradu√ß√£o: Weed0
+// Revisado: HD Scripts - Projeto eaBrasil
+//=============================================== 
 
 valkyrie,44,47,5	script	High Wizard#Valkyrie	735,{
 	if (ADVJOB == 0 ||  Upper != 1) {
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
 			mes "[High Wizard]";
-			mes "ParabÈns.";
+			mes "Parab√©ns.";
 			mes "Honra os guerreiros!";
 			close;
 		}
 		mes "[High Wizard]";
-		mes "NÛs Arquimagos temos";
+		mes "N√≥s Arquimagos temos";
 		mes "a responsabilidade de";
 		mes "usar nosso poder destrutivo";
 		mes "para o bem.";
 		next;
 		mes "[High Wizard]";
 		mes "Uma vida inteira de treinamento";
-		mes "È necess·ria antes de se tornar";
+		mes "√© necess√°ria antes de se tornar";
 		mes "um Arquimago. Voce pode imaginar";
 		mes "o que aconteceria se o nosso poder";
 		mes "for colocado em maos erradas?!";
@@ -41,7 +45,7 @@ valkyrie,44,47,5	script	High Wizard#Valkyrie	735,{
 	else if (ADVJOB == Job_High_Wizard && Class == Job_Mage_High && JobLevel > 39) {
 		mes "[High Wizard]";
 		mes "Chegou a hora.";
-		mes "E Rune-Midgard est·";
+		mes "E Rune-Midgard est√°";
 		mes "precisando daqueles que podem";
 		mes "exercer o poder da magia...";
 		next;
@@ -58,14 +62,14 @@ valkyrie,44,47,5	script	High Wizard#Valkyrie	735,{
 		}
 		if (SkillPoint) {
 			mes "[High Wizard]";
-			mes "Ainda È possÌvel que voce aprenda mais habilidades. Por favor, use";
+			mes "Ainda √© poss√≠vel que voce aprenda mais habilidades. Por favor, use";
 			mes "todos os seus Pontos de Habilidades antes de voltar a falar comigo.";
 			close;
 		}
 		jobchange Job_high_Wizard;
 		set ADVJOB,0;
 		mes "[High Wizard]";
-		mes "ParabÈns.";
+		mes "Parab√©ns.";
 		mes "Como um Arquimago,";
 		mes "espero que voce use";
 		mes "seus poderes para gerar";
@@ -79,7 +83,7 @@ valkyrie,44,47,5	script	High Wizard#Valkyrie	735,{
 	next;
 	mes "[High Wizard]";
 	mes "Por favor, sinta-se";
-	mes "confort·vel enquanto";
+	mes "confort√°vel enquanto";
 	mes "voce estiver aqui.";
 	mes "Honra os guerreiros.";
 	close;

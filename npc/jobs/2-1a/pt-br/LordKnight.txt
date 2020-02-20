@@ -14,40 +14,44 @@
 //= 1.2 Made numbers into constants. [Vicious]
 //= 1.3 Now saves/restores all the quest skills [Lupus]
 //============================================================ 
+//===================== Tradu√ß√£o PT-BR ==========
+// Tradu√ß√£o: Weed0
+// Revisado: HD Scripts - Projeto eaBrasil
+//=============================================== 
 
 valkyrie,44,39,5	script	Lord Knight#Valkyrie	56,{
 	if (ADVJOB == 0 || Upper != 1) {
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
 			mes "[Lord Knight]";
-			mes "ParabÈns.";
+			mes "Parab√©ns.";
 			mes "Honra aos guerreiros!";
 			close;
 		}
 		mes "[Lord Knight]";
-		mes "NÛs Cavaleiros temos uma";
+		mes "N√≥s Cavaleiros temos uma";
 		mes "enorme responsabilidade...";
 		mes "Para servir e proteger.";
 		next;
 		mes "[Lord Knight]";
 		mes "Mesmo se custar";
-		mes "de nossas prÛprias vidas,";
+		mes "de nossas pr√≥prias vidas,";
 		mes "temos de preservar o";
 		mes "bem-estar de nossos companheiros.";
 		close;
 	}
 	else if (ADVJOB == Job_Lord_Knight && Class == Job_Swordman_High && JobLevel > 39) {
 		mes "[Lord Knight]";
-		mes "… chegada a hora!";
+		mes "√â chegada a hora!";
 		mes "O mundo precisa de voce.";
-		mes "Por favor continue sua vÌda";
-		mes "de herÛi com uma nova aparencia.";
+		mes "Por favor continue sua v√≠da";
+		mes "de her√≥i com uma nova aparencia.";
 		next;
 		mes "[Lord Knight]";
 		mes "Voce gostaria de";
 		mes "se tornar um Lorde?";
 		next;
-		if (select("N„o.:Sim.") == 1) {
+		if (select("N√£o.:Sim.") == 1) {
 			mes "[Lord Knight]";
 			mes "Quando estiver pronto,";
 			mes "sinta-se a vontade para voltar.";
@@ -56,18 +60,18 @@ valkyrie,44,39,5	script	Lord Knight#Valkyrie	56,{
 		}
 		if (SkillPoint) {
 			mes "[Lord Knight]";
-			mes "Ainda È possÌvel que voce aprenda mais habilidades. Por favor, use";
+			mes "Ainda √© poss√≠vel que voce aprenda mais habilidades. Por favor, use";
 			mes "todos os seus Pontos de Habilidades antes de voltar a falar comigo.";
 			close;
 		}
 		jobchange Job_Lord_Knight;
 		set ADVJOB,0;
 		mes "[Lord Knight]";
-		mes "ParabÈns!";
+		mes "Parab√©ns!";
 		mes "Sendo um Lorde,";
-		mes "Eu acredito que voce ir·";
+		mes "Eu acredito que voce ir√°";
 		mes "ser a frente da batalha,";
-		mes "e levar seus aliados para a vitÛria!";
+		mes "e levar seus aliados para a vit√≥ria!";
 		close;
 	}
 	mes "[Lord Knight]";
@@ -77,7 +81,7 @@ valkyrie,44,39,5	script	Lord Knight#Valkyrie	56,{
 	next;
 	mes "[Lord Knight]";
 	mes "Por favor, sinta-se";
-	mes "confort·vel enquanto";
+	mes "confort√°vel enquanto";
 	mes "voce estiver aqui.";
 	mes "Honra os guerreiros.";
 	close;

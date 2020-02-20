@@ -14,13 +14,17 @@
 //= 1.2 Made numbers into constants. [Vicious]
 //= 1.3 Now saves/restores all the quest skills [Lupus]
 //============================================================ 
+//===================== TraduÃ§Ã£o PT-BR ==========
+// TraduÃ§Ã£o: Weed0
+// Revisado: HD Scripts - Projeto eaBrasil
+//=============================================== 
 
 valkyrie,44,50,5	script	MasterSmith#Valkyrie	731,{
 	if (ADVJOB == 0 || Upper != 1) {
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
 			mes "[MasterSmith]";
-			mes "Parabéns.";
+			mes "ParabÃ©ns.";
 			mes "Honra aos guerreiros!";
 			close;
 		}
@@ -28,13 +32,13 @@ valkyrie,44,50,5	script	MasterSmith#Valkyrie	731,{
 		mes "Ah...";
 		mes "O melhor em";
 		mes "forjar e o refinamento.";
-		mes "Esse é o trabalho";
+		mes "Esse Ã© o trabalho";
 		mes "do Mestre-Ferreiro.";
 		next;
 		mes "[MasterSmith]";
-		mes "Sendo um será";
+		mes "Sendo um serÃ¡";
 		mes "o melhor dos melhores,";
-		mes "você começará a forjar com";
+		mes "vocÃª comeÃ§arÃ¡ a forjar com";
 		mes "o objetivo de descobrir";
 		mes "novas e melhores formas de";
 		mes "forja...";
@@ -44,11 +48,11 @@ valkyrie,44,50,5	script	MasterSmith#Valkyrie	731,{
 		mes "[MasterSmith]";
 		mes "Chegou a hora!";
 		mes "Nosso mundo precisa de coragem,";
-		mes "e de esforçados aventureiros";
-		mes "como você...";
+		mes "e de esforÃ§ados aventureiros";
+		mes "como vocÃª...";
 		next;
 		mes "[MasterSmith]";
-		mes "Você gostaria de se tornar";
+		mes "VocÃª gostaria de se tornar";
 		mes "um Mestre-Ferreiro?";
 		next;
 		if (select("Nap.:Sim.") == 1) {
@@ -60,16 +64,16 @@ valkyrie,44,50,5	script	MasterSmith#Valkyrie	731,{
 		}
 		if (SkillPoint) {
 			mes "[MasterSmith]";
-			mes "Ainda é possível que você aprenda mais habilidades. Por favor, use";
+			mes "Ainda Ã© possÃ­vel que vocÃª aprenda mais habilidades. Por favor, use";
 			mes "todos os seus Pontos de Habilidades antes de voltar a falar comigo.";
 			close;
 		}
 		jobchange Job_Whitesmith;
 		set ADVJOB,0;
 		mes "[MasterSmith]";
-		mes "Parabéns!";
+		mes "ParabÃ©ns!";
 		mes "Sendo um Mestre-Ferreiro,";
-		mes "eu acredito que você irá construir";
+		mes "eu acredito que vocÃª irÃ¡ construir";
 		mes "um brilhante futuro";
 		mes "para Rune-Midgard.";
 		close;
@@ -81,8 +85,8 @@ valkyrie,44,50,5	script	MasterSmith#Valkyrie	731,{
 	next;
 	mes "[MasterSmith]";
 	mes "Por favor, sinta-se";
-	mes "confortável enquanto";
-	mes "você estiver aqui.";
+	mes "confortÃ¡vel enquanto";
+	mes "vocÃª estiver aqui.";
 	mes "Honra os guerreiros.";
 	close;
 }

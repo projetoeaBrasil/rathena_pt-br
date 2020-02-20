@@ -31,6 +31,10 @@
 //= 2.5 Added Quest Log commands. [Kisuka]
 //= 2.6 Removed the need for use of 'goto.' [L0ne_W0lf]
 //==========================================================
+//===================== Tradução PT-BR ==========
+// Tradução: Weed0
+// Revisado: HD Scripts - Projeto eaBrasil
+//=============================================== 
 
 prt_church,16,41,4	script	Alto Bispo#prst	60,{
 	// Uncomment the following 'if' statement to allow High Priests to assist Acolytes with the job change quest.

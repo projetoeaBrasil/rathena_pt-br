@@ -24,6 +24,8 @@
 //= 2.5 Added Quest Log commands. [Kisuka]
 //= 2.6 Removed the need for use of 'goto.' [L0ne_W0lf]
 //============================================================
+// Tradução PT-BR [Holy & lututuiBR]
+// Revisado em 09/04/2019 por [HD Scripts]
 
 
 // Ayealo

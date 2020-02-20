@@ -54,191 +54,195 @@
 //= 3.6 Removed the need for use of 'goto.' [L0ne_W0lf]
 //= 3.7 Modified the quest to renewal. [Vali] (Thanks to Muad_Dib for the necessary info).
 //============================================================
+//===================== TraduÃ§Ã£o PT-BR ==========
+// TraduÃ§Ã£o: Weed0
+// Revisado: HD Scripts - Projeto eaBrasil
+//=============================================== 
 
-// Notícias da antiga Guilda de Caçadores
+// NotÃ­cias da antiga Guilda de CaÃ§adores
 //============================================================ 
-in_hunter,99,99,4	script	Informações de Caçador#cac::CaçadorNotícia	4_F_JOB_HUNTER,{
-	mes "============ Notícia ============";
-	mes "Gostaríamos de informar que o local do teste de Caçador";
-	mes "foi transferido para ^ff0000Hugel^000000 na República Schwartzwald.";
+in_hunter,99,99,4	script	InformaÃ§Ãµes de CaÃ§ador#cac::CaÃ§adorNotÃ­cia	4_F_JOB_HUNTER,{
+	mes "============ NotÃ­cia ============";
+	mes "GostarÃ­amos de informar que o local do teste de CaÃ§ador";
+	mes "foi transferido para ^ff0000Hugel^000000 na RepÃºblica Schwartzwald.";
 	next;
-	mes "Agora você pode usar a companhia aérea de Hugel, então por favor utilize o dirigível para visitar Hugel.";
+	mes "Agora vocÃª pode usar a companhia aÃ©rea de Hugel, entÃ£o por favor utilize o dirigÃ­vel para visitar Hugel.";
 	next;
-	mes "Você irá encontrar o novo local do teste em ^ ff0000 Hugel 208 222 ^ 000000.";
+	mes "VocÃª irÃ¡ encontrar o novo local do teste em ^ ff0000 Hugel 208 222 ^ 000000.";
 	next;
-	mes "^804000(Você encontrou uma pequena linha escrita no final do anúncio.)^000000";
+	mes "^804000(VocÃª encontrou uma pequena linha escrita no final do anÃºncio.)^000000";
 	mes " ";
 	mes " ";
 	mes " ";
-	mes "Eu, o criador de Falcão também me mudei.";
+	mes "Eu, o criador de FalcÃ£o tambÃ©m me mudei.";
 	close;
 }
 
-pay_fild10,148,252,3	duplicate(CaçadorNotícia)	Local da Mudança de Classe#hu	4_BOARD3
+pay_fild10,148,252,3	duplicate(CaÃ§adorNotÃ­cia)	Local da MudanÃ§a de Classe#hu	4_BOARD3
 
-// Início atual da quest para o teste
+// InÃ­cio atual da quest para o teste
 //============================================================
-hu_in01,386,373,4	script	Caçadora da Guilda#cac	4_F_JOB_HUNTER,{
+hu_in01,386,373,4	script	CaÃ§adora da Guilda#cac	4_F_JOB_HUNTER,{
 	if (Upper == 1) {
-		mes "[Caçadora Sherin]";
-		mes "Como você tem estado? Já faz um longo tempo, não é?";
+		mes "[CaÃ§adora Sherin]";
+		mes "Como vocÃª tem estado? JÃ¡ faz um longo tempo, nÃ£o Ã©?";
 		next;
-		mes "[Caçadora Sherin]";
+		mes "[CaÃ§adora Sherin]";
 		mes "...Espere.";
-		mes "Oops! Me desculpe, eu poderia jurar que nós já nos conhecemos antes. Que estranho.";
+		mes "Oops! Me desculpe, eu poderia jurar que nÃ³s jÃ¡ nos conhecemos antes. Que estranho.";
 		close;
 	}
 	if (BaseJob == Job_Archer && JobLevel < 40) {
-		mes "[Caçadora Sherin]";
-		mes "Hã? Você não teve treinamento suficiente ainda como um Arqueiro. Para se tornar um caçador, você deve adquirir um certo nível de experiência primeiro como Arqueiro.";
+		mes "[CaÃ§adora Sherin]";
+		mes "HÃ£? VocÃª nÃ£o teve treinamento suficiente ainda como um Arqueiro. Para se tornar um caÃ§ador, vocÃª deve adquirir um certo nÃ­vel de experiÃªncia primeiro como Arqueiro.";
 		next;
-		mes "[Caçadora Sherin]";
-		mes "Vá para fora e treine um pouco mais. Você precisará ter pelo menos nível de classe 40 para se tornar um Caçador. Claro, você pode treinar mais do que isso, se quiser.";
+		mes "[CaÃ§adora Sherin]";
+		mes "VÃ¡ para fora e treine um pouco mais. VocÃª precisarÃ¡ ter pelo menos nÃ­vel de classe 40 para se tornar um CaÃ§ador. Claro, vocÃª pode treinar mais do que isso, se quiser.";
 		next;
-		mes "[Caçadora Sherin]";
-		mes "Até a próxima~";
+		mes "[CaÃ§adora Sherin]";
+		mes "AtÃ© a prÃ³xima~";
 		close;
 	}
 	if (SkillPoint) {
-		mes "[Caçadora Sherin]";
-		mes "Você não pode mudar de classe sem o uso de todos os seus pontos de habilidade. Por favor, use todos seus pontos de habilidade antes de mudar de classe~";
+		mes "[CaÃ§adora Sherin]";
+		mes "VocÃª nÃ£o pode mudar de classe sem o uso de todos os seus pontos de habilidade. Por favor, use todos seus pontos de habilidade antes de mudar de classe~";
 		close;
 	}
 	if (BaseClass == Job_Novice) {
-		mes "[Caçadora Sherin]";
-		mes "Você deve ser...";
-		mes "Um aprendiz? Uau, você tem um longo caminho pela frente. Eu acho que não há muito para você fazer aqui.";
+		mes "[CaÃ§adora Sherin]";
+		mes "VocÃª deve ser...";
+		mes "Um aprendiz? Uau, vocÃª tem um longo caminho pela frente. Eu acho que nÃ£o hÃ¡ muito para vocÃª fazer aqui.";
 		close;
 	}
 	else if (BaseClass == Job_Swordman) {
-		mes "[Caçadora Sherin]";
-		mes "Você escolheu o caminho da espada. Eu posso respeitar a força de sua lâmina. É claro que, de longe você não pode atirar sua espada contra os inimigos, você pode?";
+		mes "[CaÃ§adora Sherin]";
+		mes "VocÃª escolheu o caminho da espada. Eu posso respeitar a forÃ§a de sua lÃ¢mina. Ã‰ claro que, de longe vocÃª nÃ£o pode atirar sua espada contra os inimigos, vocÃª pode?";
 		close;
 	}
 	else if (BaseClass == Job_Mage) {
-		mes "[Caçadora Sherin]";
-		mes "Você escolheu o caminho da espada. Eu posso respeitar a força de sua lâmina. É claro que, de longe você não pode atirar sua espada contra os inimigos, você pode?";
+		mes "[CaÃ§adora Sherin]";
+		mes "VocÃª escolheu o caminho da espada. Eu posso respeitar a forÃ§a de sua lÃ¢mina. Ã‰ claro que, de longe vocÃª nÃ£o pode atirar sua espada contra os inimigos, vocÃª pode?";
 		close;
 	}
 	else if (BaseClass == Job_Acolyte) {
-		mes "[Caçadora Sherin]";
-		mes "Ah, uma pessoa que serve a Deus! Prazer em conhecê lo. Não há muitas pessoas como você que visitam este lugar ~ Hehe.";
+		mes "[CaÃ§adora Sherin]";
+		mes "Ah, uma pessoa que serve a Deus! Prazer em conhecÃª lo. NÃ£o hÃ¡ muitas pessoas como vocÃª que visitam este lugar ~ Hehe.";
 		close;
 	}
 	else if (BaseClass == Job_Merchant) {
-		mes "[Caçadora Sherin]";
+		mes "[CaÃ§adora Sherin]";
 		mes "Hum...";
-		mes "Como estão seus negócios, bem?";
+		mes "Como estÃ£o seus negÃ³cios, bem?";
 		close;
 	}
 	else if (BaseClass == Job_Thief) {
-		mes "[Caçadora Sherin]";
-		mes "Hã?!";
-		mes "Este avião não tem nada que vale a pena roubar ou alguém que vale a pena matar!";
+		mes "[CaÃ§adora Sherin]";
+		mes "HÃ£?!";
+		mes "Este aviÃ£o nÃ£o tem nada que vale a pena roubar ou alguÃ©m que vale a pena matar!";
 		close;
 	}
 	else if (BaseJob == Job_Dancer || BaseJob == Job_Bard) {
-		mes "[Caçadora Sherin]";
-		mes "Ufa ... às vezes é muito difícil ser um caçador, você sabe...";
-		mes "Então, como você gosta de sua vida boêmia? Sim, eu tenho inveja de você por ter tanta liberdade...";
+		mes "[CaÃ§adora Sherin]";
+		mes "Ufa ... Ã s vezes Ã© muito difÃ­cil ser um caÃ§ador, vocÃª sabe...";
+		mes "EntÃ£o, como vocÃª gosta de sua vida boÃªmia? Sim, eu tenho inveja de vocÃª por ter tanta liberdade...";
 		close;
 	}
 	else if (BaseJob == Job_Hunter) {
-		mes "[Caçadora Sherin]";
+		mes "[CaÃ§adora Sherin]";
 		mes "Oh~ "+strcharinfo(0)+"!!";
-		mes "Estou a muito tempo sem vê-lo ~ O que te traz aqui? O seu Falcão fugiu ou algo assim?";
+		mes "Estou a muito tempo sem vÃª-lo ~ O que te traz aqui? O seu FalcÃ£o fugiu ou algo assim?";
 		next;
-		mes "[Caçadora Sherin]";
-		mes "Eu realmente não tenho quaisquer aviso oficial da guilda no momento, então eu espero que você não tenha vindo aqui só para isso...";
+		mes "[CaÃ§adora Sherin]";
+		mes "Eu realmente nÃ£o tenho quaisquer aviso oficial da guilda no momento, entÃ£o eu espero que vocÃª nÃ£o tenha vindo aqui sÃ³ para isso...";
 		close;
 	}
 	else if (BaseJob == Job_Archer) {
 		if (SkillPoint) {
-			mes "[Caçadora Sherin]";
-			mes "Você não pode mudar de classe se você ainda possui pontos de habilidade não utilizados. Use os seus pontos de habilidade restantes antes de falar comigo.";
+			mes "[CaÃ§adora Sherin]";
+			mes "VocÃª nÃ£o pode mudar de classe se vocÃª ainda possui pontos de habilidade nÃ£o utilizados. Use os seus pontos de habilidade restantes antes de falar comigo.";
 			close;
 		}
 		else if (HNTR_Q == 17 && countitem(1007) == 0) {
-			mes "[Caçadora Sherin]";
-			mes "Hum... Fui informado de que você passou no teste. Mas você não tem o necessário 'Colar da Sabedoria (penetração)', que comprova a sua aprovação.";
+			mes "[CaÃ§adora Sherin]";
+			mes "Hum... Fui informado de que vocÃª passou no teste. Mas vocÃª nÃ£o tem o necessÃ¡rio 'Colar da Sabedoria (penetraÃ§Ã£o)', que comprova a sua aprovaÃ§Ã£o.";
 			next;
-			mes "[Caçadora Sherin]";
-			mes "Vou deixá-lo mudar de classe, mas você deve trazer de volta um 'Colar da Sabedoria (penetração),' não importa o que aconteça.";
+			mes "[CaÃ§adora Sherin]";
+			mes "Vou deixÃ¡-lo mudar de classe, mas vocÃª deve trazer de volta um 'Colar da Sabedoria (penetraÃ§Ã£o),' nÃ£o importa o que aconteÃ§a.";
 			close;
 		}
 		else if (HNTR_Q == 17 && countitem(1007) > 0 && JobLevel > 39) {
-			mes "[Caçadora Sherin]";
+			mes "[CaÃ§adora Sherin]";
 			mes "Nossa...?";
-			mes "Você passou";
+			mes "VocÃª passou";
 			mes "no teste?!";
-			mes "Parabéns~!!";
+			mes "ParabÃ©ns~!!";
 			next;
-			mes "[Caçadora Sherin]";
+			mes "[CaÃ§adora Sherin]";
 			mes "Pois bem,";
 			mes "Agora irei mudar";
-			mes "sua classe para Caçador~";
+			mes "sua classe para CaÃ§ador~";
 			next;
 			delitem 1007,1; // Colar da Sabedoria
-			mes "[Caçadora Sherin]";
-			mes "~Parabéns!";
-			mes "Você está ótimo como Caçador!!";
+			mes "[CaÃ§adora Sherin]";
+			mes "~ParabÃ©ns!";
+			mes "VocÃª estÃ¡ Ã³timo como CaÃ§ador!!";
 			.@joblvl = JobLevel;
 			completequest 4013;
 			callfunc "Job_Change",Job_Hunter;
 			callfunc "F_ClearJobVar";		// clears all job variables for the current player
 			next;
-			mes "[Caçadora Sherin]";
-			mes "Torne-se uma pessoa nobre e seja um digno representante da nossa guilda de Caçadores. Mostre seu amor pela natureza como um Caçador ~";
+			mes "[CaÃ§adora Sherin]";
+			mes "Torne-se uma pessoa nobre e seja um digno representante da nossa guilda de CaÃ§adores. Mostre seu amor pela natureza como um CaÃ§ador ~";
 			next;
-			mes "[Caçadora Sherin]";
-			mes "E também, aqui está um pequeno presente por todo o esforço que você teve. É meu claro ~";
+			mes "[CaÃ§adora Sherin]";
+			mes "E tambÃ©m, aqui estÃ¡ um pequeno presente por todo o esforÃ§o que vocÃª teve. Ã‰ meu claro ~";
 			if (.@joblvl > 49)
-				getitem 1718,1; // Arco de Caça
+				getitem 1718,1; // Arco de CaÃ§a
 			else
 				getitem 1710,1; // Besta [2]
 			close;
 		}
 		else if ((JobLevel > 39) && ((HNTR_Q == 0) || (HNTR_Q == 1))) {
 			if (HNTR_Q == 0) {
-				mes "[Caçadora Sherin]";
-				mes "Você é um Arqueiro! Parece que você está treinado o suficiente como um Arqueiro ... Você veio aqui para se tornar um Caçador, certo?";
+				mes "[CaÃ§adora Sherin]";
+				mes "VocÃª Ã© um Arqueiro! Parece que vocÃª estÃ¡ treinado o suficiente como um Arqueiro ... VocÃª veio aqui para se tornar um CaÃ§ador, certo?";
 				next;
-				switch(select("Sim. É para isso que eu estou aqui.:Quais são os requisitos para mudar de classe?:....Eu não quero me tornar um Caçador agora.")) {
+				switch(select("Sim. Ã‰ para isso que eu estou aqui.:Quais sÃ£o os requisitos para mudar de classe?:....Eu nÃ£o quero me tornar um CaÃ§ador agora.")) {
 				case 1:
-					mes "[Caçadora Sherin]";
+					mes "[CaÃ§adora Sherin]";
 					mes "Hehe~";
-					mes "Eu estava certo! Deixe-me colocá-lo na lista de candidatos. Vejamos ~*";
+					mes "Eu estava certo! Deixe-me colocÃ¡-lo na lista de candidatos. Vejamos ~*";
 					next;
-					mes "[Caçadora Sherin]";
-					mes "Hum... Vamos começar com a entrevista. Espere um momento e relaxe. Não precisa se preocupar, eu irei preparar tudo ~";
+					mes "[CaÃ§adora Sherin]";
+					mes "Hum... Vamos comeÃ§ar com a entrevista. Espere um momento e relaxe. NÃ£o precisa se preocupar, eu irei preparar tudo ~";
 					next;
-					mes "^3355FF*Reunindo e coletando papéis*^000000";
+					mes "^3355FF*Reunindo e coletando papÃ©is*^000000";
 					next;
 					mes "^3355FF*Vasculhando...*^000000";
 					next;
-					mes "[Caçadora Sherin]";
+					mes "[CaÃ§adora Sherin]";
 					mes "Ah!";
-					mes "Aqui estão elas: as perguntas da entrevista ~ Primeiro de tudo, meu nome é 'Sherin'. Prazer em conhecê-lo!";
+					mes "Aqui estÃ£o elas: as perguntas da entrevista ~ Primeiro de tudo, meu nome Ã© 'Sherin'. Prazer em conhecÃª-lo!";
 					next;
-					mes "[Caçadora Sherin]";
-					mes "Pois bem, vamos começar?";
+					mes "[CaÃ§adora Sherin]";
+					mes "Pois bem, vamos comeÃ§ar?";
 					next;
-					if (select("Sim~ vamos começar agora.:Não, eu volto mais tarde.") == 1) {
+					if (select("Sim~ vamos comeÃ§ar agora.:NÃ£o, eu volto mais tarde.") == 1) {
 						if (isbegin_quest(4000) == 0) {
 							setquest 4000;
 						}
-						mes "[Caçadora Sherin]";
-						mes "Ouça com atenção aos cenários que eu descrevo. Quando eu faço uma pergunta, você escolhe uma resposta. Muito simples, você não acha?";
+						mes "[CaÃ§adora Sherin]";
+						mes "OuÃ§a com atenÃ§Ã£o aos cenÃ¡rios que eu descrevo. Quando eu faÃ§o uma pergunta, vocÃª escolhe uma resposta. Muito simples, vocÃª nÃ£o acha?";
 						next;
-						mes "[Caçadora Sherin]";
-						mes "Eu só quero saber o você pensa sobre a vida, e porque você quer se tornar um Caçador, então não há necessidade de ficar nervoso.";
+						mes "[CaÃ§adora Sherin]";
+						mes "Eu sÃ³ quero saber o vocÃª pensa sobre a vida, e porque vocÃª quer se tornar um CaÃ§ador, entÃ£o nÃ£o hÃ¡ necessidade de ficar nervoso.";
 						next;
 					}
 					else {
-						mes "[Caçadora Sherin]";
+						mes "[CaÃ§adora Sherin]";
 						mes "Ok...";
 						mes "Volte";
-						mes "Quando você estiver pronto~";
+						mes "Quando vocÃª estiver pronto~";
 						close;
 					}
 					break;
@@ -251,252 +255,252 @@ hu_in01,386,373,4	script	Caçadora da Guilda#cac	4_F_JOB_HUNTER,{
 				}
 			}
 			else if (HNTR_Q == 1) {
-				mes "[Caçadora Sherin]";
+				mes "[CaÃ§adora Sherin]";
 				mes "Bem-vindo de volta...!";
-				mes "Certo, vamos começar com a entrevista. Desta vez, pense cuidadosamente sobre as respostas de cada pergunta.";
+				mes "Certo, vamos comeÃ§ar com a entrevista. Desta vez, pense cuidadosamente sobre as respostas de cada pergunta.";
 				next;
 			}
 			switch(.@selection) {
 			default:
-				mes "[Caçadora Sherin]";
-				mes "Então, vamos começar.";
+				mes "[CaÃ§adora Sherin]";
+				mes "EntÃ£o, vamos comeÃ§ar.";
 				next;
-				mes "[Caçadora Sherin]";
-				mes "Você é um Arqueiro, e não sabe onde você deve ir para caçar. O que você faz?";
+				mes "[CaÃ§adora Sherin]";
+				mes "VocÃª Ã© um Arqueiro, e nÃ£o sabe onde vocÃª deve ir para caÃ§ar. O que vocÃª faz?";
 				next;
-				switch(select("Grito bem alto perguntando onde devo ir.:Pergunto silenciosamente a alguém.:Ando sozinho e procuro um lugar.")) {
+				switch(select("Grito bem alto perguntando onde devo ir.:Pergunto silenciosamente a alguÃ©m.:Ando sozinho e procuro um lugar.")) {
 				case 2:
 				case 3:
 					.@hunter_t += 10;
 				default:
 					break;
 				}
-				mes "[Caçadora Sherin]";
-				mes "Assim que tiver decidido um lugar para caçar. Você vai caçar alguns monstros conhecidos como Hodes no deserto de Sograt..";
+				mes "[CaÃ§adora Sherin]";
+				mes "Assim que tiver decidido um lugar para caÃ§ar. VocÃª vai caÃ§ar alguns monstros conhecidos como Hodes no deserto de Sograt..";
 				next;
-				mes "[Caçadora Sherin]";
-				mes "Mas você está em Payon!!";
-				mes "Como você chegará ao deserto?";
+				mes "[CaÃ§adora Sherin]";
+				mes "Mas vocÃª estÃ¡ em Payon!!";
+				mes "Como vocÃª chegarÃ¡ ao deserto?";
 				next;
-				switch(select("Peço a um sacerdote para abrir um portal gratuitamente.:Uso o serviço da Kafra.:Vou caminhando com um amigo.")) {
+				switch(select("PeÃ§o a um sacerdote para abrir um portal gratuitamente.:Uso o serviÃ§o da Kafra.:Vou caminhando com um amigo.")) {
 				case 2:
 				case 3:
 					.@hunter_t += 10;
 				default:
 					break;
 				}
-				mes "[Caçadora Sherin]";
-				mes "Não há nenhum sacerdote para pedir a abertura de um portal, e nenhum amigo por perto para andar com você. Você deve usar o serviço da Kafra, mas você não tem Zeny!";
+				mes "[CaÃ§adora Sherin]";
+				mes "NÃ£o hÃ¡ nenhum sacerdote para pedir a abertura de um portal, e nenhum amigo por perto para andar com vocÃª. VocÃª deve usar o serviÃ§o da Kafra, mas vocÃª nÃ£o tem Zeny!";
 				next;
-				mes "[Caçadora Sherin]";
-				mes "Como você irá";
+				mes "[CaÃ§adora Sherin]";
+				mes "Como vocÃª irÃ¡";
 				mes "fazer para conseguir";
 				mes "a quantia de Zenys que precisa?";
 				next;
-				switch(select("Mendigando aqui e ali.:Vendendo os itens que não preciso.:Caço em um lugar por perto.")) {
+				switch(select("Mendigando aqui e ali.:Vendendo os itens que nÃ£o preciso.:CaÃ§o em um lugar por perto.")) {
 				case 2:
 				case 3:
 					.@hunter_t += 10;
 				default:
 					break;
 				}
-				mes "[Caçadora Sherin]";
-				mes "Então, você finalmente chegou ao deserto de Sograt. Mas você percebe que os Hodes são muito fortes para você caçar sozinho.";
+				mes "[CaÃ§adora Sherin]";
+				mes "EntÃ£o, vocÃª finalmente chegou ao deserto de Sograt. Mas vocÃª percebe que os Hodes sÃ£o muito fortes para vocÃª caÃ§ar sozinho.";
 				next;
-				mes "[Caçadora Sherin]";
-				mes "Qual é a sua";
-				mes "solução para resolver";
-				mes "essa situação?";
+				mes "[CaÃ§adora Sherin]";
+				mes "Qual Ã© a sua";
+				mes "soluÃ§Ã£o para resolver";
+				mes "essa situaÃ§Ã£o?";
 				next;
 				if (select("Ataco um Hode de cima do topo de uma colina.:Volto para a cidade.:Ataco o Hode junto com outra pessoa.") == 2)
 					.@hunter_t += 10;
-				mes "[Caçadora Sherin]";
-				mes "Vamos dizer que você estava tendo muito trabalho em caçar os Hodes e  teve que voltar para a cidade. Agora você está com pouco HP e um sacerdote passa do seu lado. Como você pediria uma Cura?";
+				mes "[CaÃ§adora Sherin]";
+				mes "Vamos dizer que vocÃª estava tendo muito trabalho em caÃ§ar os Hodes e  teve que voltar para a cidade. Agora vocÃª estÃ¡ com pouco HP e um sacerdote passa do seu lado. Como vocÃª pediria uma Cura?";
 				next;
-				if (select("É possível que você me cure?:Cura, por favor.:Cure me.") == 1)
+				if (select("Ã‰ possÃ­vel que vocÃª me cure?:Cura, por favor.:Cure me.") == 1)
 					.@hunter_t += 10;
-				mes "[Caçadora Sherin]";
-				mes "Por sorte, você encontrou um item raro, enquanto você estava vendo seu inventário. Você sai para vender o item, e há muitas pessoas com lojas e salas abertas.";
+				mes "[CaÃ§adora Sherin]";
+				mes "Por sorte, vocÃª encontrou um item raro, enquanto vocÃª estava vendo seu inventÃ¡rio. VocÃª sai para vender o item, e hÃ¡ muitas pessoas com lojas e salas abertas.";
 				next;
-				mes "[Caçadora Sherin]";
-				mes "Qual é a";
+				mes "[CaÃ§adora Sherin]";
+				mes "Qual Ã© a";
 				mes "melhor maneira para";
 				mes "vender seu item?";
 				next;
-				switch(select("Grito bem alto para todos em vista escutarem:. Abro uma sala de conversas e espero.:Olho e vejo se alguém está procurando pelo item.")) {
+				switch(select("Grito bem alto para todos em vista escutarem:. Abro uma sala de conversas e espero.:Olho e vejo se alguÃ©m estÃ¡ procurando pelo item.")) {
 				case 2:
 				case 3:
 					.@hunter_t += 10;
 				default:
 					break;
 				}
-				mes "[Caçadora Sherin]";
-				mes "Enquanto você está esperando, alguém está implorando por itens e zeny. O que você deve fazer?";
+				mes "[CaÃ§adora Sherin]";
+				mes "Enquanto vocÃª estÃ¡ esperando, alguÃ©m estÃ¡ implorando por itens e zeny. O que vocÃª deve fazer?";
 				next;
-				if (select("Dou alguns de meus itens e zenys.:Ignoro e vou embora.:Falo a pessoa sobre um bom lugar para caçar.") == 1)
+				if (select("Dou alguns de meus itens e zenys.:Ignoro e vou embora.:Falo a pessoa sobre um bom lugar para caÃ§ar.") == 1)
 					.@hunter_t += 10;
-				mes "[Caçadora Sherin]";
-				mes "Agora, você decide ir para o labirinto por conta própria.";
+				mes "[CaÃ§adora Sherin]";
+				mes "Agora, vocÃª decide ir para o labirinto por conta prÃ³pria.";
 				next;
-				mes "[Caçadora Sherin]";
-				mes "Mas em seu caminho, você encontra";
-				mes "alguém que está perdido.";
-				mes "O que você deve fazer?";
+				mes "[CaÃ§adora Sherin]";
+				mes "Mas em seu caminho, vocÃª encontra";
+				mes "alguÃ©m que estÃ¡ perdido.";
+				mes "O que vocÃª deve fazer?";
 				next;
-				switch(select("Digo a ele qual caminho deve seguir.:O guio até seu destino.:Ignoro.")) {
+				switch(select("Digo a ele qual caminho deve seguir.:O guio atÃ© seu destino.:Ignoro.")) {
 				case 1:
 				case 2:
 					.@hunter_t += 10;
 				default:
 					break;
 				}
-				mes "[Caçadora Sherin]";
-				mes "Depois de encontrar esta pessoa perdida, você decide voltar para a caça. Só então, você descobre que alguém está atacando um monstro chefe!";
+				mes "[CaÃ§adora Sherin]";
+				mes "Depois de encontrar esta pessoa perdida, vocÃª decide voltar para a caÃ§a. SÃ³ entÃ£o, vocÃª descobre que alguÃ©m estÃ¡ atacando um monstro chefe!";
 				next;
-				mes "[Caçadora Sherin]";
-				mes "O que você deve fazer??";
+				mes "[CaÃ§adora Sherin]";
+				mes "O que vocÃª deve fazer??";
 				next;
 				if (select("Assisto, em seguida ataco quando pedir ajuda.:Ataco e vejo o que acontece.:Volto para a cidade.") == 1)
 					.@hunter_t += 10;
-				mes "[Caçadora Sherin]";
-				mes "Você agora está muito exausto após um dia de caça. É hora de voltar para a cidade.";
+				mes "[CaÃ§adora Sherin]";
+				mes "VocÃª agora estÃ¡ muito exausto apÃ³s um dia de caÃ§a. Ã‰ hora de voltar para a cidade.";
 				next;
-				mes "[Caçadora Sherin]";
-				mes "Mas o que é isso? Você encontra um item caro jogado no chão! O que você deve fazer com ele?";
+				mes "[CaÃ§adora Sherin]";
+				mes "Mas o que Ã© isso? VocÃª encontra um item caro jogado no chÃ£o! O que vocÃª deve fazer com ele?";
 				next;
-				switch(select("Apanho e guardo.:Tento encontrar o dono.:Apenas passo próximo ao item.")) {
+				switch(select("Apanho e guardo.:Tento encontrar o dono.:Apenas passo prÃ³ximo ao item.")) {
 				case 2:
 				case 3:
 					.@hunter_t += 10;
 				default:
 					break;
 				}
-				mes "[Caçadora Sherin]";
-				mes "Ok, esse é o fim do teste!";
+				mes "[CaÃ§adora Sherin]";
+				mes "Ok, esse Ã© o fim do teste!";
 				next;
 				if (.@hunter_t == 100) {
 					HNTR_Q = 2;
 					changequest 4000,4001;
-					mes "[Caçadora Sherin]";
-					mes "Bom trabalho! Suas respostas mostram que você tem a visão certa da vida. Você definitivamente tem as qualidades certas para se tornar um Caçador~";
+					mes "[CaÃ§adora Sherin]";
+					mes "Bom trabalho! Suas respostas mostram que vocÃª tem a visÃ£o certa da vida. VocÃª definitivamente tem as qualidades certas para se tornar um CaÃ§ador~";
 					next;
-					mes "[Caçadora Sherin]";
-					mes "Eu estou contente em dizer que você passou na entrevista. ~ Agora, vá até essa pessoa no canto e confirme qual o item é necessário para o teste de mudança de classe~";
+					mes "[CaÃ§adora Sherin]";
+					mes "Eu estou contente em dizer que vocÃª passou na entrevista. ~ Agora, vÃ¡ atÃ© essa pessoa no canto e confirme qual o item Ã© necessÃ¡rio para o teste de mudanÃ§a de classe~";
 					close;
 				}
 				else if (.@hunter_t == 90) {
 					HNTR_Q = 2;
 					changequest 4000,4001;
-					mes "[Caçadora Sherin]";
-					mes "Bem, eu estou olhando para as suas respostas e sua pontuação não é perfeita. Mas eu vou deixar você passar de qualquer maneira. Mas, eu não sei o que o nosso líder vai pensar a respeito.";
+					mes "[CaÃ§adora Sherin]";
+					mes "Bem, eu estou olhando para as suas respostas e sua pontuaÃ§Ã£o nÃ£o Ã© perfeita. Mas eu vou deixar vocÃª passar de qualquer maneira. Mas, eu nÃ£o sei o que o nosso lÃ­der vai pensar a respeito.";
 					next;
-					mes "[Caçadora Sherin]";
-					mes "Apenas lembre-se sempre de manter em mente as regras básicas de etiqueta. Tente seguir os testes difíceis e me deixe feliz, ok?";
+					mes "[CaÃ§adora Sherin]";
+					mes "Apenas lembre-se sempre de manter em mente as regras bÃ¡sicas de etiqueta. Tente seguir os testes difÃ­ceis e me deixe feliz, ok?";
 					close;
 				}
 				HNTR_Q = 1;
-				mes "[Caçadora Sherin]";
-				mes "Hum... Eu acho que isso não irá funcionar. Você não pode se tornar um Caçador sem conhecer as regras básicas de etiqueta.";
+				mes "[CaÃ§adora Sherin]";
+				mes "Hum... Eu acho que isso nÃ£o irÃ¡ funcionar. VocÃª nÃ£o pode se tornar um CaÃ§ador sem conhecer as regras bÃ¡sicas de etiqueta.";
 				next;
-				mes "[Caçadora Sherin]";
-				mes "Pense em como você responde às perguntas mais uma vez. Não valorize apenas a natureza, primeiro você deve valorizar o seu relacionamento com os outros.";
+				mes "[CaÃ§adora Sherin]";
+				mes "Pense em como vocÃª responde Ã s perguntas mais uma vez. NÃ£o valorize apenas a natureza, primeiro vocÃª deve valorizar o seu relacionamento com os outros.";
 				next;
-				mes "[Caçadora Sherin]";
-				mes "Então, você estará mais em sintonia com a natureza e com outras pessoas. É esse tipo de harmonia que cria os melhores caçadores.";
+				mes "[CaÃ§adora Sherin]";
+				mes "EntÃ£o, vocÃª estarÃ¡ mais em sintonia com a natureza e com outras pessoas. Ã‰ esse tipo de harmonia que cria os melhores caÃ§adores.";
 				close;
 			case 2:
-				mes "[Caçadora Sherin]";
+				mes "[CaÃ§adora Sherin]";
 				mes "Requerimentos para";
-				mes "mudança de classe?";
+				mes "mudanÃ§a de classe?";
 				mes "Primeiro...";
-				mes "Você deve ser um arqueiro.";
+				mes "VocÃª deve ser um arqueiro.";
 				next;
-				mes "[Caçadora Sherin]";
+				mes "[CaÃ§adora Sherin]";
 				mes "Segundo...";
-				mes "Você deve possuir";
-				mes "no mínimigo Nível de Classe 40.";
+				mes "VocÃª deve possuir";
+				mes "no mÃ­nimigo NÃ­vel de Classe 40.";
 				next;
-				mes "[Caçadora Sherin]";
+				mes "[CaÃ§adora Sherin]";
 				mes "Terceiro...";
-				mes "Você deve trazer todos os itens que serão solicitados pela guilda. Você pode se preocupar com isso mais tarde.";
+				mes "VocÃª deve trazer todos os itens que serÃ£o solicitados pela guilda. VocÃª pode se preocupar com isso mais tarde.";
 				next;
-				mes "[Caçadora Sherin]";
+				mes "[CaÃ§adora Sherin]";
 				mes "Quarto...";
-				mes "Você tem que passar no teste administrado pela corporação. Se você já teve bastante treinamento como um Arqueiro, você deve ser capaz de passar no teste~";
+				mes "VocÃª tem que passar no teste administrado pela corporaÃ§Ã£o. Se vocÃª jÃ¡ teve bastante treinamento como um Arqueiro, vocÃª deve ser capaz de passar no teste~";
 				close;
 			case 3:
-				mes "[Caçadora Sherin]";
-				mes "Ok, então,";
-				mes "até a próxima~";
+				mes "[CaÃ§adora Sherin]";
+				mes "Ok, entÃ£o,";
+				mes "atÃ© a prÃ³xima~";
 				close;
 			}
 		}
 		else if (HNTR_Q > 2 && HNTR_Q < 10) {
-			mes "[Caçadora Sherin]";
-			mes "Basta dar o item para a Caçador de Demônio, ele está no caminho para a esquerda nesta área~";
+			mes "[CaÃ§adora Sherin]";
+			mes "Basta dar o item para a CaÃ§ador de DemÃ´nio, ele estÃ¡ no caminho para a esquerda nesta Ã¡rea~";
 			next;
-			mes "[Caçadora Sherin]";
-			mes "Se você decidir se tornar um caçador,"+((Sex)?" prometa vir me visitar. Eu quero ver você como um Caçador. Você estará ótimo..! ":" Venha me visitar, ok? Você é bonita, mas... Você ficará ainda mais bonita como uma caçadora. Hehe ~")+"";
+			mes "[CaÃ§adora Sherin]";
+			mes "Se vocÃª decidir se tornar um caÃ§ador,"+((Sex)?" prometa vir me visitar. Eu quero ver vocÃª como um CaÃ§ador. VocÃª estarÃ¡ Ã³timo..! ":" Venha me visitar, ok? VocÃª Ã© bonita, mas... VocÃª ficarÃ¡ ainda mais bonita como uma caÃ§adora. Hehe ~")+"";
 			close;
 		}
 		else if (HNTR_Q == 2) {
-			mes "[Caçadora Sherin]";
+			mes "[CaÃ§adora Sherin]";
 			mes "????";
 			next;
-			mes "[Caçadora Sherin]";
-			mes "Você não foi capaz de encontrar o Caçador de Demônio? Ele está localizado a esquerda! Hehe~";
+			mes "[CaÃ§adora Sherin]";
+			mes "VocÃª nÃ£o foi capaz de encontrar o CaÃ§ador de DemÃ´nio? Ele estÃ¡ localizado a esquerda! Hehe~";
 			next;
-			mes "[Caçadora Sherin]";
-			mes "Eu quero ver você se tornar um Caçador...! Aaaah ~, por favor apresse-se!";
+			mes "[CaÃ§adora Sherin]";
+			mes "Eu quero ver vocÃª se tornar um CaÃ§ador...! Aaaah ~, por favor apresse-se!";
 			close;
 		}
-		mes "[Caçadora Sherin]";
-		mes "Hum, eu acho que você deve visitar alguém, não eu. Provavelmente o nosso líder que está fora a negócios, o que acha?";
+		mes "[CaÃ§adora Sherin]";
+		mes "Hum, eu acho que vocÃª deve visitar alguÃ©m, nÃ£o eu. Provavelmente o nosso lÃ­der que estÃ¡ fora a negÃ³cios, o que acha?";
 		next;
-		mes "[Caçadora Sherin]";
-		mes "Ouvi dizer que ele está no Palácio Central de Payon... Ou na Vila dos Arqueiros, um desses dois lugares. Tente visitar esses lugares e encontrá-lo, ok?";
+		mes "[CaÃ§adora Sherin]";
+		mes "Ouvi dizer que ele estÃ¡ no PalÃ¡cio Central de Payon... Ou na Vila dos Arqueiros, um desses dois lugares. Tente visitar esses lugares e encontrÃ¡-lo, ok?";
 		close;
 	}
-	mes "[Caçadora Sherin]";
-	mes "Eh? Você não treinou o suficiente como um Arqueiro. Para se tornar um caçador, você precisa ganhar mais experiência primeiro como um Arqueiro.";
+	mes "[CaÃ§adora Sherin]";
+	mes "Eh? VocÃª nÃ£o treinou o suficiente como um Arqueiro. Para se tornar um caÃ§ador, vocÃª precisa ganhar mais experiÃªncia primeiro como um Arqueiro.";
 	next;
-	mes "[Caçadora Sherin]";
-	mes "Vá treinar mais um pouco. Você precisará ter pelo menos nível de classe 40 para se tornar um Caçador. Claro, você pode treinar mais do que isso, se quiser~";
+	mes "[CaÃ§adora Sherin]";
+	mes "VÃ¡ treinar mais um pouco. VocÃª precisarÃ¡ ter pelo menos nÃ­vel de classe 40 para se tornar um CaÃ§ador. Claro, vocÃª pode treinar mais do que isso, se quiser~";
 	close;
 }
 
 hu_in01,382,382,4	script	Guild Receptionist#hnt	4_M_JOB_HUNTER,{
 	if (HNTR_Q == 2) {
 		mes "[Recepcionista da Guilda]";
-		mes "Saudações. Eles me chamam... de ^660000O Caçador de Demônio^000000. Eu sou o encarregado pelas aplicações de classe. Seu nome é... "+strcharinfo(0)+", correto?";
+		mes "SaudaÃ§Ãµes. Eles me chamam... de ^660000O CaÃ§ador de DemÃ´nio^000000. Eu sou o encarregado pelas aplicaÃ§Ãµes de classe. Seu nome Ã©... "+strcharinfo(0)+", correto?";
 		next;
-		.@selection = select("Sim, está correto.:Não~~(heeheehee)");
+		.@selection = select("Sim, estÃ¡ correto.:NÃ£o~~(heeheehee)");
 		if (.@selection == 2) {
-			mes "[Caçador de Demônio]";
+			mes "[CaÃ§ador de DemÃ´nio]";
 			mes "Ei, pare de brincar.";
-			mes "Seu nome é "+strcharinfo(0)+", certo?";
+			mes "Seu nome Ã© "+strcharinfo(0)+", certo?";
 			next;
-			if (select("Sim...:Hehehe. Eu continuo dizendo, não está~~") == 1) {
-				mes "[Caçador de Demônio]";
-				mes "Ok, então. Estes são os itens que você precisa para o teste. Como nós fornecemos todas as flechas necessárias que você irá usar no teste, precisamos que você colete os materiais para criá-las.";
+			if (select("Sim...:Hehehe. Eu continuo dizendo, nÃ£o estÃ¡~~") == 1) {
+				mes "[CaÃ§ador de DemÃ´nio]";
+				mes "Ok, entÃ£o. Estes sÃ£o os itens que vocÃª precisa para o teste. Como nÃ³s fornecemos todas as flechas necessÃ¡rias que vocÃª irÃ¡ usar no teste, precisamos que vocÃª colete os materiais para criÃ¡-las.";
 				next;
-				mes "[Caçador de Demônio]";
-				mes "Você vê, estamos tendo alguns problemas financeiros. Vejamos, estamos escasso destes itens...";
+				mes "[CaÃ§ador de DemÃ´nio]";
+				mes "VocÃª vÃª, estamos tendo alguns problemas financeiros. Vejamos, estamos escasso destes itens...";
 				next;
 			}
 			else {
-				mes "[Caçador de Demônio]";
-				mes "Saia se você pretende brincar comigo utilizando seus truques mesquinhos. Você não percebe que você está brincando com o ^660000O Caçador de Demônio^000000?!'";
+				mes "[CaÃ§ador de DemÃ´nio]";
+				mes "Saia se vocÃª pretende brincar comigo utilizando seus truques mesquinhos. VocÃª nÃ£o percebe que vocÃª estÃ¡ brincando com o ^660000O CaÃ§ador de DemÃ´nio^000000?!'";
 				close2;
 				warp "hugel",208,223;
 				end;
 			}
 		}
-		mes "[Caçador de Demônio]";
-		mes "Ok. Estes são os itens que você precisa para o teste. Como nós fornecemos todas as flechas que você irá utilizar para este teste, precisamos que você colete os materiais para criá-las.";
+		mes "[CaÃ§ador de DemÃ´nio]";
+		mes "Ok. Estes sÃ£o os itens que vocÃª precisa para o teste. Como nÃ³s fornecemos todas as flechas que vocÃª irÃ¡ utilizar para este teste, precisamos que vocÃª colete os materiais para criÃ¡-las.";
 		next;
-		mes "[Caçador de Demônio]";
-		mes "Você vê, estamos tendo alguns problemas financeiros. Vejamos, estamos escasso destes itens...";
+		mes "[CaÃ§ador de DemÃ´nio]";
+		mes "VocÃª vÃª, estamos tendo alguns problemas financeiros. Vejamos, estamos escasso destes itens...";
 		next;
 		if (RENEWAL) .@i = 1;
 		switch(rand(1,7)) {
@@ -506,25 +510,25 @@ hu_in01,382,382,4	script	Guild Receptionist#hnt	4_M_JOB_HUNTER,{
 		case 2: setarray .@items[0], 925,3, 932,5, 511,3, 4; changequest 4001,4003; break;
 		// Canino Venenoso, Pele de Animal, Erva Vermelha
 		case 3: setarray .@items[0], (.@i?1013:937),3, 919,3, 507,5, 5; changequest 4001,4004; break;
-		// Chifre de Dokebi, Pedaço de Casca de Ovo, Felpa
+		// Chifre de Dokebi, PedaÃ§o de Casca de Ovo, Felpa
 		case 4: setarray .@items[0], (.@i?947:1021),3, (.@i?7033:7032),3, 914,10, 6; changequest 4001,4005; break;
 		// Casca, Pele de Verme, Erva Amarela
 		case 5: setarray .@items[0], 935,9, 955,9, 508,9, 7; changequest 4001,4006; break;
 		// Dente de Morcego, Muco Pegajoso, Pata de Urso
 		case 6: setarray .@items[0], 913,3, 938,1, 948,1, 8; changequest 4001,4007; break;
-		// Espinho de Porco Espinho, Cauda de Yoyo, Avelã
+		// Espinho de Porco Espinho, Cauda de Yoyo, AvelÃ£
 		case 7: setarray .@items[0], 1027,2, 942,1, 1026,1, 9; changequest 4001,4008; break;
 		}
 		if (.@selection == 1) {
-			mes "[Caçador de Demônio]";
-			mes "Hum. ^660000"+.@items[1]+" "+getitemname(.@items[0])+"^000000 para usar na ponta das flechas. ^660000"+.@items[3]+" "+getitemname(.@items[2])+"^000000 para usar aqui e lá. E ^660000"+.@items[5]+" "+getitemname(.@items[4])+"^000000 por favor.";
+			mes "[CaÃ§ador de DemÃ´nio]";
+			mes "Hum. ^660000"+.@items[1]+" "+getitemname(.@items[0])+"^000000 para usar na ponta das flechas. ^660000"+.@items[3]+" "+getitemname(.@items[2])+"^000000 para usar aqui e lÃ¡. E ^660000"+.@items[5]+" "+getitemname(.@items[4])+"^000000 por favor.";
 			HNTR_Q = .@items[6];
 			next;
-			mes "[Caçador de Demônio]";
-			mes "Ah, certo. Nosso líder foi a uma viagem oficial à Palácio Central de Payon. Você tem que ir visitá-lo, porque é ele quem administra o teste.";
+			mes "[CaÃ§ador de DemÃ´nio]";
+			mes "Ah, certo. Nosso lÃ­der foi a uma viagem oficial Ã  PalÃ¡cio Central de Payon. VocÃª tem que ir visitÃ¡-lo, porque Ã© ele quem administra o teste.";
 			next;
-			mes "[Caçador de Demônio]";
-			mes "Certo então, volte aqui quando você tiver tudo pronto~";
+			mes "[CaÃ§ador de DemÃ´nio]";
+			mes "Certo entÃ£o, volte aqui quando vocÃª tiver tudo pronto~";
 		}
 		close;
 	}
@@ -535,23 +539,23 @@ hu_in01,382,382,4	script	Guild Receptionist#hnt	4_M_JOB_HUNTER,{
 		case 3: setarray .@items[0], (.@i?928:7030),5, 1019,5, 509,3, 10; break;
 		// Bico de Ave, Osso, Erva Verde
 		case 4: setarray .@items[0], 925,3, 932,5, 511,3, 10; break;
-		// Casco Arco-Íris / Canino Venenoso, Pele de Animal, Erva Vermelha
+		// Casco Arco-Ãris / Canino Venenoso, Pele de Animal, Erva Vermelha
 		case 5: setarray .@items[0], (.@i?1013:937),3, 919,3, 507,5, 10; break;
-		// Chifre / Chifre de Dokebi, Esporo Venenoso / Pedaço de Casca de Ovo, Felpa
+		// Chifre / Chifre de Dokebi, Esporo Venenoso / PedaÃ§o de Casca de Ovo, Felpa
 		case 6: setarray .@items[0], (.@i?947:1021),3, (.@i?7033:7032),3, 914,10, 10; break;
 		// Casca, Pele de Verme, Erva Amarela
 		case 7: setarray .@items[0], 935,9, 955,9, 508,9, 11; break;
 		// Dente de Morcego, Muco Pegajoso, Pata de Urso
 		case 8: setarray .@items[0], 913,3, 938,1, 948,1, 11; break;
-		// Espinho de Porco Espinho, Cauda de Yoyo, Avelã
+		// Espinho de Porco Espinho, Cauda de Yoyo, AvelÃ£
 		case 9: setarray .@items[0], 1027,2, 942,1, 1026,1, 11; break;
 		}
-		mes "[Caçador de Demônio]";
+		mes "[CaÃ§ador de DemÃ´nio]";
 		mes "Hmm?";
 		next;
 		if (countitem(.@items[0]) >= .@items[1] && countitem(.@items[2]) >= .@items[3] && countitem(.@items[4]) >= .@items[5]) {
-			mes "[Caçador de Demônio]";
-			mes "Você trouxe todos os materiais necessários ... Você pode obter instruções para a área de testes do nosso líder que está atualmente no Palácio Central de Payon.";
+			mes "[CaÃ§ador de DemÃ´nio]";
+			mes "VocÃª trouxe todos os materiais necessÃ¡rios ... VocÃª pode obter instruÃ§Ãµes para a Ã¡rea de testes do nosso lÃ­der que estÃ¡ atualmente no PalÃ¡cio Central de Payon.";
 			HNTR_Q = .@items[6];
 			if (isbegin_quest(4002) == 1) {
 				changequest 4002,4009;
@@ -579,79 +583,79 @@ hu_in01,382,382,4	script	Guild Receptionist#hnt	4_M_JOB_HUNTER,{
 			delitem .@items[4],.@items[5];
 			close;
 		}
-		mes "[Caçador de Demônio]";
-		mes "Você não tem";
-		mes "todos os materiais necessários...";
+		mes "[CaÃ§ador de DemÃ´nio]";
+		mes "VocÃª nÃ£o tem";
+		mes "todos os materiais necessÃ¡rios...";
 		next;
-		mes "[Caçador de Demônio]";
-		mes "Os itens que você precisa são";
+		mes "[CaÃ§ador de DemÃ´nio]";
+		mes "Os itens que vocÃª precisa sÃ£o";
 		mes "^660000"+.@items[1]+" "+getitemname(.@items[0])+"^000000,";
 		mes "^660000"+.@items[3]+" "+getitemname(.@items[2])+"^000000 e";
 		mes "^660000"+.@items[5]+" "+getitemname(.@items[4])+"^000000.";
-		mes "Volte quando você tiver";
+		mes "Volte quando vocÃª tiver";
 		mes "reunido todos os itens.";
 		close;
 	}
 	else if (HNTR_Q > 9 && HNTR_Q < 17) {
 		mes "[Recepcionista da Guilda]";
-		mes "Hum? Você não procurou pelo líder tanto no Palácio Central de Payon como na Guilda dos Arqueiros? Ele deve estar em um desses dois lugares, então vá até lá e procure por ele.";
+		mes "Hum? VocÃª nÃ£o procurou pelo lÃ­der tanto no PalÃ¡cio Central de Payon como na Guilda dos Arqueiros? Ele deve estar em um desses dois lugares, entÃ£o vÃ¡ atÃ© lÃ¡ e procure por ele.";
 		close;
 	}
 	else if (HNTR_Q == 17) {
 		mes "[Recepcionista da Guilda]";
-		mes "Ooh. Você passou no teste. Parabéns ~ Você deve falar com Sherin agora.";
+		mes "Ooh. VocÃª passou no teste. ParabÃ©ns ~ VocÃª deve falar com Sherin agora.";
 		close;
 	}
 	else {
 		mes "[Recepcionista da Guilda]";
-		mes "Se você deseja mudar a sua classe para um caçador, você deve registrar-se primeiro.";
+		mes "Se vocÃª deseja mudar a sua classe para um caÃ§ador, vocÃª deve registrar-se primeiro.";
 		close;
 	}
 }
 
-payon_in03,131,7,3	script	Caçador#htnGM	1_M_ORIENT01,{
+payon_in03,131,7,3	script	CaÃ§ador#htnGM	1_M_ORIENT01,{
 	if (HNTR_Q == 10) {
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Você deve estar aqui para o teste de Caçador. Posso dar informações sobre o processo do teste. O que você deseja saber?";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "VocÃª deve estar aqui para o teste de CaÃ§ador. Posso dar informaÃ§Ãµes sobre o processo do teste. O que vocÃª deseja saber?";
 		next;
-		switch(select("Qual é o teste?:Quais são os requisitos para passar?:Alguma advertência?:Começar o teste.")) {
+		switch(select("Qual Ã© o teste?:Quais sÃ£o os requisitos para passar?:Alguma advertÃªncia?:ComeÃ§ar o teste.")) {
 		case 1:
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Você tem que caçar certos monstros com um nome específico. Você deve evitar todas as armadilhas enquanto você estiver lá.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "VocÃª tem que caÃ§ar certos monstros com um nome especÃ­fico. VocÃª deve evitar todas as armadilhas enquanto vocÃª estiver lÃ¡.";
 			next;
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Isso é para testar sua capacidade de mover-se rapidamente e localizar alvos em diversas situações.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Isso Ã© para testar sua capacidade de mover-se rapidamente e localizar alvos em diversas situaÃ§Ãµes.";
 			close;
 		case 2:
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Dentro do limite de tempo, começando na direção das 6 horas do mapa, você deve caçar os monstros-alvo,e em seguida, aperte o interruptor de fuga que aparecerá no centro do mapa.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Dentro do limite de tempo, comeÃ§ando na direÃ§Ã£o das 6 horas do mapa, vocÃª deve caÃ§ar os monstros-alvo,e em seguida, aperte o interruptor de fuga que aparecerÃ¡ no centro do mapa.";
 			next;
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Você passará se você for capaz de escapar na direção das 12 horas do mapa depois de bater no interruptor.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "VocÃª passarÃ¡ se vocÃª for capaz de escapar na direÃ§Ã£o das 12 horas do mapa depois de bater no interruptor.";
 			close;
 		case 3:
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Hum. Advertências... Se você cair em uma armadilha, você terá que começar tudo denovo desde o início. Além disso, apenas uma pessoa pode fazer o teste de cada vez.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Hum. AdvertÃªncias... Se vocÃª cair em uma armadilha, vocÃª terÃ¡ que comeÃ§ar tudo denovo desde o inÃ­cio. AlÃ©m disso, apenas uma pessoa pode fazer o teste de cada vez.";
 			next;
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Vou mandá-lo para o lugar da prova. Haverá uma sala de espera, mas se alguém estiver fazendo o teste, você deve esperar na sala.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Vou mandÃ¡-lo para o lugar da prova. HaverÃ¡ uma sala de espera, mas se alguÃ©m estiver fazendo o teste, vocÃª deve esperar na sala.";
 			next;
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Quando a pessoa na sua frente terminar, falhando ou não, a próxima pessoa que esteja esperando na sala de conversa é enviada para a área do teste. Se ninguém está esperando, o teste vai começar logo que você entrar na sala de conversa.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Quando a pessoa na sua frente terminar, falhando ou nÃ£o, a prÃ³xima pessoa que esteja esperando na sala de conversa Ã© enviada para a Ã¡rea do teste. Se ninguÃ©m estÃ¡ esperando, o teste vai comeÃ§ar logo que vocÃª entrar na sala de conversa.";
 			close;
 		case 4:
 			if (.@a0) {
-		mes "[Líder da Guilda de Caçadores]";
-				mes "Ok. Mandarei você para a área de testes agora. Não me culpe se você ficar perdido ou confuso, pois você não ouviu a minha explicação.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+				mes "Ok. Mandarei vocÃª para a Ã¡rea de testes agora. NÃ£o me culpe se vocÃª ficar perdido ou confuso, pois vocÃª nÃ£o ouviu a minha explicaÃ§Ã£o.";
 				next;
 			}
-			mes "[Líder da Guilda de Caçadores]";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
 			mes "Ok. Boa sorte.";
-			mes "Vou enviá-lo agora.";
+			mes "Vou enviÃ¡-lo agora.";
 			next;
 		}
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Bem. Suas flechas provavelmente ainda estão sendo feitas, para que você possa usar no teste.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Bem. Suas flechas provavelmente ainda estÃ£o sendo feitas, para que vocÃª possa usar no teste.";
 		HNTR_Q = 12;
 		changequest 4009,4011;
 		getitem 1751,200; //  Flecha de Prata
@@ -660,161 +664,161 @@ payon_in03,131,7,3	script	Caçador#htnGM	1_M_ORIENT01,{
 		end;
 	}
 	else if (HNTR_Q > 1 && HNTR_Q < 10) {
-		mes "[Líder da Guilda de Caçadores]";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
 		mes "Hum...?";
 		mes "Por que um arqueiro";
-		mes "está me visitando?";
+		mes "estÃ¡ me visitando?";
 		next;
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Eu não fui notificado sobre nada em particular da Guilda de Caçadores. Você não está tentando pular a parte do meio do teste de Caçador, está?";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Eu nÃ£o fui notificado sobre nada em particular da Guilda de CaÃ§adores. VocÃª nÃ£o estÃ¡ tentando pular a parte do meio do teste de CaÃ§ador, estÃ¡?";
 		next;
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Reuna os itens para o teste, e volte depois que você visitou a Guilda de Caçadores.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Reuna os itens para o teste, e volte depois que vocÃª visitou a Guilda de CaÃ§adores.";
 		close;
 	}
 	else if (HNTR_Q == 11) {
-		mes "[Caçador]";
-		mes "Hum? Posso ajudá-lo? Se você deseja mudar de classe, você deve visitar a pessoa na Guilda de Caçadores, não eu.";
+		mes "[CaÃ§ador]";
+		mes "Hum? Posso ajudÃ¡-lo? Se vocÃª deseja mudar de classe, vocÃª deve visitar a pessoa na Guilda de CaÃ§adores, nÃ£o eu.";
 		close;
 	}
 	else if (HNTR_Q > 11 && HNTR_Q < 16) {
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Hmm. Você é o arqueiro que quase desistiu de mudar de classe. Você tem tudo pronto, certo? Então eu vou mandar você para fazer o teste imediatamente.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Hmm. VocÃª Ã© o arqueiro que quase desistiu de mudar de classe. VocÃª tem tudo pronto, certo? EntÃ£o eu vou mandar vocÃª para fazer o teste imediatamente.";
 		next;
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Se você tiver qualquer";
-		mes "dúvida, pergunte agora.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Se vocÃª tiver qualquer";
+		mes "dÃºvida, pergunte agora.";
 		next;
-		switch(select("Qual é o teste?:Quais são os requisitos para passar?:Alguma advertência?:Começar o teste.")) {
+		switch(select("Qual Ã© o teste?:Quais sÃ£o os requisitos para passar?:Alguma advertÃªncia?:ComeÃ§ar o teste.")) {
 		case 1:
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Você tem que caçar certos monstros com um nome específico. Você deve evitar todas as armadilhas enquanto você estiver lá. Isso é para testar sua capacidade de mover-se rapidamente e localizar alvos em diversas situações.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "VocÃª tem que caÃ§ar certos monstros com um nome especÃ­fico. VocÃª deve evitar todas as armadilhas enquanto vocÃª estiver lÃ¡. Isso Ã© para testar sua capacidade de mover-se rapidamente e localizar alvos em diversas situaÃ§Ãµes.";
 			close;
 		case 2:
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Dentro do limite de tempo, começando na direção das 6 horas do mapa, você deve caçar os monstros-alvo,e em seguida, aperte o interruptor de fuga que aparecerá no centro do mapa.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Dentro do limite de tempo, comeÃ§ando na direÃ§Ã£o das 6 horas do mapa, vocÃª deve caÃ§ar os monstros-alvo,e em seguida, aperte o interruptor de fuga que aparecerÃ¡ no centro do mapa.";
 			next;
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Você passará se você for capaz de escapar na direção das 12 horas do mapa depois de bater no interruptor.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "VocÃª passarÃ¡ se vocÃª for capaz de escapar na direÃ§Ã£o das 12 horas do mapa depois de bater no interruptor.";
 			close;
 		case 3:
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Hum. Advertências... Se você cair em uma armadilha, você terá que começar tudo denovo desde o início. Além disso, apenas uma pessoa pode fazer o teste de cada vez.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Hum. AdvertÃªncias... Se vocÃª cair em uma armadilha, vocÃª terÃ¡ que comeÃ§ar tudo denovo desde o inÃ­cio. AlÃ©m disso, apenas uma pessoa pode fazer o teste de cada vez.";
 			next;
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Vou mandá-lo para o lugar da prova. Haverá uma sala de espera, mas se alguém estiver fazendo o teste, você deve esperar na sala.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Vou mandÃ¡-lo para o lugar da prova. HaverÃ¡ uma sala de espera, mas se alguÃ©m estiver fazendo o teste, vocÃª deve esperar na sala.";
 			next;
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Quando a pessoa na sua frente terminar, falhando ou não, a próxima pessoa que esteja esperando na sala de conversa é enviada para a área do teste. Se ninguém está esperando, o teste vai começar logo que você entrar na sala de conversa.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Quando a pessoa na sua frente terminar, falhando ou nÃ£o, a prÃ³xima pessoa que esteja esperando na sala de conversa Ã© enviada para a Ã¡rea do teste. Se ninguÃ©m estÃ¡ esperando, o teste vai comeÃ§ar logo que vocÃª entrar na sala de conversa.";
 			close;
 		case 4:
-			mes "[Líder da Guilda de Caçadores]";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
 			mes "Ok. Boa sorte.";
-			mes "Vou enviá-lo agora.";
+			mes "Vou enviÃ¡-lo agora.";
 			next;
 		}
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Hã? Por que não te darei Flechas de Prata? Não espere nada enquanto você não trouxer nenhum dos materiais.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "HÃ£? Por que nÃ£o te darei Flechas de Prata? NÃ£o espere nada enquanto vocÃª nÃ£o trouxer nenhum dos materiais.";
 		next;
-		mes "[Líder da Guilda de Caçadores]";
-		mes "De qualquer forma, acredito que você tenha preparado sozinho. Vamos começar agora.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "De qualquer forma, acredito que vocÃª tenha preparado sozinho. Vamos comeÃ§ar agora.";
 		next;
-		if (select("Ok. Vamos começar...:Ah, espere um segundo.") == 1) {
-			mes "[Líder da Guilda de Caçadores]";
+		if (select("Ok. Vamos comeÃ§ar...:Ah, espere um segundo.") == 1) {
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
 			mes "Ok!! Eu espero";
-			mes "você vai passar desta vez!";
+			mes "vocÃª vai passar desta vez!";
 			close2;
 			HNTR_Q = 12;
 			warp "job_hunte",176,22;
 			end;
 		}
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Então apresse-se e termine";
-		mes "todas as suas preparações.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "EntÃ£o apresse-se e termine";
+		mes "todas as suas preparaÃ§Ãµes.";
 		close;
 	}
 	else if (HNTR_Q == 16) {
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Uau, você voltou em um instante!";
-		mes "Quer dizer, bom trabalho. Vou te dar o item que prova que você passou no teste.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Uau, vocÃª voltou em um instante!";
+		mes "Quer dizer, bom trabalho. Vou te dar o item que prova que vocÃª passou no teste.";
 		HNTR_Q = 17;
 		savepoint "payon",104,99;
 		getitem 1007,1; // Colar da Sabedoria
 		changequest 4012,4013;
 		next;
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Ok, aqui está. Agora, volte para a Guilda de Caçadores. Eu tenho que fazer mais alguns negócios aqui, mas eu espero que você possa se tornar um Caçador em breve.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Ok, aqui estÃ¡. Agora, volte para a Guilda de CaÃ§adores. Eu tenho que fazer mais alguns negÃ³cios aqui, mas eu espero que vocÃª possa se tornar um CaÃ§ador em breve.";
 		close;
 	}
 	else if (HNTR_Q == 17) {
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Vejo que você não está com pressa para se tornar um Caçador? Quando me tornei um caçador, eu corri cerca de um mês descontroladamente empunhando o meu arco, porque eu estava tão feliz. Hehe ~";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Vejo que vocÃª nÃ£o estÃ¡ com pressa para se tornar um CaÃ§ador? Quando me tornei um caÃ§ador, eu corri cerca de um mÃªs descontroladamente empunhando o meu arco, porque eu estava tÃ£o feliz. Hehe ~";
 		next;
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Agora, você deve voltar para a Guilda de Caçadores ~";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Agora, vocÃª deve voltar para a Guilda de CaÃ§adores ~";
 		close;
 	}
 	else {
-		mes "[Líder da Guilda de Caçadores]";
-		mes "...Eu posso ajudá-lo?";
-		mes "Estou aqui para um negócio oficial e estou ocupado no momento. Me dê licença...";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "...Eu posso ajudÃ¡-lo?";
+		mes "Estou aqui para um negÃ³cio oficial e estou ocupado no momento. Me dÃª licenÃ§a...";
 		close;
 	}
 }
 
-payon_in02,21,31,1	script	Caçador#htnGM2	1_M_ORIENT01,{
+payon_in02,21,31,1	script	CaÃ§ador#htnGM2	1_M_ORIENT01,{
 	cutin "job_huntermaster",2;
 	if (HNTR_Q == 11) {
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Hum. Eu vejo que você está aqui para o teste de mudança de classe para Caçador. Posso dar informações sobre o processo do teste. O que você deseja saber?";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Hum. Eu vejo que vocÃª estÃ¡ aqui para o teste de mudanÃ§a de classe para CaÃ§ador. Posso dar informaÃ§Ãµes sobre o processo do teste. O que vocÃª deseja saber?";
 		next;
-		switch(select("Qual é o teste?:Quais são os requisitos para passar?:Alguma advertência?:Comece teste.")) {
+		switch(select("Qual Ã© o teste?:Quais sÃ£o os requisitos para passar?:Alguma advertÃªncia?:Comece teste.")) {
 		case 1:
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Você tem que caçar certos monstros com um nome específico. Você deve evitar todas as armadilhas enquanto você estiver lá.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "VocÃª tem que caÃ§ar certos monstros com um nome especÃ­fico. VocÃª deve evitar todas as armadilhas enquanto vocÃª estiver lÃ¡.";
 			next;
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Isso é para testar sua capacidade de mover-se rapidamente e localizar alvos em diversas situações.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Isso Ã© para testar sua capacidade de mover-se rapidamente e localizar alvos em diversas situaÃ§Ãµes.";
 			close2;
 			cutin "job_huntermaster",255;
 			end;
 		case 2:
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Dentro do limite de tempo, começando na direção das 6 horas do mapa, você deve caçar os monstros-alvo,e em seguida, aperte o interruptor de fuga que aparecerá no centro do mapa.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Dentro do limite de tempo, comeÃ§ando na direÃ§Ã£o das 6 horas do mapa, vocÃª deve caÃ§ar os monstros-alvo,e em seguida, aperte o interruptor de fuga que aparecerÃ¡ no centro do mapa.";
 			next;
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Você passará se você for capaz de escapar na direção das 12 horas do mapa depois de bater no interruptor.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "VocÃª passarÃ¡ se vocÃª for capaz de escapar na direÃ§Ã£o das 12 horas do mapa depois de bater no interruptor.";
 			close2;
 			cutin "job_huntermaster",255;
 			end;
 		case 3:
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Hum. Advertências... Bem, se você cair em uma armadilha, você terá que começar desde o início. Além disso, apenas uma pessoa pode fazer o teste de cada vez.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Hum. AdvertÃªncias... Bem, se vocÃª cair em uma armadilha, vocÃª terÃ¡ que comeÃ§ar desde o inÃ­cio. AlÃ©m disso, apenas uma pessoa pode fazer o teste de cada vez.";
 			next;
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Vou mandá-lo para o lugar da prova. Haverá uma sala de espera, mas se alguém estiver fazendo o teste, você deve esperar na sala.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Vou mandÃ¡-lo para o lugar da prova. HaverÃ¡ uma sala de espera, mas se alguÃ©m estiver fazendo o teste, vocÃª deve esperar na sala.";
 			next;
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Quando a pessoa na sua frente terminar, falhando ou não, a próxima pessoa que esteja esperando na sala de conversa é enviada para a área do teste. Se ninguém está esperando, o teste vai começar logo que você entrar na sala de conversa.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Quando a pessoa na sua frente terminar, falhando ou nÃ£o, a prÃ³xima pessoa que esteja esperando na sala de conversa Ã© enviada para a Ã¡rea do teste. Se ninguÃ©m estÃ¡ esperando, o teste vai comeÃ§ar logo que vocÃª entrar na sala de conversa.";
 			close2;
 			cutin "job_huntermaster",255;
 			end;
 		case 4:
 			if (.@a0) {
-				mes "[Líder da Guilda de Caçadores]";
-				mes "...Ok. Vou mandar você para a área de testes agora. Não me culpe se você ficar perdido ou confuso, pois você não ouviu a explicação.";
+				mes "[LÃ­der da Guilda de CaÃ§adores]";
+				mes "...Ok. Vou mandar vocÃª para a Ã¡rea de testes agora. NÃ£o me culpe se vocÃª ficar perdido ou confuso, pois vocÃª nÃ£o ouviu a explicaÃ§Ã£o.";
 				next;
 			}
-			mes "[Líder da Guilda de Caçadores]";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
 			mes "Ok, boa sorte.";
-			mes "Vou enviá-lo agora.";
+			mes "Vou enviÃ¡-lo agora.";
 			next;
 		}
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Bem. Suas flechas provavelmente ainda estão sendo feitas, para que você possa usar no teste.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Bem. Suas flechas provavelmente ainda estÃ£o sendo feitas, para que vocÃª possa usar no teste.";
 		getitem 1751,200; // Flecha de Prata
 		next;
-		mes "[Líder da Guilda de Caçadores]";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
 		mes "Boa sorte.";
 		HNTR_Q = 12;
 		changequest 4010,4011;
@@ -823,141 +827,141 @@ payon_in02,21,31,1	script	Caçador#htnGM2	1_M_ORIENT01,{
 		end;
 	}
 	else if (HNTR_Q > 1 && HNTR_Q < 10) {
-		mes "[Líder da Guilda de Caçadores]";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
 		mes "Hum...?";
 		mes "Por que um arqueiro";
-		mes "está me visitando?";
+		mes "estÃ¡ me visitando?";
 		next;
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Eu não foi notificado sobre nada em particular da Guilda de Caçadores. Você não está tentando pular a parte do meio do teste de Caçador, você está?";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Eu nÃ£o foi notificado sobre nada em particular da Guilda de CaÃ§adores. VocÃª nÃ£o estÃ¡ tentando pular a parte do meio do teste de CaÃ§ador, vocÃª estÃ¡?";
 		next;
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Reuna os itens para o teste, e volte depois que você visitou a Guilda de Caçadores.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Reuna os itens para o teste, e volte depois que vocÃª visitou a Guilda de CaÃ§adores.";
 		close2;
 		cutin "job_huntermaster",255;
 		end;
 	}
 	else if (HNTR_Q == 10) {
-		mes "[Líder da Guilda de Caçadores]";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
 		mes "Hum?";
-		mes "Eu posso ajudá-lo";
+		mes "Eu posso ajudÃ¡-lo";
 		mes "com algo?";
-		mes "Ah, você deve ser";
-		mes "um candidato a Caçador.";
+		mes "Ah, vocÃª deve ser";
+		mes "um candidato a CaÃ§ador.";
 		next;
-		mes "[Caçador]";
-		mes "Se você deseja mudar de classe, acho que você precisa ir visitar uma pessoa no Palácio Central de Payon.";
+		mes "[CaÃ§ador]";
+		mes "Se vocÃª deseja mudar de classe, acho que vocÃª precisa ir visitar uma pessoa no PalÃ¡cio Central de Payon.";
 		close2;
 		cutin "job_huntermaster",255;
 		end;
 	}
 	else if (HNTR_Q > 11 && HNTR_Q < 16) {
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Hum? Você não é o Arqueiro, que desistiu na última vez? Agora você está pronto, certo? Então eu vou mandar você para a área de mudança de classe agora.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Hum? VocÃª nÃ£o Ã© o Arqueiro, que desistiu na Ãºltima vez? Agora vocÃª estÃ¡ pronto, certo? EntÃ£o eu vou mandar vocÃª para a Ã¡rea de mudanÃ§a de classe agora.";
 		next;
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Se você ainda";
-		mes "tem dúvidas,";
-		mes "não hesite em perguntar.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Se vocÃª ainda";
+		mes "tem dÃºvidas,";
+		mes "nÃ£o hesite em perguntar.";
 		next;
-		switch(select("Qual é o teste?:Quais são os requisitos para passar?:Alguma advertência?:Comece teste.")) {
+		switch(select("Qual Ã© o teste?:Quais sÃ£o os requisitos para passar?:Alguma advertÃªncia?:Comece teste.")) {
 		case 1:
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Você tem que caçar certos monstros com um nome específico. Você deve evitar todas as armadilhas enquanto você estiver lá.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "VocÃª tem que caÃ§ar certos monstros com um nome especÃ­fico. VocÃª deve evitar todas as armadilhas enquanto vocÃª estiver lÃ¡.";
 			next;
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Isso é para testar sua capacidade de mover-se rapidamente e localizar alvos em diversas situações.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Isso Ã© para testar sua capacidade de mover-se rapidamente e localizar alvos em diversas situaÃ§Ãµes.";
 			close2;
 			cutin "job_huntermaster",255;
 			end;
 		case 2:
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Dentro do limite de tempo, começando na direção das 6 horas do mapa, você deve caçar os monstros-alvo,e em seguida, aperte o interruptor de fuga que aparecerá no centro do mapa.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Dentro do limite de tempo, comeÃ§ando na direÃ§Ã£o das 6 horas do mapa, vocÃª deve caÃ§ar os monstros-alvo,e em seguida, aperte o interruptor de fuga que aparecerÃ¡ no centro do mapa.";
 			next;
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Você passará se você for capaz de escapar na direção das 12 horas do mapa depois de bater no interruptor.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "VocÃª passarÃ¡ se vocÃª for capaz de escapar na direÃ§Ã£o das 12 horas do mapa depois de bater no interruptor.";
 			close2;
 			cutin "job_huntermaster",255;
 			end;
 		case 3:
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Hum. Advertências... se você cair em uma armadilha, você terá que começar desde o início. Além disso, apenas uma pessoa pode fazer o teste de cada vez.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Hum. AdvertÃªncias... se vocÃª cair em uma armadilha, vocÃª terÃ¡ que comeÃ§ar desde o inÃ­cio. AlÃ©m disso, apenas uma pessoa pode fazer o teste de cada vez.";
 			next;
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Vou mandá-lo para o lugar da prova. Haverá uma sala de espera, mas se alguém estiver fazendo o teste, você deve esperar na sala.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Vou mandÃ¡-lo para o lugar da prova. HaverÃ¡ uma sala de espera, mas se alguÃ©m estiver fazendo o teste, vocÃª deve esperar na sala.";
 			next;
-			mes "[Líder da Guilda de Caçadores]";
-			mes "Quando a pessoa na sua frente terminar, falhando ou não, a próxima pessoa que esteja esperando na sala de conversa é enviada para a área do teste. Se ninguém está esperando, o teste vai começar logo que você entrar na sala de conversa.";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
+			mes "Quando a pessoa na sua frente terminar, falhando ou nÃ£o, a prÃ³xima pessoa que esteja esperando na sala de conversa Ã© enviada para a Ã¡rea do teste. Se ninguÃ©m estÃ¡ esperando, o teste vai comeÃ§ar logo que vocÃª entrar na sala de conversa.";
 			close2;
 			cutin "job_huntermaster",255;
 			end;
 		case 4:
-			mes "[Líder da Guilda de Caçadores]";
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
 			mes "Ok. Boa sorte.";
-			mes "Vou enviá-lo agora...";
+			mes "Vou enviÃ¡-lo agora...";
 			next;
 		}
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Hã? Por que não te darei Flechas de Prata? Não espere nada quando enquanto você não trazer quaisquer materiais.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "HÃ£? Por que nÃ£o te darei Flechas de Prata? NÃ£o espere nada quando enquanto vocÃª nÃ£o trazer quaisquer materiais.";
 		next;
-		mes "[Líder da Guilda de Caçadores]";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
 		mes "Bem...";
 		mes "Eu acredito";
-		mes "que você está pronto.";
-		mes "Vamos começar.";
+		mes "que vocÃª estÃ¡ pronto.";
+		mes "Vamos comeÃ§ar.";
 		next;
-		if (select("Sim, vamos começar.:Ah, espere um momento.") == 1) {
-			mes "[Líder da Guilda de Caçadores]";
+		if (select("Sim, vamos comeÃ§ar.:Ah, espere um momento.") == 1) {
+			mes "[LÃ­der da Guilda de CaÃ§adores]";
 			mes "Ok!! Agora...";
-			mes "vamos lá!";
+			mes "vamos lÃ¡!";
 			close2;
 			cutin "job_huntermaster",255;
 			HNTR_Q = 12;
 			warp "job_hunte",176,22;
 			end;
 		}
-		mes "[Líder da Guilda de Caçadores]";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
 		mes "*Suspiro...*";
 		mes "Volte quando";
-		mes "você acabar com";
-		mes "suas preparações.";
+		mes "vocÃª acabar com";
+		mes "suas preparaÃ§Ãµes.";
 		close2;
 		cutin "job_huntermaster",255;
 		end;
 	}
 	else if (HNTR_Q == 16) {
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Uau. Você já voltou!";
-		mes "Quer dizer, bom trabalho. Vou te dar o item que prova que você passou no teste.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Uau. VocÃª jÃ¡ voltou!";
+		mes "Quer dizer, bom trabalho. Vou te dar o item que prova que vocÃª passou no teste.";
 		HNTR_Q = 17;
 		savepoint "payon",104,99;
 		getitem 1007,1; //  Colar da Sabedoria
 		changequest 4012,4013;
 		next;
-		mes "[Líder da Guilda de Caçadores]";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
 		mes "Bem...";
-		mes "Lá vai você.";
-		mes "Agora corra de volta para a Guilda de Caçadores, e se junte a nós~";
+		mes "LÃ¡ vai vocÃª.";
+		mes "Agora corra de volta para a Guilda de CaÃ§adores, e se junte a nÃ³s~";
 		close2;
 		cutin "job_huntermaster",255;
 		end;
 	}
 	else if (HNTR_Q == 17) {
-		mes "[Líder da Guilda de Caçadores]";
-		mes "Vejo que você não está com pressa para se tornar um Caçador. Eu estava correndo com alegria, descontroladamente, brandindo o meu arco no primeiro mês eu me tornei um Caçador. Hehe~";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "Vejo que vocÃª nÃ£o estÃ¡ com pressa para se tornar um CaÃ§ador. Eu estava correndo com alegria, descontroladamente, brandindo o meu arco no primeiro mÃªs eu me tornei um CaÃ§ador. Hehe~";
 		next;
-		mes "[Líder da Guilda de Caçadores]";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
 		mes "Agora corra~";
-		mes "Eles estão esperando";
+		mes "Eles estÃ£o esperando";
 		mes "pela sua volta";
-		mes "a Guilda de Caçadores.";
+		mes "a Guilda de CaÃ§adores.";
 		close2;
 		cutin "job_huntermaster",255;
 		end;
 	}
 	else {
-		mes "[Líder da Guilda de Caçadores]";
-		mes "O que você quer? Eu estou em uma viagem oficial e estou ocupado no momento. Agora se você me der licença.";
+		mes "[LÃ­der da Guilda de CaÃ§adores]";
+		mes "O que vocÃª quer? Eu estou em uma viagem oficial e estou ocupado no momento. Agora se vocÃª me der licenÃ§a.";
 		close2;
 		cutin "job_huntermaster",255;
 		end;
@@ -968,41 +972,41 @@ job_hunte,178,32,1	script	Guia#cac	1_M_PAY_ELDER,5,2,{
 OnTouch:
 	if (HNTR_Q == 12) {
 		mes "[Guia]";
-		mes "Bom dia. Bem-vindo ao local do teste de Caçador. O teste começa quando você entra na sala ao lado.";
+		mes "Bom dia. Bem-vindo ao local do teste de CaÃ§ador. O teste comeÃ§a quando vocÃª entra na sala ao lado.";
 		next;
 		mes "[Guia]";
-		mes "Como explicado anteriormente, cace 4 ou mais dos monstros nomeados ^3355FFMonstro Alvo^000000. Ao fazê-lo, um interruptor no centro do mapa aparecerá.";
+		mes "Como explicado anteriormente, cace 4 ou mais dos monstros nomeados ^3355FFMonstro Alvo^000000. Ao fazÃª-lo, um interruptor no centro do mapa aparecerÃ¡.";
 		next;
 		mes "[Guia]";
-		mes "Quando destruir o interruptor, a saída irá aparecer na direção das 12 horas do mapa. Complete tudo dentro do tempo determinado e escape.";
+		mes "Quando destruir o interruptor, a saÃ­da irÃ¡ aparecer na direÃ§Ã£o das 12 horas do mapa. Complete tudo dentro do tempo determinado e escape.";
 		next;
 		mes "[Guia]";
-		mes "Se você desmaiar no meio, cair em uma armadilha, ou ultrapassar o limite de tempo, você vai falhar. Então você deve refazer o teste.";
+		mes "Se vocÃª desmaiar no meio, cair em uma armadilha, ou ultrapassar o limite de tempo, vocÃª vai falhar. EntÃ£o vocÃª deve refazer o teste.";
 		next;
 		mes "[Guia]";
-		mes "Nós iremos fornecer as flechas, por isso certifique-se que você tem um arco. Então, por favor, indique quando estiver pronto.";
+		mes "NÃ³s iremos fornecer as flechas, por isso certifique-se que vocÃª tem um arco. EntÃ£o, por favor, indique quando estiver pronto.";
 		savepoint "job_hunte",176,22;
 		close;
 	}
 	else if (HNTR_Q > 12 && HNTR_Q < 16) {
 		mes "[Guia]";
 		mes "Hum...";
-		mes "Você quer me atrapalhar?";
+		mes "VocÃª quer me atrapalhar?";
 		mes "Vou recuperar";
 		mes "seu HP e SP agora.";
 		percentheal 100,100;
 		next;
 		mes "[Guia]";
-		mes "Se é muito difícil, não faria mal tentar novamente na próxima vez. Gostaria de desistir agora?";
+		mes "Se Ã© muito difÃ­cil, nÃ£o faria mal tentar novamente na prÃ³xima vez. Gostaria de desistir agora?";
 		next;
 		if (select("Continuar tentando.:Desistir.")==1) {
 			mes "[Guia]";
-			mes "Ok. Faça o seu melhor e se torne um grande caçador. Por favor, entre na sala de espera. Se alguém já estiver fazendo o teste, você deve esperar até que a pessoa termine.";
+			mes "Ok. FaÃ§a o seu melhor e se torne um grande caÃ§ador. Por favor, entre na sala de espera. Se alguÃ©m jÃ¡ estiver fazendo o teste, vocÃª deve esperar atÃ© que a pessoa termine.";
 			close;
 		}
-		mapannounce "job_hunte",strcharinfo(0)+" desistiu. Próxima pessoa, por favor entre.",bc_map;
+		mapannounce "job_hunte",strcharinfo(0)+" desistiu. PrÃ³xima pessoa, por favor entre.",bc_map;
 		mes "[Guia]";
-		mes "Muito bem. Vou mandar você para Payon. Esperamos vê-lo na próxima vez. Não se esqueça de salvar quando sair.";
+		mes "Muito bem. Vou mandar vocÃª para Payon. Esperamos vÃª-lo na prÃ³xima vez. NÃ£o se esqueÃ§a de salvar quando sair.";
 			// donpcevent "Sala de Espera#cac::OnStart";
 			close2;
 			HNTR_Q = 13;
@@ -1010,7 +1014,7 @@ OnTouch:
 			warp "payon_in02",21,27;
 	}	else if (HNTR_Q > 15) {
 		mes "[Guia]";
-		mes "Você não deveria estar aqui. Como encontrou sem o item necessário para a mudança de classe?";
+		mes "VocÃª nÃ£o deveria estar aqui. Como encontrou sem o item necessÃ¡rio para a mudanÃ§a de classe?";
 		close2;
 		savepoint "payon",104,99;
 		warp "payon_in02",21,27;
@@ -1081,9 +1085,9 @@ OnEnable:
 	monster "job_hunte",112,139,"Anselmo",1015,1,"Gerente#cac::OnMyMobDead2";
 	monster "job_hunte",90,91,"Anolian",1015,1,"Gerente#cac::OnMyMobDead2";
 	monster "job_hunte",53,73,"Monstro Simples",1002,1,"Gerente#cac::OnMyMobDead2";
-	monster "job_hunte",53,106,"Eu não",1015,1,"Gerente#cac::OnMyMobDead2";
+	monster "job_hunte",53,106,"Eu nÃ£o",1015,1,"Gerente#cac::OnMyMobDead2";
 	monster "job_hunte",77,112,"Ajude-me",1015,1,"Gerente#cac::OnMyMobDead2";
-	monster "job_hunte",72,102,"Não me ataque",1015,1,"Gerente#cac::OnMyMobDead2";
+	monster "job_hunte",72,102,"NÃ£o me ataque",1015,1,"Gerente#cac::OnMyMobDead2";
 	monster "job_hunte",108,103,"Velocidade de Ataque 184",1015,1,"Gerente#cac::OnMyMobDead2";
 	end;
 
@@ -1095,11 +1099,11 @@ OnMyMobDead:
 		donpcevent "Interruptor#cac::OnEnable";
 		donpcevent "Gerente#cac::OnDisable";
 	}
-	else {  mapannounce "job_hunte","Ok ~ Você está quase lá!!",bc_map; }
+	else {  mapannounce "job_hunte","Ok ~ VocÃª estÃ¡ quase lÃ¡!!",bc_map; }
 	end;
 
 OnMyMobDead2:
-	mapannounce "job_hunte",strcharinfo(0)+"!! Você cometeu um erro ... Por favor, tente novamente.",bc_map;
+	mapannounce "job_hunte",strcharinfo(0)+"!! VocÃª cometeu um erro ... Por favor, tente novamente.",bc_map;
 	HNTR_Q = 13;
 	warp "job_hunte",176,22;
 	donpcevent "Gerente#cac::OnReset";
@@ -1115,31 +1119,31 @@ OnDisable:
 	end;
 
 OnTimer1000:
-	mapannounce "job_hunte","O teste deve começar agora.",bc_map;
+	mapannounce "job_hunte","O teste deve comeÃ§ar agora.",bc_map;
 	end;
 
 OnTimer3000:
-	mapannounce "job_hunte","Como mencionado antes, você só deve caçar os monstros marcados com 'Monstro Alvo'.",bc_map;
+	mapannounce "job_hunte","Como mencionado antes, vocÃª sÃ³ deve caÃ§ar os monstros marcados com 'Monstro Alvo'.",bc_map;
 	end;
 
 OnTimer5000:
-	mapannounce "job_hunte","***** Tenha cuidado com as armadilhas enquanto caça. *****",bc_map;
+	mapannounce "job_hunte","***** Tenha cuidado com as armadilhas enquanto caÃ§a. *****",bc_map;
 	end;
 
 OnTimer7000:
-	mapannounce "job_hunte","Depois de caçar 4 'Monstro Alvo' o interruptor no centro começará a operar.",bc_map;
+	mapannounce "job_hunte","Depois de caÃ§ar 4 'Monstro Alvo' o interruptor no centro comeÃ§arÃ¡ a operar.",bc_map;
 	end;
 
 OnTimer9000:
-	mapannounce "job_hunte","Quando você ativar a opção de fuga, sairá da área de teste através do portal de teleporte na direção das 12 horas do relógio.",bc_map;
+	mapannounce "job_hunte","Quando vocÃª ativar a opÃ§Ã£o de fuga, sairÃ¡ da Ã¡rea de teste atravÃ©s do portal de teleporte na direÃ§Ã£o das 12 horas do relÃ³gio.",bc_map;
 	end;
 
 OnTimer11000:
-	mapannounce "job_hunte","Tudo deve ser concluído no prazo de 3 minutos.",bc_map;
+	mapannounce "job_hunte","Tudo deve ser concluÃ­do no prazo de 3 minutos.",bc_map;
 	end;
 
 OnTimer13000:
-	mapannounce "job_hunte","Você terá 3 minutos a partir de agora. Você será notificado após cada minuto passa.",bc_map;
+	mapannounce "job_hunte","VocÃª terÃ¡ 3 minutos a partir de agora. VocÃª serÃ¡ notificado apÃ³s cada minuto passa.",bc_map;
 	end;
 
 OnTimer14000:
@@ -1198,7 +1202,7 @@ OnTimer197000:
 
 job_hunte,93,101,1	script	Interruptor#cac	1_SHADOW_NPC,1,1,{
 OnTouch:
-	mes "^3355FFExistem 3 botões";
+	mes "^3355FFExistem 3 botÃµes";
 	mes "no interruptor de escape.^000000";
 	HNTR_Q = 15;
 	next;
@@ -1207,19 +1211,19 @@ OnTouch:
 		mes "^3355FFO portal de Fuga";
 		mes "foi ativado.^000000";
 		close2;
-		mapannounce "job_hunte"," !! Ativação do portal de escapamento. !! ",bc_map;
-		enablenpc "Saída#cactest";
+		mapannounce "job_hunte"," !! AtivaÃ§Ã£o do portal de escapamento. !! ",bc_map;
+		enablenpc "SaÃ­da#cactest";
 		end;
 	case 2:
 		mes "^3355FFCancelando";
-		mes "Operação.^000000";
+		mes "OperaÃ§Ã£o.^000000";
 		close2;
-		mapannounce "job_hunte"," !! A operação foi cancelada. !! ",bc_map;
+		mapannounce "job_hunte"," !! A operaÃ§Ã£o foi cancelada. !! ",bc_map;
 		end;
 	case 3:
 		mapannounce "job_hunte"," !! Ativando cancelamento de portal... !! ",bc_map;
-		mes "^3355FFEm breve você";
-		mes "retornará para a";
+		mes "^3355FFEm breve vocÃª";
+		mes "retornarÃ¡ para a";
 		mes "sala de espera.^000000";
 		close2;
 		HNTR_Q = 13;
@@ -1230,7 +1234,7 @@ OnTouch:
 	}
 
 OnDisable:
-	disablenpc "Saída#cactest";
+	disablenpc "SaÃ­da#cactest";
 	disablenpc "Interruptor#cac";
 	end;
 
@@ -1239,9 +1243,9 @@ OnEnable:
 	end;
 }
 
-job_hunte,89,139,0	script	Saída#cactest	WARPNPC,2,2,{
+job_hunte,89,139,0	script	SaÃ­da#cactest	WARPNPC,2,2,{
 OnInit:
-	disablenpc "Saída#cactest";
+	disablenpc "SaÃ­da#cactest";
 	end;
 
 OnTouch:
@@ -1256,143 +1260,143 @@ OnTouch:
 	end;
 }
 
-// Armadilhas do teste de Caçador
+// Armadilhas do teste de CaÃ§ador
 //============================================================
-job_hunte,52,140,0	script	1-1::ArmadilhaCaçador	-1,0,1,{
+job_hunte,52,140,0	script	1-1::ArmadilhaCaÃ§ador	-1,0,1,{
 OnTouch:
 	switch(rand(200)) {
 	default:
-	case 1: mapannounce "job_hunte",strcharinfo(0)+", você caiu em uma armadilha. Você será redirecionado para o ponto de partida.",bc_map; break;
-	case 2: mapannounce "job_hunte",strcharinfo(0)+", sim, você! Vá para trás e comece de novo!",bc_map; break;
-	case 3: mapannounce "job_hunte",strcharinfo(0)+" falhou! ... bem ... você terá que começar de novo...",bc_map; break;
-	case 4: mapannounce "job_hunte",strcharinfo(0)+", falhou-comigo! Volte para onde você começou!",bc_map; break;
-	case 5: mapannounce "job_hunte",strcharinfo(0)+", você tropeçou em uma armadilha. Sinto muito, mas por enquanto você perdeu.",bc_map; break;
-	case 6: mapannounce "job_hunte",strcharinfo(0)+", o que você está fazendo? Volte e faça novamente!",bc_map; break;
-	case 7: mapannounce "job_hunte",strcharinfo(0)+", vamos lá! Você pode fazer melhor do que isso! Tente outra vez!",bc_map; break;
-	case 8: mapannounce "job_hunte",strcharinfo(0)+", caiu em uma armadilha ... de novo. Mas não se preocupe, você está ficando cada vez melhor.",bc_map; break;
-	case 9: mapannounce "job_hunte",strcharinfo(0)+", não, não, não ... Volte para onde você começou!",bc_map; break;
-	case 10: mapannounce "job_hunte",strcharinfo(0)+"... aww ~ Tente outra vez! Você pode fazer!",bc_map; break;
-	case 11: mapannounce "job_hunte",strcharinfo(0)+", @#$%#^!@ e você quer ser o quê? Caçador? Então volte lá!",bc_map; break;
-	case 12: mapannounce "job_hunte",strcharinfo(0)+" foi derrotado pelas forças do mal. Não desista herói,!",bc_map; break;
-	case 13: mapannounce "job_hunte","Eu coloquei uma magia em você "+strcharinfo(0)+" e agora você é meu! Vai começar tudo de novo agora.",bc_map; break;
-	case 14: mapannounce "job_hunte",strcharinfo(0)+". G'day mate, bem-vindo a terra de baixo. Como um presente, eu vou mandar você para o ponto de partida...",bc_map; break;
-	case 15: mapannounce "job_hunte","Esse é o meu ninho "+strcharinfo(0)+"! não passo lá, grito ~ Recomece.",bc_map; break;
+	case 1: mapannounce "job_hunte",strcharinfo(0)+", vocÃª caiu em uma armadilha. VocÃª serÃ¡ redirecionado para o ponto de partida.",bc_map; break;
+	case 2: mapannounce "job_hunte",strcharinfo(0)+", sim, vocÃª! VÃ¡ para trÃ¡s e comece de novo!",bc_map; break;
+	case 3: mapannounce "job_hunte",strcharinfo(0)+" falhou! ... bem ... vocÃª terÃ¡ que comeÃ§ar de novo...",bc_map; break;
+	case 4: mapannounce "job_hunte",strcharinfo(0)+", falhou-comigo! Volte para onde vocÃª comeÃ§ou!",bc_map; break;
+	case 5: mapannounce "job_hunte",strcharinfo(0)+", vocÃª tropeÃ§ou em uma armadilha. Sinto muito, mas por enquanto vocÃª perdeu.",bc_map; break;
+	case 6: mapannounce "job_hunte",strcharinfo(0)+", o que vocÃª estÃ¡ fazendo? Volte e faÃ§a novamente!",bc_map; break;
+	case 7: mapannounce "job_hunte",strcharinfo(0)+", vamos lÃ¡! VocÃª pode fazer melhor do que isso! Tente outra vez!",bc_map; break;
+	case 8: mapannounce "job_hunte",strcharinfo(0)+", caiu em uma armadilha ... de novo. Mas nÃ£o se preocupe, vocÃª estÃ¡ ficando cada vez melhor.",bc_map; break;
+	case 9: mapannounce "job_hunte",strcharinfo(0)+", nÃ£o, nÃ£o, nÃ£o ... Volte para onde vocÃª comeÃ§ou!",bc_map; break;
+	case 10: mapannounce "job_hunte",strcharinfo(0)+"... aww ~ Tente outra vez! VocÃª pode fazer!",bc_map; break;
+	case 11: mapannounce "job_hunte",strcharinfo(0)+", @#$%#^!@ e vocÃª quer ser o quÃª? CaÃ§ador? EntÃ£o volte lÃ¡!",bc_map; break;
+	case 12: mapannounce "job_hunte",strcharinfo(0)+" foi derrotado pelas forÃ§as do mal. NÃ£o desista herÃ³i,!",bc_map; break;
+	case 13: mapannounce "job_hunte","Eu coloquei uma magia em vocÃª "+strcharinfo(0)+" e agora vocÃª Ã© meu! Vai comeÃ§ar tudo de novo agora.",bc_map; break;
+	case 14: mapannounce "job_hunte",strcharinfo(0)+". G'day mate, bem-vindo a terra de baixo. Como um presente, eu vou mandar vocÃª para o ponto de partida...",bc_map; break;
+	case 15: mapannounce "job_hunte","Esse Ã© o meu ninho "+strcharinfo(0)+"! nÃ£o passo lÃ¡, grito ~ Recomece.",bc_map; break;
 	case 16: mapannounce "job_hunte",strcharinfo(0)+", outro para baixo arqueiro. mais 3 para ir!",bc_map; break;
-	case 17: mapannounce "job_hunte",strcharinfo(0)+", você tem o que fazer? Então, tente novamente.",bc_map; break;
-	case 18: mapannounce "job_hunte","Ai, "+strcharinfo(0)+", você caiu na armadilha mais temida entre todas as armadilhas. A bomba de fedor terrível! Vá Vá vá emboraaaaaaa!",bc_map; break;
+	case 17: mapannounce "job_hunte",strcharinfo(0)+", vocÃª tem o que fazer? EntÃ£o, tente novamente.",bc_map; break;
+	case 18: mapannounce "job_hunte","Ai, "+strcharinfo(0)+", vocÃª caiu na armadilha mais temida entre todas as armadilhas. A bomba de fedor terrÃ­vel! VÃ¡ VÃ¡ vÃ¡ emboraaaaaaa!",bc_map; break;
 	case 19: mapannounce "job_hunte",strcharinfo(0)+" tinha muito suco de poupa para beber hoje. Volte ao ponto de partida~",bc_map; break;
-	case 20: mapannounce "job_hunte","Não.... "+strcharinfo(0)+", você caiu em uma armadilha. Você será redirecionado para o ponto de partida.",bc_map; break;
-	case 21: mapannounce "job_hunte","Miau *phaw* olhe meus gatinhos vamos ter um ensopado de "+strcharinfo(0)+". Voltae ao ponto de partida se você não quiser se tornar um ensopado!",bc_map; break;
-	case 22: mapannounce "job_hunte","Desculpe "+strcharinfo(0)+", mas você realmente encontrou um segredo RUIM. Você será redirecionado para o ponto de partida.",bc_map; break;
-	case 23: mapannounce "job_hunte",strcharinfo(0)+", Arqueiro bobo ... sua tenacidade está tocando. Porém você está de volta ao começo...",bc_map; break;
-	case 24: mapannounce "job_hunte",strcharinfo(0)+", você caiu e você não consegue se levantar. Você será levado de volta ao ponto de partida.",bc_map; break;
+	case 20: mapannounce "job_hunte","NÃ£o.... "+strcharinfo(0)+", vocÃª caiu em uma armadilha. VocÃª serÃ¡ redirecionado para o ponto de partida.",bc_map; break;
+	case 21: mapannounce "job_hunte","Miau *phaw* olhe meus gatinhos vamos ter um ensopado de "+strcharinfo(0)+". Voltae ao ponto de partida se vocÃª nÃ£o quiser se tornar um ensopado!",bc_map; break;
+	case 22: mapannounce "job_hunte","Desculpe "+strcharinfo(0)+", mas vocÃª realmente encontrou um segredo RUIM. VocÃª serÃ¡ redirecionado para o ponto de partida.",bc_map; break;
+	case 23: mapannounce "job_hunte",strcharinfo(0)+", Arqueiro bobo ... sua tenacidade estÃ¡ tocando. PorÃ©m vocÃª estÃ¡ de volta ao comeÃ§o...",bc_map; break;
+	case 24: mapannounce "job_hunte",strcharinfo(0)+", vocÃª caiu e vocÃª nÃ£o consegue se levantar. VocÃª serÃ¡ levado de volta ao ponto de partida.",bc_map; break;
 	case 25: mapannounce "job_hunte","Pule o turno "+strcharinfo(0)+", volte para o ponto de partida.",bc_map; break;
-	case 26: mapannounce "job_hunte",strcharinfo(0)+", nya nya, heh heh heh. Você será redirecionado para o ponto de partida.",bc_map; break;
-	case 27: mapannounce "job_hunte","A prática é longa "+strcharinfo(0)+". Desta vez me mostre de verdade.",bc_map; break;
-	case 28: mapannounce "job_hunte",strcharinfo(0)+", este é um ataque Jellopy Poring...vá embora! Comece do começo, se você deseja continuar.",bc_map; break;
-	case 29: mapannounce "job_hunte","Desconectado do servidor. "+strcharinfo(0)+", você tem que começar de novo.",bc_map; break;
-	case 30: mapannounce "job_hunte",strcharinfo(0)+", o que é que este botão faz ... oops! Eu tenho medo que você tenha que começar de novo.",bc_map; break;
-	case 31: mapannounce "job_hunte",strcharinfo(0)+", você entrou na rodada de bônus! E, você perdeu. Você será redirecionado para o ponto de partida.",bc_map; break;
-	case 32: mapannounce "job_hunte","Oh, não "+strcharinfo(0)+", você pisou em uma colméia de abelhas. Você escapou por pouco de voltar para o começo.",bc_map; break;
-	case 33: mapannounce "job_hunte",strcharinfo(0)+", espere espere. Isso é uma armadilha! Oh, espere, que é um cachorro. . . .",bc_map; break;
-	case 34: mapannounce "job_hunte","Pare"+strcharinfo(0)+"! Vou puní-lo por pisar nessa armadilha!",bc_map; break;
-	case 35: mapannounce "job_hunte",strcharinfo(0)+", Eu volto. . . Espero você também.",bc_map; break;
+	case 26: mapannounce "job_hunte",strcharinfo(0)+", nya nya, heh heh heh. VocÃª serÃ¡ redirecionado para o ponto de partida.",bc_map; break;
+	case 27: mapannounce "job_hunte","A prÃ¡tica Ã© longa "+strcharinfo(0)+". Desta vez me mostre de verdade.",bc_map; break;
+	case 28: mapannounce "job_hunte",strcharinfo(0)+", este Ã© um ataque Jellopy Poring...vÃ¡ embora! Comece do comeÃ§o, se vocÃª deseja continuar.",bc_map; break;
+	case 29: mapannounce "job_hunte","Desconectado do servidor. "+strcharinfo(0)+", vocÃª tem que comeÃ§ar de novo.",bc_map; break;
+	case 30: mapannounce "job_hunte",strcharinfo(0)+", o que Ã© que este botÃ£o faz ... oops! Eu tenho medo que vocÃª tenha que comeÃ§ar de novo.",bc_map; break;
+	case 31: mapannounce "job_hunte",strcharinfo(0)+", vocÃª entrou na rodada de bÃ´nus! E, vocÃª perdeu. VocÃª serÃ¡ redirecionado para o ponto de partida.",bc_map; break;
+	case 32: mapannounce "job_hunte","Oh, nÃ£o "+strcharinfo(0)+", vocÃª pisou em uma colmÃ©ia de abelhas. VocÃª escapou por pouco de voltar para o comeÃ§o.",bc_map; break;
+	case 33: mapannounce "job_hunte",strcharinfo(0)+", espere espere. Isso Ã© uma armadilha! Oh, espere, que Ã© um cachorro. . . .",bc_map; break;
+	case 34: mapannounce "job_hunte","Pare"+strcharinfo(0)+"! Vou punÃ­-lo por pisar nessa armadilha!",bc_map; break;
+	case 35: mapannounce "job_hunte",strcharinfo(0)+", Eu volto. . . Espero vocÃª tambÃ©m.",bc_map; break;
 	case 36: mapannounce "job_hunte",strcharinfo(0)+", Venha comigo se quiser viver... para o ponto de partida.",bc_map; break;
 	case 37: mapannounce "job_hunte",strcharinfo(0)+", meu ... precioso! Volte para o ponto de partida.",bc_map; break;
-	case 38: mapannounce "job_hunte","Siga a estrada de tijolos amarelos... Não espere, "+strcharinfo(0)+"!! Não desse jeito ... Volte ao ponto de partida.",bc_map; break;
-	case 39: mapannounce "job_hunte",strcharinfo(0)+", você realmente deve pegar o jeito disto 'sintonia com a natureza'. Agora, você está perdido!",bc_map; break;
-	case 40: mapannounce "job_hunte",strcharinfo(0)+", é só uma história ... não é real. Mas você vai ser devolvido ao ponto de partida.",bc_map; break;
-	case 41: mapannounce "job_hunte",strcharinfo(0)+", você caiu em uma armadilha. E a armadilha ... caiu em você. Retornando ao ponto de partida.",bc_map; break;
-	case 42: mapannounce "job_hunte","Não tema "+strcharinfo(0)+", você também deve aprender os poderes do lado negro. Irá agora ser retornado para o ponto de partida.",bc_map; break;
-	case 43: mapannounce "job_hunte",strcharinfo(0)+", caiu em uma armadilha. Com bastante facilidade, eu estou com medo. Mas este herói não será derrotado facilmente!",bc_map; break;
-	case 44: mapannounce "job_hunte"," Dica do dia: Não pise as armadilhas. Você será redirecionado para o ponto de partida.",bc_map; break;
-	case 45: mapannounce "job_hunte",strcharinfo(0)+" caiu em uma armadilha. Mais uma vez, por uma questão de clareza, o nome é "+strcharinfo(0)+".",bc_map; break;
+	case 38: mapannounce "job_hunte","Siga a estrada de tijolos amarelos... NÃ£o espere, "+strcharinfo(0)+"!! NÃ£o desse jeito ... Volte ao ponto de partida.",bc_map; break;
+	case 39: mapannounce "job_hunte",strcharinfo(0)+", vocÃª realmente deve pegar o jeito disto 'sintonia com a natureza'. Agora, vocÃª estÃ¡ perdido!",bc_map; break;
+	case 40: mapannounce "job_hunte",strcharinfo(0)+", Ã© sÃ³ uma histÃ³ria ... nÃ£o Ã© real. Mas vocÃª vai ser devolvido ao ponto de partida.",bc_map; break;
+	case 41: mapannounce "job_hunte",strcharinfo(0)+", vocÃª caiu em uma armadilha. E a armadilha ... caiu em vocÃª. Retornando ao ponto de partida.",bc_map; break;
+	case 42: mapannounce "job_hunte","NÃ£o tema "+strcharinfo(0)+", vocÃª tambÃ©m deve aprender os poderes do lado negro. IrÃ¡ agora ser retornado para o ponto de partida.",bc_map; break;
+	case 43: mapannounce "job_hunte",strcharinfo(0)+", caiu em uma armadilha. Com bastante facilidade, eu estou com medo. Mas este herÃ³i nÃ£o serÃ¡ derrotado facilmente!",bc_map; break;
+	case 44: mapannounce "job_hunte"," Dica do dia: NÃ£o pise as armadilhas. VocÃª serÃ¡ redirecionado para o ponto de partida.",bc_map; break;
+	case 45: mapannounce "job_hunte",strcharinfo(0)+" caiu em uma armadilha. Mais uma vez, por uma questÃ£o de clareza, o nome Ã© "+strcharinfo(0)+".",bc_map; break;
 	case 46: mapannounce "job_hunte","Oi oi, "+strcharinfo(0)+".. Eu vi Porings cegos chegar mais longe! Volte para o ponto de partida.",bc_map; break;
-	case 47: mapannounce "job_hunte","MEUS OLHOS!! "+strcharinfo(0)+", você... você.. pisou. Vai tentar de novo ... eu choro por você se eu pudesse até mesmo derramaria lágrimas ...",bc_map; break;
-	case 48: mapannounce "job_hunte",strcharinfo(0)+", onde está você? Certo que não ... está no lugar onde você deveria estar se você passou no teste.",bc_map; break;
-	case 49: mapannounce "job_hunte"," Uau, ele realmente pagou um cara para pensar nessas comentários. "+strcharinfo(0)+", você pode voltar para o ponto de partida.",bc_map; break;
-	case 50: mapannounce "job_hunte"," Minha letra, "+strcharinfo(0)+"! Você está precariamente caído em uma armadilha! Você será redirecionado de volta ao começo. Adeus~!",bc_map; break;
-	case 51: mapannounce "job_hunte",strcharinfo(0)+", você tem alguma idéia de onde você está indo? Recomece *suspiro*.",bc_map; break;
-	case 52: mapannounce "job_hunte",strcharinfo(0)+", você gosta de sorvete de chá verde? Não? Volte para o ponto de partida ... * hmph *",bc_map; break;
-	case 53: mapannounce "job_hunte","Oh, não.. "+strcharinfo(0)+", Você se machucou? Venha agora, vamos voltar ao ponto de partida.",bc_map; break;
-	case 54: mapannounce "job_hunte","Oi "+strcharinfo(0)+", como você está? Aqui está um presente ~ um teleporte grátis! Volte ao ponto de partida.",bc_map; break;
-	case 55: mapannounce "job_hunte",strcharinfo(0)+".......... você sabia que era uma armadilha? Espero que sim, caso contrário, acho que ficaria muito envergonhado.",bc_map; break;
-	case 56: mapannounce "job_hunte",strcharinfo(0)+", O que você acha do design do interior? Eu trabalhei muito duro para isso ... e esta característica encantadora que lhe envia de volta para o ponto de partida.",bc_map; break;
-	case 57: mapannounce "job_hunte","BOOM BAM BOOM! "+strcharinfo(0)+", você caiu na minha armadilha! Mas eu não vou te matar ... apenas ... humilhá-lo...",bc_map; break;
-	case 58: mapannounce "job_hunte","Ah, "+strcharinfo(0)+".. Você pode fazer melhor. tente novamente!",bc_map; break;
-	case 59: mapannounce "job_hunte","Olá, este é local de trabalho da Kafra... "+strcharinfo(0)+", sua mãe está esperando por você na fila do caixa.",bc_map; break;
-	case 60: mapannounce "job_hunte",strcharinfo(0)+", Se você for bem. Eu vou ter um belo presente esperando por você ... O que é isso? Você vai ver se você passar ~ Vá tentar novamente!",bc_map; break;
-	case 61: mapannounce "job_hunte",strcharinfo(0)+" falhooooooooooooooooooou.. Hehe, brincando. Você será redirecionado para o ponto de partida para tentar novamente!",bc_map; break;
-	case 62: mapannounce "job_hunte",strcharinfo(0)+", você caiu em uma armadilha. Você deve prestar mais atenção a seus pés. O quê? Invisível? Isso é conversa de bebê! Agora vá, tente novamente!",bc_map; break;
-	case 63: mapannounce "job_hunte"," Desculpe, "+strcharinfo(0)+", você caiu em uma armadilha. Mas eu vou ser legal e mandar você para o ponto inicial.",bc_map; break;
-	case 64: mapannounce "job_hunte",strcharinfo(0)+", HAHAHAHAHAHA!!!! Eu não posso acreditar que você se apaixonou por aquilo!",bc_map; break;
-	case 65: mapannounce "job_hunte",strcharinfo(0)+", Eu estava prestes a lhe falar sobre isso ... mas, eu não fiz? Volte ao início.",bc_map; break;
-	case 66: mapannounce "job_hunte",strcharinfo(0)+"...Sinto muito meu amigo, mas você perdeu. Mas não se preocupe, não é como esta mensagem não é nada de mais.",bc_map; break;
-	case 67: mapannounce "job_hunte",strcharinfo(0)+", Eu não tenho mais tanta certeza que você é qualificado para isto ... Tente novamente e prove que estou errado.",bc_map; break;
-	case 68: mapannounce "job_hunte",strcharinfo(0)+", OW ... agora que tem que doer. Volte para o início~",bc_map; break;
-	case 69: mapannounce "job_hunte",strcharinfo(0)+", Acho a sua falta de fé perturbadora ... Vamos começar de novo.",bc_map; break;
-	case 70: mapannounce "job_hunte",strcharinfo(0)+", seus olhos podem te enganar. Não confie neles. Estique com seus sentimentos. Tente novamente agora.",bc_map; break;
+	case 47: mapannounce "job_hunte","MEUS OLHOS!! "+strcharinfo(0)+", vocÃª... vocÃª.. pisou. Vai tentar de novo ... eu choro por vocÃª se eu pudesse atÃ© mesmo derramaria lÃ¡grimas ...",bc_map; break;
+	case 48: mapannounce "job_hunte",strcharinfo(0)+", onde estÃ¡ vocÃª? Certo que nÃ£o ... estÃ¡ no lugar onde vocÃª deveria estar se vocÃª passou no teste.",bc_map; break;
+	case 49: mapannounce "job_hunte"," Uau, ele realmente pagou um cara para pensar nessas comentÃ¡rios. "+strcharinfo(0)+", vocÃª pode voltar para o ponto de partida.",bc_map; break;
+	case 50: mapannounce "job_hunte"," Minha letra, "+strcharinfo(0)+"! VocÃª estÃ¡ precariamente caÃ­do em uma armadilha! VocÃª serÃ¡ redirecionado de volta ao comeÃ§o. Adeus~!",bc_map; break;
+	case 51: mapannounce "job_hunte",strcharinfo(0)+", vocÃª tem alguma idÃ©ia de onde vocÃª estÃ¡ indo? Recomece *suspiro*.",bc_map; break;
+	case 52: mapannounce "job_hunte",strcharinfo(0)+", vocÃª gosta de sorvete de chÃ¡ verde? NÃ£o? Volte para o ponto de partida ... * hmph *",bc_map; break;
+	case 53: mapannounce "job_hunte","Oh, nÃ£o.. "+strcharinfo(0)+", VocÃª se machucou? Venha agora, vamos voltar ao ponto de partida.",bc_map; break;
+	case 54: mapannounce "job_hunte","Oi "+strcharinfo(0)+", como vocÃª estÃ¡? Aqui estÃ¡ um presente ~ um teleporte grÃ¡tis! Volte ao ponto de partida.",bc_map; break;
+	case 55: mapannounce "job_hunte",strcharinfo(0)+".......... vocÃª sabia que era uma armadilha? Espero que sim, caso contrÃ¡rio, acho que ficaria muito envergonhado.",bc_map; break;
+	case 56: mapannounce "job_hunte",strcharinfo(0)+", O que vocÃª acha do design do interior? Eu trabalhei muito duro para isso ... e esta caracterÃ­stica encantadora que lhe envia de volta para o ponto de partida.",bc_map; break;
+	case 57: mapannounce "job_hunte","BOOM BAM BOOM! "+strcharinfo(0)+", vocÃª caiu na minha armadilha! Mas eu nÃ£o vou te matar ... apenas ... humilhÃ¡-lo...",bc_map; break;
+	case 58: mapannounce "job_hunte","Ah, "+strcharinfo(0)+".. VocÃª pode fazer melhor. tente novamente!",bc_map; break;
+	case 59: mapannounce "job_hunte","OlÃ¡, este Ã© local de trabalho da Kafra... "+strcharinfo(0)+", sua mÃ£e estÃ¡ esperando por vocÃª na fila do caixa.",bc_map; break;
+	case 60: mapannounce "job_hunte",strcharinfo(0)+", Se vocÃª for bem. Eu vou ter um belo presente esperando por vocÃª ... O que Ã© isso? VocÃª vai ver se vocÃª passar ~ VÃ¡ tentar novamente!",bc_map; break;
+	case 61: mapannounce "job_hunte",strcharinfo(0)+" falhooooooooooooooooooou.. Hehe, brincando. VocÃª serÃ¡ redirecionado para o ponto de partida para tentar novamente!",bc_map; break;
+	case 62: mapannounce "job_hunte",strcharinfo(0)+", vocÃª caiu em uma armadilha. VocÃª deve prestar mais atenÃ§Ã£o a seus pÃ©s. O quÃª? InvisÃ­vel? Isso Ã© conversa de bebÃª! Agora vÃ¡, tente novamente!",bc_map; break;
+	case 63: mapannounce "job_hunte"," Desculpe, "+strcharinfo(0)+", vocÃª caiu em uma armadilha. Mas eu vou ser legal e mandar vocÃª para o ponto inicial.",bc_map; break;
+	case 64: mapannounce "job_hunte",strcharinfo(0)+", HAHAHAHAHAHA!!!! Eu nÃ£o posso acreditar que vocÃª se apaixonou por aquilo!",bc_map; break;
+	case 65: mapannounce "job_hunte",strcharinfo(0)+", Eu estava prestes a lhe falar sobre isso ... mas, eu nÃ£o fiz? Volte ao inÃ­cio.",bc_map; break;
+	case 66: mapannounce "job_hunte",strcharinfo(0)+"...Sinto muito meu amigo, mas vocÃª perdeu. Mas nÃ£o se preocupe, nÃ£o Ã© como esta mensagem nÃ£o Ã© nada de mais.",bc_map; break;
+	case 67: mapannounce "job_hunte",strcharinfo(0)+", Eu nÃ£o tenho mais tanta certeza que vocÃª Ã© qualificado para isto ... Tente novamente e prove que estou errado.",bc_map; break;
+	case 68: mapannounce "job_hunte",strcharinfo(0)+", OW ... agora que tem que doer. Volte para o inÃ­cio~",bc_map; break;
+	case 69: mapannounce "job_hunte",strcharinfo(0)+", Acho a sua falta de fÃ© perturbadora ... Vamos comeÃ§ar de novo.",bc_map; break;
+	case 70: mapannounce "job_hunte",strcharinfo(0)+", seus olhos podem te enganar. NÃ£o confie neles. Estique com seus sentimentos. Tente novamente agora.",bc_map; break;
 	case 71: mapannounce "job_hunte",strcharinfo(0)+", se uma vez entrar no caminho escuro, para sempre ele vai dominar o seu destino. Retorne para o ponto de partida.",bc_map; break;
-	case 72: mapannounce "job_hunte",strcharinfo(0)+", o tamanho não importa. Mas, o número de armadilhas que prenderam você. Tente novamente e vença desta vez!",bc_map; break;
-	case 73: mapannounce "job_hunte",strcharinfo(0)+", tente não. Faça ou não faça. Não há nenhuma tentativa.",bc_map; break;
-	case 74: mapannounce "job_hunte",strcharinfo(0)+", é por isso que você falhar. Agora tente novamente!",bc_map; break;
-	case 75: mapannounce "job_hunte",strcharinfo(0)+", olhe. Se é feito de metal e parece que tem dentes, você não deve colocar o pé nela. Tão simples, realmente...",bc_map; break;
-	case 76: mapannounce "job_hunte",strcharinfo(0)+", você está batido. É inútil resistir.",bc_map; break;
-	case 77: mapannounce "job_hunte",strcharinfo(0)+", Estou ansioso para completar sua formação. Com o tempo você irá me chamar de Mestre.",bc_map; break;
-	case 78: mapannounce "job_hunte",strcharinfo(0)+", seu excesso de confiança é a sua fraqueza.",bc_map; break;
-	case 79: mapannounce "job_hunte",strcharinfo(0)+", tome cuidado com seus passos. Este lugar pode ser um pouco áspero.",bc_map; break;
+	case 72: mapannounce "job_hunte",strcharinfo(0)+", o tamanho nÃ£o importa. Mas, o nÃºmero de armadilhas que prenderam vocÃª. Tente novamente e venÃ§a desta vez!",bc_map; break;
+	case 73: mapannounce "job_hunte",strcharinfo(0)+", tente nÃ£o. FaÃ§a ou nÃ£o faÃ§a. NÃ£o hÃ¡ nenhuma tentativa.",bc_map; break;
+	case 74: mapannounce "job_hunte",strcharinfo(0)+", Ã© por isso que vocÃª falhar. Agora tente novamente!",bc_map; break;
+	case 75: mapannounce "job_hunte",strcharinfo(0)+", olhe. Se Ã© feito de metal e parece que tem dentes, vocÃª nÃ£o deve colocar o pÃ© nela. TÃ£o simples, realmente...",bc_map; break;
+	case 76: mapannounce "job_hunte",strcharinfo(0)+", vocÃª estÃ¡ batido. Ã‰ inÃºtil resistir.",bc_map; break;
+	case 77: mapannounce "job_hunte",strcharinfo(0)+", Estou ansioso para completar sua formaÃ§Ã£o. Com o tempo vocÃª irÃ¡ me chamar de Mestre.",bc_map; break;
+	case 78: mapannounce "job_hunte",strcharinfo(0)+", seu excesso de confianÃ§a Ã© a sua fraqueza.",bc_map; break;
+	case 79: mapannounce "job_hunte",strcharinfo(0)+", tome cuidado com seus passos. Este lugar pode ser um pouco Ã¡spero.",bc_map; break;
 	case 80: mapannounce "job_hunte",strcharinfo(0)+", oh eu disse que aqui era perigoso.",bc_map; break;
-	case 81: mapannounce "job_hunte",strcharinfo(0)+", tudo está indo como eu previ.",bc_map; break;
-	case 82: mapannounce "job_hunte",strcharinfo(0)+", você não deve ter voltado.",bc_map; break;
-	case 83: mapannounce "job_hunte",strcharinfo(0)+", existem alternativas para o combate. Mas não para perder neste teste. Agora tente novamente!",bc_map; break;
-	case 84: mapannounce "job_hunte",strcharinfo(0)+", isso é um nome que eu não ouvia há algum tempo ... vamos torcer para que eu não o ouça novamente~!",bc_map; break;
-	case 85: mapannounce "job_hunte",strcharinfo(0)+", não treinamos para ser misericordioso aqui, a misericórdia é para os fracos!",bc_map; break;
-	case 86: mapannounce "job_hunte",strcharinfo(0)+", derrota não existe aqui, não é?!",bc_map; break;
+	case 81: mapannounce "job_hunte",strcharinfo(0)+", tudo estÃ¡ indo como eu previ.",bc_map; break;
+	case 82: mapannounce "job_hunte",strcharinfo(0)+", vocÃª nÃ£o deve ter voltado.",bc_map; break;
+	case 83: mapannounce "job_hunte",strcharinfo(0)+", existem alternativas para o combate. Mas nÃ£o para perder neste teste. Agora tente novamente!",bc_map; break;
+	case 84: mapannounce "job_hunte",strcharinfo(0)+", isso Ã© um nome que eu nÃ£o ouvia hÃ¡ algum tempo ... vamos torcer para que eu nÃ£o o ouÃ§a novamente~!",bc_map; break;
+	case 85: mapannounce "job_hunte",strcharinfo(0)+", nÃ£o treinamos para ser misericordioso aqui, a misericÃ³rdia Ã© para os fracos!",bc_map; break;
+	case 86: mapannounce "job_hunte",strcharinfo(0)+", derrota nÃ£o existe aqui, nÃ£o Ã©?!",bc_map; break;
 	case 87: mapannounce "job_hunte",strcharinfo(0)+", concentrar. Concentre seu poder!",bc_map; break;
-	case 88: mapannounce "job_hunte",strcharinfo(0)+", estou ficando louco, ou a palavra-pensar-escapar saiu de seus lábios?",bc_map; break;
-	case 89: mapannounce "job_hunte",strcharinfo(0)+", você está apenas parando agora.",bc_map; break;
-	case 90: mapannounce "job_hunte",strcharinfo(0)+", a vida nem sempre é justa.",bc_map; break;
-	case 91: mapannounce "job_hunte",strcharinfo(0)+".... Uhhh ... não é nossa culpa....",bc_map; break;
-	case 92: mapannounce "job_hunte",strcharinfo(0)+", sobrevivência tem prioridade.",bc_map; break;
-	case 93: mapannounce "job_hunte",strcharinfo(0)+", as pessoas têm a força para superar seus obstáculos ... todo mundo pode.",bc_map; break;
-	case 94: mapannounce "job_hunte",strcharinfo(0)+", não há felicidade para aqueles que aceitam o seu destino, e não há glória para aqueles que resistem a seu destino.",bc_map; break;
-	case 95: mapannounce "job_hunte",strcharinfo(0)+", algumas coisas são reais e algumas coisas são falsas. Você não pode dizer a diferença?",bc_map; break;
-	case 96: mapannounce "job_hunte",strcharinfo(0)+", estamos nos divertindo, não estamos? Todo dia aqui é como um sonho. Eu realmente espero que seja assim para sempre.",bc_map; break;
-	case 97: mapannounce "job_hunte",strcharinfo(0)+", Vou te dar apenas um conselho ... morte dói como o inferno.",bc_map; break;
-	case 98: mapannounce "job_hunte",strcharinfo(0)+", não desista do fantasma! Basta ter mais cuidado...",bc_map; break;
-	case 99: mapannounce "job_hunte",strcharinfo(0)+", a morte é um presente dado ao nascer. Mas ... essas armadilhas não vão te matar, não se preocupe.",bc_map; break;
-	case 100: mapannounce "job_hunte",strcharinfo(0)+", Eu estava contando com você desde o início. Mas eu acho que você vai me fazer esperar mais tempo...",bc_map; break;
-	case 101: mapannounce "job_hunte",strcharinfo(0)+", sempre com o fim vem a esperança e renascimento. Mas ele está de volta do começo para você~",bc_map; break;
-	case 102: mapannounce "job_hunte",strcharinfo(0)+", eu já lhe falei sobre o poder, realizado em uma única lágrima? Sua aprovação para derramar uma agora, eu sei que é difícil...",bc_map; break;
-	case 103: mapannounce "job_hunte",strcharinfo(0)+", felicidade, muitas vezes foge por uma porta que você não sabia que você deixou aberta. Mais ou menos como ... armadilhas escondidas!",bc_map; break;
+	case 88: mapannounce "job_hunte",strcharinfo(0)+", estou ficando louco, ou a palavra-pensar-escapar saiu de seus lÃ¡bios?",bc_map; break;
+	case 89: mapannounce "job_hunte",strcharinfo(0)+", vocÃª estÃ¡ apenas parando agora.",bc_map; break;
+	case 90: mapannounce "job_hunte",strcharinfo(0)+", a vida nem sempre Ã© justa.",bc_map; break;
+	case 91: mapannounce "job_hunte",strcharinfo(0)+".... Uhhh ... nÃ£o Ã© nossa culpa....",bc_map; break;
+	case 92: mapannounce "job_hunte",strcharinfo(0)+", sobrevivÃªncia tem prioridade.",bc_map; break;
+	case 93: mapannounce "job_hunte",strcharinfo(0)+", as pessoas tÃªm a forÃ§a para superar seus obstÃ¡culos ... todo mundo pode.",bc_map; break;
+	case 94: mapannounce "job_hunte",strcharinfo(0)+", nÃ£o hÃ¡ felicidade para aqueles que aceitam o seu destino, e nÃ£o hÃ¡ glÃ³ria para aqueles que resistem a seu destino.",bc_map; break;
+	case 95: mapannounce "job_hunte",strcharinfo(0)+", algumas coisas sÃ£o reais e algumas coisas sÃ£o falsas. VocÃª nÃ£o pode dizer a diferenÃ§a?",bc_map; break;
+	case 96: mapannounce "job_hunte",strcharinfo(0)+", estamos nos divertindo, nÃ£o estamos? Todo dia aqui Ã© como um sonho. Eu realmente espero que seja assim para sempre.",bc_map; break;
+	case 97: mapannounce "job_hunte",strcharinfo(0)+", Vou te dar apenas um conselho ... morte dÃ³i como o inferno.",bc_map; break;
+	case 98: mapannounce "job_hunte",strcharinfo(0)+", nÃ£o desista do fantasma! Basta ter mais cuidado...",bc_map; break;
+	case 99: mapannounce "job_hunte",strcharinfo(0)+", a morte Ã© um presente dado ao nascer. Mas ... essas armadilhas nÃ£o vÃ£o te matar, nÃ£o se preocupe.",bc_map; break;
+	case 100: mapannounce "job_hunte",strcharinfo(0)+", Eu estava contando com vocÃª desde o inÃ­cio. Mas eu acho que vocÃª vai me fazer esperar mais tempo...",bc_map; break;
+	case 101: mapannounce "job_hunte",strcharinfo(0)+", sempre com o fim vem a esperanÃ§a e renascimento. Mas ele estÃ¡ de volta do comeÃ§o para vocÃª~",bc_map; break;
+	case 102: mapannounce "job_hunte",strcharinfo(0)+", eu jÃ¡ lhe falei sobre o poder, realizado em uma Ãºnica lÃ¡grima? Sua aprovaÃ§Ã£o para derramar uma agora, eu sei que Ã© difÃ­cil...",bc_map; break;
+	case 103: mapannounce "job_hunte",strcharinfo(0)+", felicidade, muitas vezes foge por uma porta que vocÃª nÃ£o sabia que vocÃª deixou aberta. Mais ou menos como ... armadilhas escondidas!",bc_map; break;
 	case 104: mapannounce "job_hunte",strcharinfo(0)+", ....Chii?",bc_map; break;
 	case 105: mapannounce "job_hunte",strcharinfo(0)+", Mina! Mina! Mine! Mina!",bc_map; break;
-	case 106: mapannounce "job_hunte",strcharinfo(0)+", é hora de duelo!!",bc_map; break;
-	case 107: mapannounce "job_hunte",strcharinfo(0)+", Eu escolho você! ... Aguarde ... uagh ... não você!...",bc_map; break;
-	case 108: mapannounce "job_hunte",strcharinfo(0)+", este não é o momento para ser elogia-lo!",bc_map; break;
-	case 109: mapannounce "job_hunte",strcharinfo(0)+"...Oh ótimo, o que mais poderia dar errado hoje?",bc_map; break;
-	case 110: mapannounce "job_hunte",strcharinfo(0)+", não se preocupe, eu sempre tenho uma reserva. Nós não esgotaremos as armadilhas tão cedo...",bc_map; break;
-	case 111: mapannounce "job_hunte",strcharinfo(0)+", quando coisas ruins aconteceremm, não desista. Virá o dia quando você irá olhar para trás e rir de si. Mas não hoje.",bc_map; break;
-	case 112: mapannounce "job_hunte",strcharinfo(0)+", Não se preocupe com isso. Somos bons em perder batalhas, lembre-se?",bc_map; break;
-	case 113: mapannounce "job_hunte",strcharinfo(0)+", Você se lembra como era quando você se sentiu realmente habilidoso? Esse sentimento não vai voltar por um tempo...",bc_map; break;
-	case 114: mapannounce "job_hunte",strcharinfo(0)+", você deve esquecer o seu passado por causa da sua própria felicidade.",bc_map; break;
-	case 115: mapannounce "job_hunte",strcharinfo(0)+", se você pode enganar seus amigos, você pode enganar seus inimigos.",bc_map; break;
-	case 116: mapannounce "job_hunte",strcharinfo(0)+", este mundo é feito de amor e paz!",bc_map; break;
-	case 117: mapannounce "job_hunte",strcharinfo(0)+", Se você falhar, você deve beber este ..... *sorriso maligno*",bc_map; break;
-	case 118: mapannounce "job_hunte",strcharinfo(0)+", não diga que não avisei!",bc_map; break;
-	case 119: mapannounce "job_hunte",strcharinfo(0)+", a curiosidade matou o gato. Sorte para mim Eu não sou um gato. Ah, você também é um.",bc_map; break;
+	case 106: mapannounce "job_hunte",strcharinfo(0)+", Ã© hora de duelo!!",bc_map; break;
+	case 107: mapannounce "job_hunte",strcharinfo(0)+", Eu escolho vocÃª! ... Aguarde ... uagh ... nÃ£o vocÃª!...",bc_map; break;
+	case 108: mapannounce "job_hunte",strcharinfo(0)+", este nÃ£o Ã© o momento para ser elogia-lo!",bc_map; break;
+	case 109: mapannounce "job_hunte",strcharinfo(0)+"...Oh Ã³timo, o que mais poderia dar errado hoje?",bc_map; break;
+	case 110: mapannounce "job_hunte",strcharinfo(0)+", nÃ£o se preocupe, eu sempre tenho uma reserva. NÃ³s nÃ£o esgotaremos as armadilhas tÃ£o cedo...",bc_map; break;
+	case 111: mapannounce "job_hunte",strcharinfo(0)+", quando coisas ruins aconteceremm, nÃ£o desista. VirÃ¡ o dia quando vocÃª irÃ¡ olhar para trÃ¡s e rir de si. Mas nÃ£o hoje.",bc_map; break;
+	case 112: mapannounce "job_hunte",strcharinfo(0)+", NÃ£o se preocupe com isso. Somos bons em perder batalhas, lembre-se?",bc_map; break;
+	case 113: mapannounce "job_hunte",strcharinfo(0)+", VocÃª se lembra como era quando vocÃª se sentiu realmente habilidoso? Esse sentimento nÃ£o vai voltar por um tempo...",bc_map; break;
+	case 114: mapannounce "job_hunte",strcharinfo(0)+", vocÃª deve esquecer o seu passado por causa da sua prÃ³pria felicidade.",bc_map; break;
+	case 115: mapannounce "job_hunte",strcharinfo(0)+", se vocÃª pode enganar seus amigos, vocÃª pode enganar seus inimigos.",bc_map; break;
+	case 116: mapannounce "job_hunte",strcharinfo(0)+", este mundo Ã© feito de amor e paz!",bc_map; break;
+	case 117: mapannounce "job_hunte",strcharinfo(0)+", Se vocÃª falhar, vocÃª deve beber este ..... *sorriso maligno*",bc_map; break;
+	case 118: mapannounce "job_hunte",strcharinfo(0)+", nÃ£o diga que nÃ£o avisei!",bc_map; break;
+	case 119: mapannounce "job_hunte",strcharinfo(0)+", a curiosidade matou o gato. Sorte para mim Eu nÃ£o sou um gato. Ah, vocÃª tambÃ©m Ã© um.",bc_map; break;
 	case 120: mapannounce "job_hunte",strcharinfo(0)+", ESTUDO!ESTUDO!ESTUDO!ESTUDO!ESTUDO!ESTUDO!ESTUDO!ESTUDO!ESTUDO!ESTUDO!",bc_map; break;
-	case 121: mapannounce "job_hunte",strcharinfo(0)+", como você gosta de mim agora? É isso mesmo, essa foi a minha armadilha!",bc_map; break;
+	case 121: mapannounce "job_hunte",strcharinfo(0)+", como vocÃª gosta de mim agora? Ã‰ isso mesmo, essa foi a minha armadilha!",bc_map; break;
 	case 122: mapannounce "job_hunte",strcharinfo(0)+"...brilhante ... absolutamente genial. Desculpe, eu estava falando de todas essas armadilhas malucas.",bc_map; break;
-	case 123: mapannounce "job_hunte",strcharinfo(0)+", é hora de sair dessa armadilha, estilo Houdini! Ei, espere ... volte!",bc_map; break;
-	case 124: mapannounce "job_hunte",strcharinfo(0)+", parece que neste momento você pode estar realmente com problemas ... não se preocupe, basta tentar novamente!",bc_map; break;
-	case 125: mapannounce "job_hunte",strcharinfo(0)+"...não cara lisa. Vá para lá novamente, mais uma vez!",bc_map; break;
-	case 126: mapannounce "job_hunte",strcharinfo(0)+",parece que realmente você pode estar em apuros. Volte ao ponto de partida...",bc_map; break;
-	case 127: mapannounce "job_hunte",strcharinfo(0)+", basta pensar nisso como Karma. Algum dia, você vai poder fazer a criação de centenas de armadilhas de sua própria autoria...",bc_map; break;
-	case 128: mapannounce "job_hunte",strcharinfo(0)+", má notícia cara ... outra armadilha. Você vai pegar o jeito de isso, eu acredito em você!",bc_map; break;
-	case 129: mapannounce "job_hunte",strcharinfo(0)+", não desista! O mundo ainda precisa de você!",bc_map; break;
-	case 130: mapannounce "job_hunte",strcharinfo(0)+", não há problema em chorar. Apenas não muito alto.",bc_map; break;
-	case 131: mapannounce "job_hunte",strcharinfo(0)+"...ah. É cansativo a criação de todas estas armadilhas. Vocês tem que parar de cair nelas!",bc_map; break;
+	case 123: mapannounce "job_hunte",strcharinfo(0)+", Ã© hora de sair dessa armadilha, estilo Houdini! Ei, espere ... volte!",bc_map; break;
+	case 124: mapannounce "job_hunte",strcharinfo(0)+", parece que neste momento vocÃª pode estar realmente com problemas ... nÃ£o se preocupe, basta tentar novamente!",bc_map; break;
+	case 125: mapannounce "job_hunte",strcharinfo(0)+"...nÃ£o cara lisa. VÃ¡ para lÃ¡ novamente, mais uma vez!",bc_map; break;
+	case 126: mapannounce "job_hunte",strcharinfo(0)+",parece que realmente vocÃª pode estar em apuros. Volte ao ponto de partida...",bc_map; break;
+	case 127: mapannounce "job_hunte",strcharinfo(0)+", basta pensar nisso como Karma. Algum dia, vocÃª vai poder fazer a criaÃ§Ã£o de centenas de armadilhas de sua prÃ³pria autoria...",bc_map; break;
+	case 128: mapannounce "job_hunte",strcharinfo(0)+", mÃ¡ notÃ­cia cara ... outra armadilha. VocÃª vai pegar o jeito de isso, eu acredito em vocÃª!",bc_map; break;
+	case 129: mapannounce "job_hunte",strcharinfo(0)+", nÃ£o desista! O mundo ainda precisa de vocÃª!",bc_map; break;
+	case 130: mapannounce "job_hunte",strcharinfo(0)+", nÃ£o hÃ¡ problema em chorar. Apenas nÃ£o muito alto.",bc_map; break;
+	case 131: mapannounce "job_hunte",strcharinfo(0)+"...ah. Ã‰ cansativo a criaÃ§Ã£o de todas estas armadilhas. VocÃªs tem que parar de cair nelas!",bc_map; break;
 	}
 	HNTR_Q = 13;
 	warp "job_hunte",176,22;
@@ -1402,235 +1406,235 @@ OnTouch:
 }
 
 // Duplicatas
-job_hunte,53,140,0	duplicate(ArmadilhaCaçador)	1-2	-1,0,1
-job_hunte,54,141,0	duplicate(ArmadilhaCaçador)	1-3	-1,0,0
-job_hunte,55,141,0	duplicate(ArmadilhaCaçador)	1-4	-1,0,0
-job_hunte,55,140,0	duplicate(ArmadilhaCaçador)	1-5	-1,0,0
-job_hunte,54,140,0	duplicate(ArmadilhaCaçador)	1-6	-1,0,0
-job_hunte,52,138,0	duplicate(ArmadilhaCaçador)	1-7	-1,0,0
-job_hunte,53,138,0	duplicate(ArmadilhaCaçador)	1-8	-1,0,0
-job_hunte,62,140,0	duplicate(ArmadilhaCaçador)	2-1	-1,0,1
-job_hunte,63,140,0	duplicate(ArmadilhaCaçador)	2-2	-1,0,1
-job_hunte,64,140,0	duplicate(ArmadilhaCaçador)	2-3	-1,0,0
-job_hunte,64,141,0	duplicate(ArmadilhaCaçador)	2-4	-1,0,0
-job_hunte,65,140,0	duplicate(ArmadilhaCaçador)	2-5	-1,0,0
-job_hunte,65,141,0	duplicate(ArmadilhaCaçador)	2-6	-1,0,0
-job_hunte,62,138,0	duplicate(ArmadilhaCaçador)	2-7	-1,0,0
-job_hunte,63,138,0	duplicate(ArmadilhaCaçador)	2-8	-1,0,0
-job_hunte,72,140,0	duplicate(ArmadilhaCaçador)	3-1	-1,0,1
-job_hunte,73,140,0	duplicate(ArmadilhaCaçador)	3-2	-1,0,1
-job_hunte,72,138,0	duplicate(ArmadilhaCaçador)	3-3	-1,0,0
-job_hunte,72,138,0	duplicate(ArmadilhaCaçador)	3-4	-1,0,0
-job_hunte,78,140,0	duplicate(ArmadilhaCaçador)	4-1	-1,0,0
-job_hunte,78,141,0	duplicate(ArmadilhaCaçador)	4-2	-1,0,0
-job_hunte,79,140,0	duplicate(ArmadilhaCaçador)	4-3	-1,0,0
-job_hunte,79,141,0	duplicate(ArmadilhaCaçador)	4-4	-1,0,0
-job_hunte,82,138,0	duplicate(ArmadilhaCaçador)	5-1	-1,0,0
-job_hunte,82,139,0	duplicate(ArmadilhaCaçador)	5-2	-1,0,0
-job_hunte,83,138,0	duplicate(ArmadilhaCaçador)	5-3	-1,0,0
-job_hunte,83,139,0	duplicate(ArmadilhaCaçador)	5-4	-1,0,0
-job_hunte,99,138,0	duplicate(ArmadilhaCaçador)	6-1	-1,1,0
-job_hunte,99,139,0	duplicate(ArmadilhaCaçador)	6-2	-1,1,0
-job_hunte,101,138,0	duplicate(ArmadilhaCaçador)	6-3	-1,0,0
-job_hunte,101,139,0	duplicate(ArmadilhaCaçador)	6-4	-1,0,0
-job_hunte,106,140,0	duplicate(ArmadilhaCaçador)	7-1	-1,0,1
-job_hunte,107,140,0	duplicate(ArmadilhaCaçador)	7-2	-1,0,1
-job_hunte,106,138,0	duplicate(ArmadilhaCaçador)	7-3	-1,0,0
-job_hunte,107,138,0	duplicate(ArmadilhaCaçador)	7-4	-1,0,0
-job_hunte,112,140,0	duplicate(ArmadilhaCaçador)	8-1	-1,0,0
-job_hunte,112,141,0	duplicate(ArmadilhaCaçador)	8-2	-1,0,0
-job_hunte,113,140,0	duplicate(ArmadilhaCaçador)	8-3	-1,0,0
-job_hunte,113,141,0	duplicate(ArmadilhaCaçador)	8-4	-1,0,0
-job_hunte,116,140,0	duplicate(ArmadilhaCaçador)	9-1	-1,0,0
-job_hunte,116,141,0	duplicate(ArmadilhaCaçador)	9-2	-1,0,0
-job_hunte,117,140,0	duplicate(ArmadilhaCaçador)	9-3	-1,0,0
-job_hunte,117,141,0	duplicate(ArmadilhaCaçador)	9-4	-1,0,0
-job_hunte,120,138,0	duplicate(ArmadilhaCaçador)	10-1	-1,0,0
-job_hunte,120,139,0	duplicate(ArmadilhaCaçador)	10-2	-1,0,0
-job_hunte,121,138,0	duplicate(ArmadilhaCaçador)	10-3	-1,0,0
-job_hunte,121,139,0	duplicate(ArmadilhaCaçador)	10-4	-1,0,0
-job_hunte,126,139,0	duplicate(ArmadilhaCaçador)	11-1	-1,0,2
-job_hunte,127,139,0	duplicate(ArmadilhaCaçador)	11-2	-1,0,2
-job_hunte,126,136,0	duplicate(ArmadilhaCaçador)	11-3	-1,0,0
-job_hunte,127,136,0	duplicate(ArmadilhaCaçador)	11-4	-1,0,0
-job_hunte,52,134,0	duplicate(ArmadilhaCaçador)	12-1	-1,0,1
-job_hunte,53,134,0	duplicate(ArmadilhaCaçador)	12-2	-1,0,1
-job_hunte,52,132,0	duplicate(ArmadilhaCaçador)	12-3	-1,0,0
-job_hunte,53,132,0	duplicate(ArmadilhaCaçador)	12-4	-1,0,0
-job_hunte,124,130,0	duplicate(ArmadilhaCaçador)	13-1	-1,0,0
-job_hunte,124,131,0	duplicate(ArmadilhaCaçador)	13-2	-1,0,0
-job_hunte,125,130,0	duplicate(ArmadilhaCaçador)	13-3	-1,0,0
-job_hunte,125,131,0	duplicate(ArmadilhaCaçador)	13-4	-1,0,0
-job_hunte,64,128,0	duplicate(ArmadilhaCaçador)	14-1	-1,0,0
-job_hunte,64,129,0	duplicate(ArmadilhaCaçador)	14-2	-1,0,0
-job_hunte,65,128,0	duplicate(ArmadilhaCaçador)	14-3	-1,0,0
-job_hunte,65,129,0	duplicate(ArmadilhaCaçador)	14-4	-1,0,0
-job_hunte,68,126,0	duplicate(ArmadilhaCaçador)	15-1	-1,0,0
-job_hunte,68,127,0	duplicate(ArmadilhaCaçador)	15-2	-1,0,0
-job_hunte,69,126,0	duplicate(ArmadilhaCaçador)	15-3	-1,0,0
-job_hunte,69,127,0	duplicate(ArmadilhaCaçador)	15-4	-1,0,0
-job_hunte,75,128,0	duplicate(ArmadilhaCaçador)	16-1	-1,1,0
-job_hunte,75,129,0	duplicate(ArmadilhaCaçador)	16-2	-1,1,0
-job_hunte,77,128,0	duplicate(ArmadilhaCaçador)	16-3	-1,0,0
-job_hunte,77,129,0	duplicate(ArmadilhaCaçador)	16-4	-1,0,0
-job_hunte,82,126,0	duplicate(ArmadilhaCaçador)	17-1	-1,0,0
-job_hunte,82,127,0	duplicate(ArmadilhaCaçador)	17-2	-1,0,0
-job_hunte,83,126,0	duplicate(ArmadilhaCaçador)	17-3	-1,0,0
-job_hunte,83,127,0	duplicate(ArmadilhaCaçador)	17-4	-1,0,0
-job_hunte,96,128,0	duplicate(ArmadilhaCaçador)	18-1	-1,0,0
-job_hunte,96,129,0	duplicate(ArmadilhaCaçador)	18-2	-1,0,0
-job_hunte,97,128,0	duplicate(ArmadilhaCaçador)	18-3	-1,0,0
-job_hunte,97,129,0	duplicate(ArmadilhaCaçador)	18-4	-1,0,0
-job_hunte,100,126,0	duplicate(ArmadilhaCaçador)	19-1	-1,0,0
-job_hunte,100,127,0	duplicate(ArmadilhaCaçador)	19-2	-1,0,0
-job_hunte,101,126,0	duplicate(ArmadilhaCaçador)	19-3	-1,0,0
-job_hunte,101,127,0	duplicate(ArmadilhaCaçador)	19-4	-1,0,0
-job_hunte,106,128,0	duplicate(ArmadilhaCaçador)	20-1	-1,0,0
-job_hunte,106,129,0	duplicate(ArmadilhaCaçador)	20-2	-1,0,0
-job_hunte,107,128,0	duplicate(ArmadilhaCaçador)	20-3	-1,0,0
-job_hunte,107,129,0	duplicate(ArmadilhaCaçador)	20-4	-1,0,0
-job_hunte,112,126,0	duplicate(ArmadilhaCaçador)	21-1	-1,0,0
-job_hunte,112,127,0	duplicate(ArmadilhaCaçador)	21-2	-1,0,0
-job_hunte,113,126,0	duplicate(ArmadilhaCaçador)	21-3	-1,0,0
-job_hunte,113,127,0	duplicate(ArmadilhaCaçador)	21-4	-1,0,0
-job_hunte,126,126,0	duplicate(ArmadilhaCaçador)	22-1	-1,0,0
-job_hunte,126,127,0	duplicate(ArmadilhaCaçador)	22-2	-1,0,0
-job_hunte,127,126,0	duplicate(ArmadilhaCaçador)	22-3	-1,0,0
-job_hunte,127,127,0	duplicate(ArmadilhaCaçador)	22-4	-1,0,0
-job_hunte,52,122,0	duplicate(ArmadilhaCaçador)	23-1	-1,0,1
-job_hunte,52,122,0	duplicate(ArmadilhaCaçador)	23-2	-1,0,1
-job_hunte,53,120,0	duplicate(ArmadilhaCaçador)	23-3	-1,1,0
-job_hunte,54,121,0	duplicate(ArmadilhaCaçador)	23-4	-1,0,0
-job_hunte,55,121,0	duplicate(ArmadilhaCaçador)	23-5	-1,0,0
-job_hunte,55,120,0	duplicate(ArmadilhaCaçador)	23-6	-1,0,0
-job_hunte,66,120,0	duplicate(ArmadilhaCaçador)	24-1	-1,0,0
-job_hunte,66,121,0	duplicate(ArmadilhaCaçador)	24-2	-1,0,0
-job_hunte,67,120,0	duplicate(ArmadilhaCaçador)	24-3	-1,0,0
-job_hunte,67,121,0	duplicate(ArmadilhaCaçador)	24-4	-1,0,0
-job_hunte,114,118,0	duplicate(ArmadilhaCaçador)	25-1	-1,0,0
-job_hunte,114,119,0	duplicate(ArmadilhaCaçador)	25-2	-1,0,0
-job_hunte,115,118,0	duplicate(ArmadilhaCaçador)	25-3	-1,0,0
-job_hunte,115,119,0	duplicate(ArmadilhaCaçador)	25-4	-1,0,0
-job_hunte,124,120,0	duplicate(ArmadilhaCaçador)	26-1	-1,0,1
-job_hunte,125,120,0	duplicate(ArmadilhaCaçador)	26-2	-1,0,1
-job_hunte,124,118,0	duplicate(ArmadilhaCaçador)	26-3	-1,0,0
-job_hunte,125,118,0	duplicate(ArmadilhaCaçador)	26-4	-1,0,0
-job_hunte,66,116,0	duplicate(ArmadilhaCaçador)	27-1	-1,0,0
-job_hunte,66,117,0	duplicate(ArmadilhaCaçador)	27-2	-1,0,0
-job_hunte,67,116,0	duplicate(ArmadilhaCaçador)	27-3	-1,0,0
-job_hunte,67,117,0	duplicate(ArmadilhaCaçador)	27-4	-1,0,0
-job_hunte,76,114,0	duplicate(ArmadilhaCaçador)	28-1	-1,0,0
-job_hunte,76,115,0	duplicate(ArmadilhaCaçador)	28-2	-1,0,0
-job_hunte,77,114,0	duplicate(ArmadilhaCaçador)	28-3	-1,0,0
-job_hunte,77,115,0	duplicate(ArmadilhaCaçador)	28-4	-1,0,0
-job_hunte,82,116,0	duplicate(ArmadilhaCaçador)	29-1	-1,0,0
-job_hunte,82,117,0	duplicate(ArmadilhaCaçador)	29-2	-1,0,0
-job_hunte,83,116,0	duplicate(ArmadilhaCaçador)	29-3	-1,0,0
-job_hunte,83,117,0	duplicate(ArmadilhaCaçador)	29-4	-1,0,0
-job_hunte,86,114,0	duplicate(ArmadilhaCaçador)	30-1	-1,0,0
-job_hunte,86,115,0	duplicate(ArmadilhaCaçador)	30-2	-1,0,0
-job_hunte,87,114,0	duplicate(ArmadilhaCaçador)	30-3	-1,0,0
-job_hunte,87,115,0	duplicate(ArmadilhaCaçador)	30-4	-1,0,0
-job_hunte,92,115,0	duplicate(ArmadilhaCaçador)	31-1	-1,1,0
-job_hunte,92,114,0	duplicate(ArmadilhaCaçador)	31-2	-1,1,0
-job_hunte,90,115,0	duplicate(ArmadilhaCaçador)	31-3	-1,0,0
-job_hunte,102,116,0	duplicate(ArmadilhaCaçador)	32-1	-1,0,0
-job_hunte,102,117,0	duplicate(ArmadilhaCaçador)	32-2	-1,0,0
-job_hunte,103,116,0	duplicate(ArmadilhaCaçador)	32-3	-1,0,0
-job_hunte,103,117,0	duplicate(ArmadilhaCaçador)	32-4	-1,0,0
-job_hunte,114,114,0	duplicate(ArmadilhaCaçador)	33-1	-1,0,0
-job_hunte,114,115,0	duplicate(ArmadilhaCaçador)	33-2	-1,0,0
-job_hunte,115,114,0	duplicate(ArmadilhaCaçador)	33-3	-1,0,0
-job_hunte,115,115,0	duplicate(ArmadilhaCaçador)	33-4	-1,0,0
-job_hunte,54,110,0	duplicate(ArmadilhaCaçador)	34-1	-1,0,1
-job_hunte,55,110,0	duplicate(ArmadilhaCaçador)	34-2	-1,0,1
-job_hunte,54,108,0	duplicate(ArmadilhaCaçador)	34-3	-1,0,0
-job_hunte,55,108,0	duplicate(ArmadilhaCaçador)	34-4	-1,0,0
-job_hunte,64,112,0	duplicate(ArmadilhaCaçador)	35-1	-1,0,0
-job_hunte,64,113,0	duplicate(ArmadilhaCaçador)	35-2	-1,0,0
-job_hunte,65,112,0	duplicate(ArmadilhaCaçador)	35-3	-1,0,0
-job_hunte,65,113,0	duplicate(ArmadilhaCaçador)	35-4	-1,0,0
-job_hunte,80,110,0	duplicate(ArmadilhaCaçador)	36-1	-1,0,0
-job_hunte,80,111,0	duplicate(ArmadilhaCaçador)	36-2	-1,0,0
-job_hunte,81,110,0	duplicate(ArmadilhaCaçador)	36-3	-1,0,0
-job_hunte,81,111,0	duplicate(ArmadilhaCaçador)	36-4	-1,0,0
-job_hunte,90,108,0	duplicate(ArmadilhaCaçador)	37-1	-1,0,6
-job_hunte,91,108,0	duplicate(ArmadilhaCaçador)	37-2	-1,0,5
-job_hunte,91,102,0	duplicate(ArmadilhaCaçador)	37-3	-1,0,0
-job_hunte,98,109,0	duplicate(ArmadilhaCaçador)	38-1	-1,0,2
-job_hunte,99,109,0	duplicate(ArmadilhaCaçador)	38-2	-1,0,2
-job_hunte,103,109,0	duplicate(ArmadilhaCaçador)	38-3	-1,3,0
-job_hunte,103,108,0	duplicate(ArmadilhaCaçador)	38-4	-1,3,0
-job_hunte,97,106,0	duplicate(ArmadilhaCaçador)	39-1	-1,2,0
-job_hunte,96,107,0	duplicate(ArmadilhaCaçador)	39-2	-1,1,0
-job_hunte,94,108,0	duplicate(ArmadilhaCaçador)	39-3	-1,0,1
-job_hunte,95,109,0	duplicate(ArmadilhaCaçador)	39-4	-1,0,0
-job_hunte,95,108,0	duplicate(ArmadilhaCaçador)	40-1	-1,0,0
-job_hunte,94,106,0	duplicate(ArmadilhaCaçador)	40-2	-1,0,0
-job_hunte,96,102,0	duplicate(ArmadilhaCaçador)	40-3	-1,0,3
-job_hunte,97,102,0	duplicate(ArmadilhaCaçador)	40-4	-1,0,3
-job_hunte,95,98,0	duplicate(ArmadilhaCaçador)	41-1	-1,2,0
-job_hunte,94,99,0	duplicate(ArmadilhaCaçador)	42-1	-1,1,0
-job_hunte,92,98,0	duplicate(ArmadilhaCaçador)	43-1	-1,0,0
-job_hunte,112,110,0	duplicate(ArmadilhaCaçador)	44-1	-1,0,0
-job_hunte,112,111,0	duplicate(ArmadilhaCaçador)	44-2	-1,0,0
-job_hunte,113,110,0	duplicate(ArmadilhaCaçador)	44-3	-1,0,0
-job_hunte,113,111,0	duplicate(ArmadilhaCaçador)	44-4	-1,0,0
-job_hunte,126,108,0	duplicate(ArmadilhaCaçador)	45-1	-1,0,1
-job_hunte,127,108,0	duplicate(ArmadilhaCaçador)	45-2	-1,0,1
-job_hunte,126,106,0	duplicate(ArmadilhaCaçador)	45-3	-1,0,0
-job_hunte,126,106,0	duplicate(ArmadilhaCaçador)	45-4	-1,0,0
-job_hunte,53,102,0	duplicate(ArmadilhaCaçador)	46-1	-1,1,1
-job_hunte,55,102,0	duplicate(ArmadilhaCaçador)	46-2	-1,0,1
-job_hunte,53,100,0	duplicate(ArmadilhaCaçador)	46-3	-1,1,0
-job_hunte,55,100,0	duplicate(ArmadilhaCaçador)	46-4	-1,0,0
-job_hunte,64,106,0	duplicate(ArmadilhaCaçador)	47-1	-1,0,0
-job_hunte,64,107,0	duplicate(ArmadilhaCaçador)	47-2	-1,0,0
-job_hunte,65,106,0	duplicate(ArmadilhaCaçador)	47-3	-1,0,0
-job_hunte,65,107,0	duplicate(ArmadilhaCaçador)	47-4	-1,0,0
-job_hunte,66,100,0	duplicate(ArmadilhaCaçador)	48-1	-1,0,0
-job_hunte,66,101,0	duplicate(ArmadilhaCaçador)	48-2	-1,0,0
-job_hunte,67,100,0	duplicate(ArmadilhaCaçador)	48-3	-1,0,0
-job_hunte,67,101,0	duplicate(ArmadilhaCaçador)	48-4	-1,0,0
-job_hunte,86,106,0	duplicate(ArmadilhaCaçador)	49-1	-1,0,1
-job_hunte,87,106,0	duplicate(ArmadilhaCaçador)	49-2	-1,0,1
-job_hunte,82,104,0	duplicate(ArmadilhaCaçador)	49-3	-1,5,0
-job_hunte,81,105,0	duplicate(ArmadilhaCaçador)	49-4	-1,4,0
-job_hunte,76,105,0	duplicate(ArmadilhaCaçador)	50-1	-1,0,0
-job_hunte,76,104,0	duplicate(ArmadilhaCaçador)	50-2	-1,0,0
-job_hunte,78,101,0	duplicate(ArmadilhaCaçador)	50-3	-1,0,2
-job_hunte,79,101,0	duplicate(ArmadilhaCaçador)	50-4	-1,0,2
-job_hunte,76,99,0	duplicate(ArmadilhaCaçador)	51-1	-1,1,0
-job_hunte,77,98,0	duplicate(ArmadilhaCaçador)	51-2	-1,2,0
-job_hunte,74,99,0	duplicate(ArmadilhaCaçador)	51-3	-1,0,0
-job_hunte,74,98,0	duplicate(ArmadilhaCaçador)	51-4	-1,0,0
-job_hunte,82,100,0	duplicate(ArmadilhaCaçador)	53-1	-1,0,0
-job_hunte,82,101,0	duplicate(ArmadilhaCaçador)	53-2	-1,0,0
-job_hunte,83,100,0	duplicate(ArmadilhaCaçador)	53-3	-1,0,0
-job_hunte,83,101,0	duplicate(ArmadilhaCaçador)	53-4	-1,0,0
-job_hunte,106,104,0	duplicate(ArmadilhaCaçador)	54-1	-1,0,0
-job_hunte,106,105,0	duplicate(ArmadilhaCaçador)	54-2	-1,0,0
-job_hunte,107,104,0	duplicate(ArmadilhaCaçador)	54-3	-1,0,0
-job_hunte,107,105,0	duplicate(ArmadilhaCaçador)	54-4	-1,0,0
-job_hunte,112,104,0	duplicate(ArmadilhaCaçador)	55-1	-1,0,1
-job_hunte,113,104,0	duplicate(ArmadilhaCaçador)	55-2	-1,0,1
-job_hunte,112,102,0	duplicate(ArmadilhaCaçador)	55-3	-1,0,0
-job_hunte,113,102,0	duplicate(ArmadilhaCaçador)	55-4	-1,0,0
-job_hunte,54,92,0	duplicate(ArmadilhaCaçador)	56-1	-1,0,0
-job_hunte,54,93,0	duplicate(ArmadilhaCaçador)	56-2	-1,0,0
-job_hunte,55,92,0	duplicate(ArmadilhaCaçador)	56-3	-1,0,0
-job_hunte,55,93,0	duplicate(ArmadilhaCaçador)	56-4	-1,0,0
-job_hunte,52,90,0	duplicate(ArmadilhaCaçador)	56-5	-1,0,0
-job_hunte,52,91,0	duplicate(ArmadilhaCaçador)	56-6	-1,0,0
-job_hunte,53,90,0	duplicate(ArmadilhaCaçador)	56-7	-1,0,0
-job_hunte,53,91,0	duplicate(ArmadilhaCaçador)	56-8	-1,0,0
-job_hunte,64,92,0	duplicate(ArmadilhaCaçador)	57-1	-1,0,0
-job_hunte,64,93,0	duplicate(ArmadilhaCaçador)	57-2	-1,0,0
-job_hunte,65,92,0	duplicate(ArmadilhaCaçador)	57-3	-1,0,0
+job_hunte,53,140,0	duplicate(ArmadilhaCaÃ§ador)	1-2	-1,0,1
+job_hunte,54,141,0	duplicate(ArmadilhaCaÃ§ador)	1-3	-1,0,0
+job_hunte,55,141,0	duplicate(ArmadilhaCaÃ§ador)	1-4	-1,0,0
+job_hunte,55,140,0	duplicate(ArmadilhaCaÃ§ador)	1-5	-1,0,0
+job_hunte,54,140,0	duplicate(ArmadilhaCaÃ§ador)	1-6	-1,0,0
+job_hunte,52,138,0	duplicate(ArmadilhaCaÃ§ador)	1-7	-1,0,0
+job_hunte,53,138,0	duplicate(ArmadilhaCaÃ§ador)	1-8	-1,0,0
+job_hunte,62,140,0	duplicate(ArmadilhaCaÃ§ador)	2-1	-1,0,1
+job_hunte,63,140,0	duplicate(ArmadilhaCaÃ§ador)	2-2	-1,0,1
+job_hunte,64,140,0	duplicate(ArmadilhaCaÃ§ador)	2-3	-1,0,0
+job_hunte,64,141,0	duplicate(ArmadilhaCaÃ§ador)	2-4	-1,0,0
+job_hunte,65,140,0	duplicate(ArmadilhaCaÃ§ador)	2-5	-1,0,0
+job_hunte,65,141,0	duplicate(ArmadilhaCaÃ§ador)	2-6	-1,0,0
+job_hunte,62,138,0	duplicate(ArmadilhaCaÃ§ador)	2-7	-1,0,0
+job_hunte,63,138,0	duplicate(ArmadilhaCaÃ§ador)	2-8	-1,0,0
+job_hunte,72,140,0	duplicate(ArmadilhaCaÃ§ador)	3-1	-1,0,1
+job_hunte,73,140,0	duplicate(ArmadilhaCaÃ§ador)	3-2	-1,0,1
+job_hunte,72,138,0	duplicate(ArmadilhaCaÃ§ador)	3-3	-1,0,0
+job_hunte,72,138,0	duplicate(ArmadilhaCaÃ§ador)	3-4	-1,0,0
+job_hunte,78,140,0	duplicate(ArmadilhaCaÃ§ador)	4-1	-1,0,0
+job_hunte,78,141,0	duplicate(ArmadilhaCaÃ§ador)	4-2	-1,0,0
+job_hunte,79,140,0	duplicate(ArmadilhaCaÃ§ador)	4-3	-1,0,0
+job_hunte,79,141,0	duplicate(ArmadilhaCaÃ§ador)	4-4	-1,0,0
+job_hunte,82,138,0	duplicate(ArmadilhaCaÃ§ador)	5-1	-1,0,0
+job_hunte,82,139,0	duplicate(ArmadilhaCaÃ§ador)	5-2	-1,0,0
+job_hunte,83,138,0	duplicate(ArmadilhaCaÃ§ador)	5-3	-1,0,0
+job_hunte,83,139,0	duplicate(ArmadilhaCaÃ§ador)	5-4	-1,0,0
+job_hunte,99,138,0	duplicate(ArmadilhaCaÃ§ador)	6-1	-1,1,0
+job_hunte,99,139,0	duplicate(ArmadilhaCaÃ§ador)	6-2	-1,1,0
+job_hunte,101,138,0	duplicate(ArmadilhaCaÃ§ador)	6-3	-1,0,0
+job_hunte,101,139,0	duplicate(ArmadilhaCaÃ§ador)	6-4	-1,0,0
+job_hunte,106,140,0	duplicate(ArmadilhaCaÃ§ador)	7-1	-1,0,1
+job_hunte,107,140,0	duplicate(ArmadilhaCaÃ§ador)	7-2	-1,0,1
+job_hunte,106,138,0	duplicate(ArmadilhaCaÃ§ador)	7-3	-1,0,0
+job_hunte,107,138,0	duplicate(ArmadilhaCaÃ§ador)	7-4	-1,0,0
+job_hunte,112,140,0	duplicate(ArmadilhaCaÃ§ador)	8-1	-1,0,0
+job_hunte,112,141,0	duplicate(ArmadilhaCaÃ§ador)	8-2	-1,0,0
+job_hunte,113,140,0	duplicate(ArmadilhaCaÃ§ador)	8-3	-1,0,0
+job_hunte,113,141,0	duplicate(ArmadilhaCaÃ§ador)	8-4	-1,0,0
+job_hunte,116,140,0	duplicate(ArmadilhaCaÃ§ador)	9-1	-1,0,0
+job_hunte,116,141,0	duplicate(ArmadilhaCaÃ§ador)	9-2	-1,0,0
+job_hunte,117,140,0	duplicate(ArmadilhaCaÃ§ador)	9-3	-1,0,0
+job_hunte,117,141,0	duplicate(ArmadilhaCaÃ§ador)	9-4	-1,0,0
+job_hunte,120,138,0	duplicate(ArmadilhaCaÃ§ador)	10-1	-1,0,0
+job_hunte,120,139,0	duplicate(ArmadilhaCaÃ§ador)	10-2	-1,0,0
+job_hunte,121,138,0	duplicate(ArmadilhaCaÃ§ador)	10-3	-1,0,0
+job_hunte,121,139,0	duplicate(ArmadilhaCaÃ§ador)	10-4	-1,0,0
+job_hunte,126,139,0	duplicate(ArmadilhaCaÃ§ador)	11-1	-1,0,2
+job_hunte,127,139,0	duplicate(ArmadilhaCaÃ§ador)	11-2	-1,0,2
+job_hunte,126,136,0	duplicate(ArmadilhaCaÃ§ador)	11-3	-1,0,0
+job_hunte,127,136,0	duplicate(ArmadilhaCaÃ§ador)	11-4	-1,0,0
+job_hunte,52,134,0	duplicate(ArmadilhaCaÃ§ador)	12-1	-1,0,1
+job_hunte,53,134,0	duplicate(ArmadilhaCaÃ§ador)	12-2	-1,0,1
+job_hunte,52,132,0	duplicate(ArmadilhaCaÃ§ador)	12-3	-1,0,0
+job_hunte,53,132,0	duplicate(ArmadilhaCaÃ§ador)	12-4	-1,0,0
+job_hunte,124,130,0	duplicate(ArmadilhaCaÃ§ador)	13-1	-1,0,0
+job_hunte,124,131,0	duplicate(ArmadilhaCaÃ§ador)	13-2	-1,0,0
+job_hunte,125,130,0	duplicate(ArmadilhaCaÃ§ador)	13-3	-1,0,0
+job_hunte,125,131,0	duplicate(ArmadilhaCaÃ§ador)	13-4	-1,0,0
+job_hunte,64,128,0	duplicate(ArmadilhaCaÃ§ador)	14-1	-1,0,0
+job_hunte,64,129,0	duplicate(ArmadilhaCaÃ§ador)	14-2	-1,0,0
+job_hunte,65,128,0	duplicate(ArmadilhaCaÃ§ador)	14-3	-1,0,0
+job_hunte,65,129,0	duplicate(ArmadilhaCaÃ§ador)	14-4	-1,0,0
+job_hunte,68,126,0	duplicate(ArmadilhaCaÃ§ador)	15-1	-1,0,0
+job_hunte,68,127,0	duplicate(ArmadilhaCaÃ§ador)	15-2	-1,0,0
+job_hunte,69,126,0	duplicate(ArmadilhaCaÃ§ador)	15-3	-1,0,0
+job_hunte,69,127,0	duplicate(ArmadilhaCaÃ§ador)	15-4	-1,0,0
+job_hunte,75,128,0	duplicate(ArmadilhaCaÃ§ador)	16-1	-1,1,0
+job_hunte,75,129,0	duplicate(ArmadilhaCaÃ§ador)	16-2	-1,1,0
+job_hunte,77,128,0	duplicate(ArmadilhaCaÃ§ador)	16-3	-1,0,0
+job_hunte,77,129,0	duplicate(ArmadilhaCaÃ§ador)	16-4	-1,0,0
+job_hunte,82,126,0	duplicate(ArmadilhaCaÃ§ador)	17-1	-1,0,0
+job_hunte,82,127,0	duplicate(ArmadilhaCaÃ§ador)	17-2	-1,0,0
+job_hunte,83,126,0	duplicate(ArmadilhaCaÃ§ador)	17-3	-1,0,0
+job_hunte,83,127,0	duplicate(ArmadilhaCaÃ§ador)	17-4	-1,0,0
+job_hunte,96,128,0	duplicate(ArmadilhaCaÃ§ador)	18-1	-1,0,0
+job_hunte,96,129,0	duplicate(ArmadilhaCaÃ§ador)	18-2	-1,0,0
+job_hunte,97,128,0	duplicate(ArmadilhaCaÃ§ador)	18-3	-1,0,0
+job_hunte,97,129,0	duplicate(ArmadilhaCaÃ§ador)	18-4	-1,0,0
+job_hunte,100,126,0	duplicate(ArmadilhaCaÃ§ador)	19-1	-1,0,0
+job_hunte,100,127,0	duplicate(ArmadilhaCaÃ§ador)	19-2	-1,0,0
+job_hunte,101,126,0	duplicate(ArmadilhaCaÃ§ador)	19-3	-1,0,0
+job_hunte,101,127,0	duplicate(ArmadilhaCaÃ§ador)	19-4	-1,0,0
+job_hunte,106,128,0	duplicate(ArmadilhaCaÃ§ador)	20-1	-1,0,0
+job_hunte,106,129,0	duplicate(ArmadilhaCaÃ§ador)	20-2	-1,0,0
+job_hunte,107,128,0	duplicate(ArmadilhaCaÃ§ador)	20-3	-1,0,0
+job_hunte,107,129,0	duplicate(ArmadilhaCaÃ§ador)	20-4	-1,0,0
+job_hunte,112,126,0	duplicate(ArmadilhaCaÃ§ador)	21-1	-1,0,0
+job_hunte,112,127,0	duplicate(ArmadilhaCaÃ§ador)	21-2	-1,0,0
+job_hunte,113,126,0	duplicate(ArmadilhaCaÃ§ador)	21-3	-1,0,0
+job_hunte,113,127,0	duplicate(ArmadilhaCaÃ§ador)	21-4	-1,0,0
+job_hunte,126,126,0	duplicate(ArmadilhaCaÃ§ador)	22-1	-1,0,0
+job_hunte,126,127,0	duplicate(ArmadilhaCaÃ§ador)	22-2	-1,0,0
+job_hunte,127,126,0	duplicate(ArmadilhaCaÃ§ador)	22-3	-1,0,0
+job_hunte,127,127,0	duplicate(ArmadilhaCaÃ§ador)	22-4	-1,0,0
+job_hunte,52,122,0	duplicate(ArmadilhaCaÃ§ador)	23-1	-1,0,1
+job_hunte,52,122,0	duplicate(ArmadilhaCaÃ§ador)	23-2	-1,0,1
+job_hunte,53,120,0	duplicate(ArmadilhaCaÃ§ador)	23-3	-1,1,0
+job_hunte,54,121,0	duplicate(ArmadilhaCaÃ§ador)	23-4	-1,0,0
+job_hunte,55,121,0	duplicate(ArmadilhaCaÃ§ador)	23-5	-1,0,0
+job_hunte,55,120,0	duplicate(ArmadilhaCaÃ§ador)	23-6	-1,0,0
+job_hunte,66,120,0	duplicate(ArmadilhaCaÃ§ador)	24-1	-1,0,0
+job_hunte,66,121,0	duplicate(ArmadilhaCaÃ§ador)	24-2	-1,0,0
+job_hunte,67,120,0	duplicate(ArmadilhaCaÃ§ador)	24-3	-1,0,0
+job_hunte,67,121,0	duplicate(ArmadilhaCaÃ§ador)	24-4	-1,0,0
+job_hunte,114,118,0	duplicate(ArmadilhaCaÃ§ador)	25-1	-1,0,0
+job_hunte,114,119,0	duplicate(ArmadilhaCaÃ§ador)	25-2	-1,0,0
+job_hunte,115,118,0	duplicate(ArmadilhaCaÃ§ador)	25-3	-1,0,0
+job_hunte,115,119,0	duplicate(ArmadilhaCaÃ§ador)	25-4	-1,0,0
+job_hunte,124,120,0	duplicate(ArmadilhaCaÃ§ador)	26-1	-1,0,1
+job_hunte,125,120,0	duplicate(ArmadilhaCaÃ§ador)	26-2	-1,0,1
+job_hunte,124,118,0	duplicate(ArmadilhaCaÃ§ador)	26-3	-1,0,0
+job_hunte,125,118,0	duplicate(ArmadilhaCaÃ§ador)	26-4	-1,0,0
+job_hunte,66,116,0	duplicate(ArmadilhaCaÃ§ador)	27-1	-1,0,0
+job_hunte,66,117,0	duplicate(ArmadilhaCaÃ§ador)	27-2	-1,0,0
+job_hunte,67,116,0	duplicate(ArmadilhaCaÃ§ador)	27-3	-1,0,0
+job_hunte,67,117,0	duplicate(ArmadilhaCaÃ§ador)	27-4	-1,0,0
+job_hunte,76,114,0	duplicate(ArmadilhaCaÃ§ador)	28-1	-1,0,0
+job_hunte,76,115,0	duplicate(ArmadilhaCaÃ§ador)	28-2	-1,0,0
+job_hunte,77,114,0	duplicate(ArmadilhaCaÃ§ador)	28-3	-1,0,0
+job_hunte,77,115,0	duplicate(ArmadilhaCaÃ§ador)	28-4	-1,0,0
+job_hunte,82,116,0	duplicate(ArmadilhaCaÃ§ador)	29-1	-1,0,0
+job_hunte,82,117,0	duplicate(ArmadilhaCaÃ§ador)	29-2	-1,0,0
+job_hunte,83,116,0	duplicate(ArmadilhaCaÃ§ador)	29-3	-1,0,0
+job_hunte,83,117,0	duplicate(ArmadilhaCaÃ§ador)	29-4	-1,0,0
+job_hunte,86,114,0	duplicate(ArmadilhaCaÃ§ador)	30-1	-1,0,0
+job_hunte,86,115,0	duplicate(ArmadilhaCaÃ§ador)	30-2	-1,0,0
+job_hunte,87,114,0	duplicate(ArmadilhaCaÃ§ador)	30-3	-1,0,0
+job_hunte,87,115,0	duplicate(ArmadilhaCaÃ§ador)	30-4	-1,0,0
+job_hunte,92,115,0	duplicate(ArmadilhaCaÃ§ador)	31-1	-1,1,0
+job_hunte,92,114,0	duplicate(ArmadilhaCaÃ§ador)	31-2	-1,1,0
+job_hunte,90,115,0	duplicate(ArmadilhaCaÃ§ador)	31-3	-1,0,0
+job_hunte,102,116,0	duplicate(ArmadilhaCaÃ§ador)	32-1	-1,0,0
+job_hunte,102,117,0	duplicate(ArmadilhaCaÃ§ador)	32-2	-1,0,0
+job_hunte,103,116,0	duplicate(ArmadilhaCaÃ§ador)	32-3	-1,0,0
+job_hunte,103,117,0	duplicate(ArmadilhaCaÃ§ador)	32-4	-1,0,0
+job_hunte,114,114,0	duplicate(ArmadilhaCaÃ§ador)	33-1	-1,0,0
+job_hunte,114,115,0	duplicate(ArmadilhaCaÃ§ador)	33-2	-1,0,0
+job_hunte,115,114,0	duplicate(ArmadilhaCaÃ§ador)	33-3	-1,0,0
+job_hunte,115,115,0	duplicate(ArmadilhaCaÃ§ador)	33-4	-1,0,0
+job_hunte,54,110,0	duplicate(ArmadilhaCaÃ§ador)	34-1	-1,0,1
+job_hunte,55,110,0	duplicate(ArmadilhaCaÃ§ador)	34-2	-1,0,1
+job_hunte,54,108,0	duplicate(ArmadilhaCaÃ§ador)	34-3	-1,0,0
+job_hunte,55,108,0	duplicate(ArmadilhaCaÃ§ador)	34-4	-1,0,0
+job_hunte,64,112,0	duplicate(ArmadilhaCaÃ§ador)	35-1	-1,0,0
+job_hunte,64,113,0	duplicate(ArmadilhaCaÃ§ador)	35-2	-1,0,0
+job_hunte,65,112,0	duplicate(ArmadilhaCaÃ§ador)	35-3	-1,0,0
+job_hunte,65,113,0	duplicate(ArmadilhaCaÃ§ador)	35-4	-1,0,0
+job_hunte,80,110,0	duplicate(ArmadilhaCaÃ§ador)	36-1	-1,0,0
+job_hunte,80,111,0	duplicate(ArmadilhaCaÃ§ador)	36-2	-1,0,0
+job_hunte,81,110,0	duplicate(ArmadilhaCaÃ§ador)	36-3	-1,0,0
+job_hunte,81,111,0	duplicate(ArmadilhaCaÃ§ador)	36-4	-1,0,0
+job_hunte,90,108,0	duplicate(ArmadilhaCaÃ§ador)	37-1	-1,0,6
+job_hunte,91,108,0	duplicate(ArmadilhaCaÃ§ador)	37-2	-1,0,5
+job_hunte,91,102,0	duplicate(ArmadilhaCaÃ§ador)	37-3	-1,0,0
+job_hunte,98,109,0	duplicate(ArmadilhaCaÃ§ador)	38-1	-1,0,2
+job_hunte,99,109,0	duplicate(ArmadilhaCaÃ§ador)	38-2	-1,0,2
+job_hunte,103,109,0	duplicate(ArmadilhaCaÃ§ador)	38-3	-1,3,0
+job_hunte,103,108,0	duplicate(ArmadilhaCaÃ§ador)	38-4	-1,3,0
+job_hunte,97,106,0	duplicate(ArmadilhaCaÃ§ador)	39-1	-1,2,0
+job_hunte,96,107,0	duplicate(ArmadilhaCaÃ§ador)	39-2	-1,1,0
+job_hunte,94,108,0	duplicate(ArmadilhaCaÃ§ador)	39-3	-1,0,1
+job_hunte,95,109,0	duplicate(ArmadilhaCaÃ§ador)	39-4	-1,0,0
+job_hunte,95,108,0	duplicate(ArmadilhaCaÃ§ador)	40-1	-1,0,0
+job_hunte,94,106,0	duplicate(ArmadilhaCaÃ§ador)	40-2	-1,0,0
+job_hunte,96,102,0	duplicate(ArmadilhaCaÃ§ador)	40-3	-1,0,3
+job_hunte,97,102,0	duplicate(ArmadilhaCaÃ§ador)	40-4	-1,0,3
+job_hunte,95,98,0	duplicate(ArmadilhaCaÃ§ador)	41-1	-1,2,0
+job_hunte,94,99,0	duplicate(ArmadilhaCaÃ§ador)	42-1	-1,1,0
+job_hunte,92,98,0	duplicate(ArmadilhaCaÃ§ador)	43-1	-1,0,0
+job_hunte,112,110,0	duplicate(ArmadilhaCaÃ§ador)	44-1	-1,0,0
+job_hunte,112,111,0	duplicate(ArmadilhaCaÃ§ador)	44-2	-1,0,0
+job_hunte,113,110,0	duplicate(ArmadilhaCaÃ§ador)	44-3	-1,0,0
+job_hunte,113,111,0	duplicate(ArmadilhaCaÃ§ador)	44-4	-1,0,0
+job_hunte,126,108,0	duplicate(ArmadilhaCaÃ§ador)	45-1	-1,0,1
+job_hunte,127,108,0	duplicate(ArmadilhaCaÃ§ador)	45-2	-1,0,1
+job_hunte,126,106,0	duplicate(ArmadilhaCaÃ§ador)	45-3	-1,0,0
+job_hunte,126,106,0	duplicate(ArmadilhaCaÃ§ador)	45-4	-1,0,0
+job_hunte,53,102,0	duplicate(ArmadilhaCaÃ§ador)	46-1	-1,1,1
+job_hunte,55,102,0	duplicate(ArmadilhaCaÃ§ador)	46-2	-1,0,1
+job_hunte,53,100,0	duplicate(ArmadilhaCaÃ§ador)	46-3	-1,1,0
+job_hunte,55,100,0	duplicate(ArmadilhaCaÃ§ador)	46-4	-1,0,0
+job_hunte,64,106,0	duplicate(ArmadilhaCaÃ§ador)	47-1	-1,0,0
+job_hunte,64,107,0	duplicate(ArmadilhaCaÃ§ador)	47-2	-1,0,0
+job_hunte,65,106,0	duplicate(ArmadilhaCaÃ§ador)	47-3	-1,0,0
+job_hunte,65,107,0	duplicate(ArmadilhaCaÃ§ador)	47-4	-1,0,0
+job_hunte,66,100,0	duplicate(ArmadilhaCaÃ§ador)	48-1	-1,0,0
+job_hunte,66,101,0	duplicate(ArmadilhaCaÃ§ador)	48-2	-1,0,0
+job_hunte,67,100,0	duplicate(ArmadilhaCaÃ§ador)	48-3	-1,0,0
+job_hunte,67,101,0	duplicate(ArmadilhaCaÃ§ador)	48-4	-1,0,0
+job_hunte,86,106,0	duplicate(ArmadilhaCaÃ§ador)	49-1	-1,0,1
+job_hunte,87,106,0	duplicate(ArmadilhaCaÃ§ador)	49-2	-1,0,1
+job_hunte,82,104,0	duplicate(ArmadilhaCaÃ§ador)	49-3	-1,5,0
+job_hunte,81,105,0	duplicate(ArmadilhaCaÃ§ador)	49-4	-1,4,0
+job_hunte,76,105,0	duplicate(ArmadilhaCaÃ§ador)	50-1	-1,0,0
+job_hunte,76,104,0	duplicate(ArmadilhaCaÃ§ador)	50-2	-1,0,0
+job_hunte,78,101,0	duplicate(ArmadilhaCaÃ§ador)	50-3	-1,0,2
+job_hunte,79,101,0	duplicate(ArmadilhaCaÃ§ador)	50-4	-1,0,2
+job_hunte,76,99,0	duplicate(ArmadilhaCaÃ§ador)	51-1	-1,1,0
+job_hunte,77,98,0	duplicate(ArmadilhaCaÃ§ador)	51-2	-1,2,0
+job_hunte,74,99,0	duplicate(ArmadilhaCaÃ§ador)	51-3	-1,0,0
+job_hunte,74,98,0	duplicate(ArmadilhaCaÃ§ador)	51-4	-1,0,0
+job_hunte,82,100,0	duplicate(ArmadilhaCaÃ§ador)	53-1	-1,0,0
+job_hunte,82,101,0	duplicate(ArmadilhaCaÃ§ador)	53-2	-1,0,0
+job_hunte,83,100,0	duplicate(ArmadilhaCaÃ§ador)	53-3	-1,0,0
+job_hunte,83,101,0	duplicate(ArmadilhaCaÃ§ador)	53-4	-1,0,0
+job_hunte,106,104,0	duplicate(ArmadilhaCaÃ§ador)	54-1	-1,0,0
+job_hunte,106,105,0	duplicate(ArmadilhaCaÃ§ador)	54-2	-1,0,0
+job_hunte,107,104,0	duplicate(ArmadilhaCaÃ§ador)	54-3	-1,0,0
+job_hunte,107,105,0	duplicate(ArmadilhaCaÃ§ador)	54-4	-1,0,0
+job_hunte,112,104,0	duplicate(ArmadilhaCaÃ§ador)	55-1	-1,0,1
+job_hunte,113,104,0	duplicate(ArmadilhaCaÃ§ador)	55-2	-1,0,1
+job_hunte,112,102,0	duplicate(ArmadilhaCaÃ§ador)	55-3	-1,0,0
+job_hunte,113,102,0	duplicate(ArmadilhaCaÃ§ador)	55-4	-1,0,0
+job_hunte,54,92,0	duplicate(ArmadilhaCaÃ§ador)	56-1	-1,0,0
+job_hunte,54,93,0	duplicate(ArmadilhaCaÃ§ador)	56-2	-1,0,0
+job_hunte,55,92,0	duplicate(ArmadilhaCaÃ§ador)	56-3	-1,0,0
+job_hunte,55,93,0	duplicate(ArmadilhaCaÃ§ador)	56-4	-1,0,0
+job_hunte,52,90,0	duplicate(ArmadilhaCaÃ§ador)	56-5	-1,0,0
+job_hunte,52,91,0	duplicate(ArmadilhaCaÃ§ador)	56-6	-1,0,0
+job_hunte,53,90,0	duplicate(ArmadilhaCaÃ§ador)	56-7	-1,0,0
+job_hunte,53,91,0	duplicate(ArmadilhaCaÃ§ador)	56-8	-1,0,0
+job_hunte,64,92,0	duplicate(ArmadilhaCaÃ§ador)	57-1	-1,0,0
+job_hunte,64,93,0	duplicate(ArmadilhaCaÃ§ador)	57-2	-1,0,0
+job_hunte,65,92,0	duplicate(ArmadilhaCaÃ§ador)	57-3	-1,0,0
 
-job_hunte,65,93,0	script	57-4::ArmadilhaCaçador2	-1,{
+job_hunte,65,93,0	script	57-4::ArmadilhaCaÃ§ador2	-1,{
 OnTouch:
-	mapannounce "job_hunte",strcharinfo(0)+", falhou comigo! Volte para onde você começou!",bc_map;
+	mapannounce "job_hunte",strcharinfo(0)+", falhou comigo! Volte para onde vocÃª comeÃ§ou!",bc_map;
 	HNTR_Q = 13;
 	warp "job_hunte",176,22;
 	donpcevent "Gerente#cac::OnReset";
@@ -1638,161 +1642,161 @@ OnTouch:
 	end;
 }
 
-job_hunte,76,94,0	duplicate(ArmadilhaCaçador2)	58-1	-1,0,0
-job_hunte,76,95,0	duplicate(ArmadilhaCaçador2)	58-2	-1,0,0
-job_hunte,77,94,0	duplicate(ArmadilhaCaçador2)	58-3	-1,0,0
-job_hunte,77,95,0	duplicate(ArmadilhaCaçador2)	58-4	-1,0,0
-job_hunte,78,92,0	duplicate(ArmadilhaCaçador2)	59-1	-1,0,0
-job_hunte,78,93,0	duplicate(ArmadilhaCaçador2)	59-2	-1,0,0
-job_hunte,79,92,0	duplicate(ArmadilhaCaçador2)	59-3	-1,0,0
-job_hunte,79,93,0	duplicate(ArmadilhaCaçador2)	59-4	-1,0,0
-job_hunte,86,92,0	duplicate(ArmadilhaCaçador2)	60-1	-1,0,0
-job_hunte,86,93,0	duplicate(ArmadilhaCaçador2)	60-2	-1,0,0
-job_hunte,87,92,0	duplicate(ArmadilhaCaçador2)	60-3	-1,0,0
-job_hunte,87,93,0	duplicate(ArmadilhaCaçador2)	60-4	-1,0,0
-job_hunte,90,96,0	duplicate(ArmadilhaCaçador2)	61-1	-1,0,0
-job_hunte,90,97,0	duplicate(ArmadilhaCaçador2)	61-2	-1,0,0
-job_hunte,91,96,0	duplicate(ArmadilhaCaçador2)	61-3	-1,0,0
-job_hunte,91,97,0	duplicate(ArmadilhaCaçador2)	61-4	-1,0,0
-job_hunte,99,95,0	duplicate(ArmadilhaCaçador2)	62-1	-1,1,0
-job_hunte,99,94,0	duplicate(ArmadilhaCaçador2)	62-2	-1,1,0
-job_hunte,101,94,0	duplicate(ArmadilhaCaçador2)	62-3	-1,0,1
-job_hunte,100,93,0	duplicate(ArmadilhaCaçador2)	62-4	-1,0,0
-job_hunte,100,92,0	duplicate(ArmadilhaCaçador2)	63-1	-1,0,0
-job_hunte,101,92,0	duplicate(ArmadilhaCaçador2)	63-2	-1,0,0
-job_hunte,102,98,0	duplicate(ArmadilhaCaçador2)	64-1	-1,0,0
-job_hunte,102,99,0	duplicate(ArmadilhaCaçador2)	64-2	-1,0,0
-job_hunte,103,98,0	duplicate(ArmadilhaCaçador2)	64-3	-1,0,0
-job_hunte,103,99,0	duplicate(ArmadilhaCaçador2)	64-4	-1,0,0
-job_hunte,102,90,0	duplicate(ArmadilhaCaçador2)	65-1	-1,0,0
-job_hunte,102,91,0	duplicate(ArmadilhaCaçador2)	65-2	-1,0,0
-job_hunte,103,90,0	duplicate(ArmadilhaCaçador2)	65-3	-1,0,0
-job_hunte,103,91,0	duplicate(ArmadilhaCaçador2)	65-4	-1,0,0
-job_hunte,114,96,0	duplicate(ArmadilhaCaçador2)	66-1	-1,0,0
-job_hunte,114,97,0	duplicate(ArmadilhaCaçador2)	66-2	-1,0,0
-job_hunte,115,96,0	duplicate(ArmadilhaCaçador2)	66-3	-1,0,0
-job_hunte,115,97,0	duplicate(ArmadilhaCaçador2)	66-4	-1,0,0
-job_hunte,112,90,0	duplicate(ArmadilhaCaçador2)	67-1	-1,0,0
-job_hunte,112,91,0	duplicate(ArmadilhaCaçador2)	67-2	-1,0,0
-job_hunte,113,90,0	duplicate(ArmadilhaCaçador2)	67-3	-1,0,0
-job_hunte,113,91,0	duplicate(ArmadilhaCaçador2)	67-4	-1,0,0
-job_hunte,125,97,0	duplicate(ArmadilhaCaçador2)	68-1	-1,1,0
-job_hunte,125,96,0	duplicate(ArmadilhaCaçador2)	68-2	-1,1,0
-job_hunte,127,96,0	duplicate(ArmadilhaCaçador2)	68-3	-1,0,0
-job_hunte,127,97,0	duplicate(ArmadilhaCaçador2)	68-4	-1,0,0
-job_hunte,52,86,0	duplicate(ArmadilhaCaçador2)	69-1	-1,0,0
-job_hunte,52,87,0	duplicate(ArmadilhaCaçador2)	69-2	-1,0,0
-job_hunte,53,86,0	duplicate(ArmadilhaCaçador2)	69-3	-1,0,0
-job_hunte,53,87,0	duplicate(ArmadilhaCaçador2)	69-4	-1,0,0
-job_hunte,66,88,0	duplicate(ArmadilhaCaçador2)	70-1	-1,0,0
-job_hunte,66,89,0	duplicate(ArmadilhaCaçador2)	70-2	-1,0,0
-job_hunte,67,88,0	duplicate(ArmadilhaCaçador2)	70-3	-1,0,0
-job_hunte,67,89,0	duplicate(ArmadilhaCaçador2)	70-4	-1,0,0
-job_hunte,114,84,0	duplicate(ArmadilhaCaçador2)	71-1	-1,0,0
-job_hunte,114,85,0	duplicate(ArmadilhaCaçador2)	71-2	-1,0,0
-job_hunte,115,84,0	duplicate(ArmadilhaCaçador2)	71-3	-1,0,0
-job_hunte,115,85,0	duplicate(ArmadilhaCaçador2)	71-4	-1,0,0
-job_hunte,126,86,0	duplicate(ArmadilhaCaçador2)	72-1	-1,0,0
-job_hunte,126,87,0	duplicate(ArmadilhaCaçador2)	72-2	-1,0,0
-job_hunte,127,86,0	duplicate(ArmadilhaCaçador2)	72-3	-1,0,0
-job_hunte,127,87,0	duplicate(ArmadilhaCaçador2)	72-4	-1,0,0
-job_hunte,54,80,0	duplicate(ArmadilhaCaçador2)	73-1	-1,0,1
-job_hunte,55,80,0	duplicate(ArmadilhaCaçador2)	73-2	-1,0,1
-job_hunte,55,80,0	duplicate(ArmadilhaCaçador2)	73-3	-1,0,0
-job_hunte,55,78,0	duplicate(ArmadilhaCaçador2)	73-4	-1,0,0
-job_hunte,64,82,0	duplicate(ArmadilhaCaçador2)	74-1	-1,0,1
-job_hunte,65,82,0	duplicate(ArmadilhaCaçador2)	74-2	-1,0,1
-job_hunte,64,80,0	duplicate(ArmadilhaCaçador2)	74-3	-1,0,0
-job_hunte,65,80,0	duplicate(ArmadilhaCaçador2)	74-4	-1,0,0
-job_hunte,66,78,0	duplicate(ArmadilhaCaçador2)	75-1	-1,0,0
-job_hunte,66,79,0	duplicate(ArmadilhaCaçador2)	75-2	-1,0,0
-job_hunte,67,78,0	duplicate(ArmadilhaCaçador2)	75-3	-1,0,0
-job_hunte,67,79,0	duplicate(ArmadilhaCaçador2)	75-4	-1,0,0
-job_hunte,74,78,0	duplicate(ArmadilhaCaçador2)	76-1	-1,0,0
-job_hunte,74,79,0	duplicate(ArmadilhaCaçador2)	76-2	-1,0,0
-job_hunte,75,78,0	duplicate(ArmadilhaCaçador2)	76-3	-1,0,0
-job_hunte,75,79,0	duplicate(ArmadilhaCaçador2)	76-4	-1,0,0
-job_hunte,78,80,0	duplicate(ArmadilhaCaçador2)	77-1	-1,0,0
-job_hunte,78,81,0	duplicate(ArmadilhaCaçador2)	77-2	-1,0,0
-job_hunte,79,80,0	duplicate(ArmadilhaCaçador2)	77-3	-1,0,0
-job_hunte,79,81,0	duplicate(ArmadilhaCaçador2)	77-4	-1,0,0
-job_hunte,82,78,0	duplicate(ArmadilhaCaçador2)	78-1	-1,0,0
-job_hunte,82,79,0	duplicate(ArmadilhaCaçador2)	78-2	-1,0,0
-job_hunte,83,78,0	duplicate(ArmadilhaCaçador2)	78-3	-1,0,0
-job_hunte,83,79,0	duplicate(ArmadilhaCaçador2)	78-4	-1,0,0
-job_hunte,94,78,0	duplicate(ArmadilhaCaçador2)	79-1	-1,0,0
-job_hunte,94,79,0	duplicate(ArmadilhaCaçador2)	79-2	-1,0,0
-job_hunte,95,78,0	duplicate(ArmadilhaCaçador2)	79-3	-1,0,0
-job_hunte,95,79,0	duplicate(ArmadilhaCaçador2)	79-4	-1,0,0
-job_hunte,101,80,0	duplicate(ArmadilhaCaçador2)	80-1	-1,1,0
-job_hunte,101,81,0	duplicate(ArmadilhaCaçador2)	80-2	-1,1,0
-job_hunte,103,81,0	duplicate(ArmadilhaCaçador2)	80-3	-1,0,0
-job_hunte,103,80,0	duplicate(ArmadilhaCaçador2)	80-4	-1,0,0
-job_hunte,104,78,0	duplicate(ArmadilhaCaçador2)	81-1	-1,0,0
-job_hunte,104,79,0	duplicate(ArmadilhaCaçador2)	81-2	-1,0,0
-job_hunte,105,78,0	duplicate(ArmadilhaCaçador2)	81-3	-1,0,0
-job_hunte,105,79,0	duplicate(ArmadilhaCaçador2)	81-4	-1,0,0
-job_hunte,110,78,0	duplicate(ArmadilhaCaçador2)	82-1	-1,0,0
-job_hunte,110,79,0	duplicate(ArmadilhaCaçador2)	82-2	-1,0,0
-job_hunte,111,78,0	duplicate(ArmadilhaCaçador2)	82-3	-1,0,0
-job_hunte,111,79,0	duplicate(ArmadilhaCaçador2)	82-4	-1,0,0
-job_hunte,114,80,0	duplicate(ArmadilhaCaçador2)	83-1	-1,0,0
-job_hunte,114,81,0	duplicate(ArmadilhaCaçador2)	83-2	-1,0,0
-job_hunte,115,80,0	duplicate(ArmadilhaCaçador2)	83-3	-1,0,0
-job_hunte,115,81,0	duplicate(ArmadilhaCaçador2)	83-4	-1,0,0
-job_hunte,124,78,0	duplicate(ArmadilhaCaçador2)	84-1	-1,0,0
-job_hunte,124,79,0	duplicate(ArmadilhaCaçador2)	84-2	-1,0,0
-job_hunte,125,78,0	duplicate(ArmadilhaCaçador2)	84-3	-1,0,0
-job_hunte,125,79,0	duplicate(ArmadilhaCaçador2)	84-4	-1,0,0
-job_hunte,126,82,0	duplicate(ArmadilhaCaçador2)	85-1	-1,0,0
-job_hunte,126,83,0	duplicate(ArmadilhaCaçador2)	85-2	-1,0,0
-job_hunte,127,82,0	duplicate(ArmadilhaCaçador2)	85-3	-1,0,0
-job_hunte,127,83,0	duplicate(ArmadilhaCaçador2)	85-4	-1,0,0
-job_hunte,52,68,0	duplicate(ArmadilhaCaçador2)	86-1	-1,0,1
-job_hunte,53,68,0	duplicate(ArmadilhaCaçador2)	86-2	-1,0,1
-job_hunte,52,66,0	duplicate(ArmadilhaCaçador2)	86-3	-1,0,0
-job_hunte,53,66,0	duplicate(ArmadilhaCaçador2)	86-4	-1,0,0
-job_hunte,54,70,0	duplicate(ArmadilhaCaçador2)	87-1	-1,0,1
-job_hunte,55,70,0	duplicate(ArmadilhaCaçador2)	87-2	-1,0,1
-job_hunte,54,68,0	duplicate(ArmadilhaCaçador2)	87-3	-1,0,0
-job_hunte,55,68,0	duplicate(ArmadilhaCaçador2)	87-4	-1,0,0
-job_hunte,59,66,0	duplicate(ArmadilhaCaçador2)	88-1	-1,1,0
-job_hunte,59,67,0	duplicate(ArmadilhaCaçador2)	88-2	-1,1,0
-job_hunte,61,67,0	duplicate(ArmadilhaCaçador2)	88-3	-1,0,0
-job_hunte,61,66,0	duplicate(ArmadilhaCaçador2)	88-4	-1,0,0
-job_hunte,68,68,0	duplicate(ArmadilhaCaçador2)	89-1	-1,0,1
-job_hunte,69,68,0	duplicate(ArmadilhaCaçador2)	89-2	-1,0,1
-job_hunte,68,66,0	duplicate(ArmadilhaCaçador2)	89-3	-1,0,0
-job_hunte,69,66,0	duplicate(ArmadilhaCaçador2)	89-4	-1,0,0
-job_hunte,76,66,0	duplicate(ArmadilhaCaçador2)	90-1	-1,0,0
-job_hunte,76,67,0	duplicate(ArmadilhaCaçador2)	90-2	-1,0,0
-job_hunte,77,66,0	duplicate(ArmadilhaCaçador2)	90-3	-1,0,0
-job_hunte,77,67,0	duplicate(ArmadilhaCaçador2)	90-4	-1,0,0
-job_hunte,82,68,0	duplicate(ArmadilhaCaçador2)	91-1	-1,0,0
-job_hunte,82,69,0	duplicate(ArmadilhaCaçador2)	91-2	-1,0,0
-job_hunte,83,68,0	duplicate(ArmadilhaCaçador2)	91-3	-1,0,0
-job_hunte,83,69,0	duplicate(ArmadilhaCaçador2)	91-4	-1,0,0
-job_hunte,96,66,0	duplicate(ArmadilhaCaçador2)	92-1	-1,0,0
-job_hunte,96,67,0	duplicate(ArmadilhaCaçador2)	92-2	-1,0,0
-job_hunte,97,66,0	duplicate(ArmadilhaCaçador2)	92-3	-1,0,0
-job_hunte,97,67,0	duplicate(ArmadilhaCaçador2)	92-4	-1,0,0
-job_hunte,100,68,0	duplicate(ArmadilhaCaçador2)	93-1	-1,0,0
-job_hunte,100,69,0	duplicate(ArmadilhaCaçador2)	93-2	-1,0,0
-job_hunte,101,68,0	duplicate(ArmadilhaCaçador2)	93-3	-1,0,0
-job_hunte,101,69,0	duplicate(ArmadilhaCaçador2)	93-4	-1,0,0
-job_hunte,107,66,0	duplicate(ArmadilhaCaçador2)	94-1	-1,1,0
-job_hunte,107,67,0	duplicate(ArmadilhaCaçador2)	94-2	-1,1,0
-job_hunte,109,67,0	duplicate(ArmadilhaCaçador2)	94-3	-1,0,0
-job_hunte,109,66,0	duplicate(ArmadilhaCaçador2)	94-4	-1,0,0
-job_hunte,117,69,0	duplicate(ArmadilhaCaçador2)	95-1	-1,1,0
-job_hunte,117,68,0	duplicate(ArmadilhaCaçador2)	95-2	-1,1,0
-job_hunte,119,69,0	duplicate(ArmadilhaCaçador2)	95-3	-1,0,0
-job_hunte,119,68,0	duplicate(ArmadilhaCaçador2)	95-4	-1,0,0
-job_hunte,124,66,0	duplicate(ArmadilhaCaçador2)	96-1	-1,0,0
-job_hunte,124,67,0	duplicate(ArmadilhaCaçador2)	96-2	-1,0,0
-job_hunte,125,66,0	duplicate(ArmadilhaCaçador2)	96-3	-1,0,0
-job_hunte,125,67,0	duplicate(ArmadilhaCaçador2)	96-4	-1,0,0
-job_hunte,126,70,0	duplicate(ArmadilhaCaçador2)	97-1	-1,0,0
-job_hunte,126,71,0	duplicate(ArmadilhaCaçador2)	97-2	-1,0,0
-job_hunte,127,70,0	duplicate(ArmadilhaCaçador2)	97-3	-1,0,0
-job_hunte,127,71,0	duplicate(ArmadilhaCaçador2)	97-4	-1,0,0
+job_hunte,76,94,0	duplicate(ArmadilhaCaÃ§ador2)	58-1	-1,0,0
+job_hunte,76,95,0	duplicate(ArmadilhaCaÃ§ador2)	58-2	-1,0,0
+job_hunte,77,94,0	duplicate(ArmadilhaCaÃ§ador2)	58-3	-1,0,0
+job_hunte,77,95,0	duplicate(ArmadilhaCaÃ§ador2)	58-4	-1,0,0
+job_hunte,78,92,0	duplicate(ArmadilhaCaÃ§ador2)	59-1	-1,0,0
+job_hunte,78,93,0	duplicate(ArmadilhaCaÃ§ador2)	59-2	-1,0,0
+job_hunte,79,92,0	duplicate(ArmadilhaCaÃ§ador2)	59-3	-1,0,0
+job_hunte,79,93,0	duplicate(ArmadilhaCaÃ§ador2)	59-4	-1,0,0
+job_hunte,86,92,0	duplicate(ArmadilhaCaÃ§ador2)	60-1	-1,0,0
+job_hunte,86,93,0	duplicate(ArmadilhaCaÃ§ador2)	60-2	-1,0,0
+job_hunte,87,92,0	duplicate(ArmadilhaCaÃ§ador2)	60-3	-1,0,0
+job_hunte,87,93,0	duplicate(ArmadilhaCaÃ§ador2)	60-4	-1,0,0
+job_hunte,90,96,0	duplicate(ArmadilhaCaÃ§ador2)	61-1	-1,0,0
+job_hunte,90,97,0	duplicate(ArmadilhaCaÃ§ador2)	61-2	-1,0,0
+job_hunte,91,96,0	duplicate(ArmadilhaCaÃ§ador2)	61-3	-1,0,0
+job_hunte,91,97,0	duplicate(ArmadilhaCaÃ§ador2)	61-4	-1,0,0
+job_hunte,99,95,0	duplicate(ArmadilhaCaÃ§ador2)	62-1	-1,1,0
+job_hunte,99,94,0	duplicate(ArmadilhaCaÃ§ador2)	62-2	-1,1,0
+job_hunte,101,94,0	duplicate(ArmadilhaCaÃ§ador2)	62-3	-1,0,1
+job_hunte,100,93,0	duplicate(ArmadilhaCaÃ§ador2)	62-4	-1,0,0
+job_hunte,100,92,0	duplicate(ArmadilhaCaÃ§ador2)	63-1	-1,0,0
+job_hunte,101,92,0	duplicate(ArmadilhaCaÃ§ador2)	63-2	-1,0,0
+job_hunte,102,98,0	duplicate(ArmadilhaCaÃ§ador2)	64-1	-1,0,0
+job_hunte,102,99,0	duplicate(ArmadilhaCaÃ§ador2)	64-2	-1,0,0
+job_hunte,103,98,0	duplicate(ArmadilhaCaÃ§ador2)	64-3	-1,0,0
+job_hunte,103,99,0	duplicate(ArmadilhaCaÃ§ador2)	64-4	-1,0,0
+job_hunte,102,90,0	duplicate(ArmadilhaCaÃ§ador2)	65-1	-1,0,0
+job_hunte,102,91,0	duplicate(ArmadilhaCaÃ§ador2)	65-2	-1,0,0
+job_hunte,103,90,0	duplicate(ArmadilhaCaÃ§ador2)	65-3	-1,0,0
+job_hunte,103,91,0	duplicate(ArmadilhaCaÃ§ador2)	65-4	-1,0,0
+job_hunte,114,96,0	duplicate(ArmadilhaCaÃ§ador2)	66-1	-1,0,0
+job_hunte,114,97,0	duplicate(ArmadilhaCaÃ§ador2)	66-2	-1,0,0
+job_hunte,115,96,0	duplicate(ArmadilhaCaÃ§ador2)	66-3	-1,0,0
+job_hunte,115,97,0	duplicate(ArmadilhaCaÃ§ador2)	66-4	-1,0,0
+job_hunte,112,90,0	duplicate(ArmadilhaCaÃ§ador2)	67-1	-1,0,0
+job_hunte,112,91,0	duplicate(ArmadilhaCaÃ§ador2)	67-2	-1,0,0
+job_hunte,113,90,0	duplicate(ArmadilhaCaÃ§ador2)	67-3	-1,0,0
+job_hunte,113,91,0	duplicate(ArmadilhaCaÃ§ador2)	67-4	-1,0,0
+job_hunte,125,97,0	duplicate(ArmadilhaCaÃ§ador2)	68-1	-1,1,0
+job_hunte,125,96,0	duplicate(ArmadilhaCaÃ§ador2)	68-2	-1,1,0
+job_hunte,127,96,0	duplicate(ArmadilhaCaÃ§ador2)	68-3	-1,0,0
+job_hunte,127,97,0	duplicate(ArmadilhaCaÃ§ador2)	68-4	-1,0,0
+job_hunte,52,86,0	duplicate(ArmadilhaCaÃ§ador2)	69-1	-1,0,0
+job_hunte,52,87,0	duplicate(ArmadilhaCaÃ§ador2)	69-2	-1,0,0
+job_hunte,53,86,0	duplicate(ArmadilhaCaÃ§ador2)	69-3	-1,0,0
+job_hunte,53,87,0	duplicate(ArmadilhaCaÃ§ador2)	69-4	-1,0,0
+job_hunte,66,88,0	duplicate(ArmadilhaCaÃ§ador2)	70-1	-1,0,0
+job_hunte,66,89,0	duplicate(ArmadilhaCaÃ§ador2)	70-2	-1,0,0
+job_hunte,67,88,0	duplicate(ArmadilhaCaÃ§ador2)	70-3	-1,0,0
+job_hunte,67,89,0	duplicate(ArmadilhaCaÃ§ador2)	70-4	-1,0,0
+job_hunte,114,84,0	duplicate(ArmadilhaCaÃ§ador2)	71-1	-1,0,0
+job_hunte,114,85,0	duplicate(ArmadilhaCaÃ§ador2)	71-2	-1,0,0
+job_hunte,115,84,0	duplicate(ArmadilhaCaÃ§ador2)	71-3	-1,0,0
+job_hunte,115,85,0	duplicate(ArmadilhaCaÃ§ador2)	71-4	-1,0,0
+job_hunte,126,86,0	duplicate(ArmadilhaCaÃ§ador2)	72-1	-1,0,0
+job_hunte,126,87,0	duplicate(ArmadilhaCaÃ§ador2)	72-2	-1,0,0
+job_hunte,127,86,0	duplicate(ArmadilhaCaÃ§ador2)	72-3	-1,0,0
+job_hunte,127,87,0	duplicate(ArmadilhaCaÃ§ador2)	72-4	-1,0,0
+job_hunte,54,80,0	duplicate(ArmadilhaCaÃ§ador2)	73-1	-1,0,1
+job_hunte,55,80,0	duplicate(ArmadilhaCaÃ§ador2)	73-2	-1,0,1
+job_hunte,55,80,0	duplicate(ArmadilhaCaÃ§ador2)	73-3	-1,0,0
+job_hunte,55,78,0	duplicate(ArmadilhaCaÃ§ador2)	73-4	-1,0,0
+job_hunte,64,82,0	duplicate(ArmadilhaCaÃ§ador2)	74-1	-1,0,1
+job_hunte,65,82,0	duplicate(ArmadilhaCaÃ§ador2)	74-2	-1,0,1
+job_hunte,64,80,0	duplicate(ArmadilhaCaÃ§ador2)	74-3	-1,0,0
+job_hunte,65,80,0	duplicate(ArmadilhaCaÃ§ador2)	74-4	-1,0,0
+job_hunte,66,78,0	duplicate(ArmadilhaCaÃ§ador2)	75-1	-1,0,0
+job_hunte,66,79,0	duplicate(ArmadilhaCaÃ§ador2)	75-2	-1,0,0
+job_hunte,67,78,0	duplicate(ArmadilhaCaÃ§ador2)	75-3	-1,0,0
+job_hunte,67,79,0	duplicate(ArmadilhaCaÃ§ador2)	75-4	-1,0,0
+job_hunte,74,78,0	duplicate(ArmadilhaCaÃ§ador2)	76-1	-1,0,0
+job_hunte,74,79,0	duplicate(ArmadilhaCaÃ§ador2)	76-2	-1,0,0
+job_hunte,75,78,0	duplicate(ArmadilhaCaÃ§ador2)	76-3	-1,0,0
+job_hunte,75,79,0	duplicate(ArmadilhaCaÃ§ador2)	76-4	-1,0,0
+job_hunte,78,80,0	duplicate(ArmadilhaCaÃ§ador2)	77-1	-1,0,0
+job_hunte,78,81,0	duplicate(ArmadilhaCaÃ§ador2)	77-2	-1,0,0
+job_hunte,79,80,0	duplicate(ArmadilhaCaÃ§ador2)	77-3	-1,0,0
+job_hunte,79,81,0	duplicate(ArmadilhaCaÃ§ador2)	77-4	-1,0,0
+job_hunte,82,78,0	duplicate(ArmadilhaCaÃ§ador2)	78-1	-1,0,0
+job_hunte,82,79,0	duplicate(ArmadilhaCaÃ§ador2)	78-2	-1,0,0
+job_hunte,83,78,0	duplicate(ArmadilhaCaÃ§ador2)	78-3	-1,0,0
+job_hunte,83,79,0	duplicate(ArmadilhaCaÃ§ador2)	78-4	-1,0,0
+job_hunte,94,78,0	duplicate(ArmadilhaCaÃ§ador2)	79-1	-1,0,0
+job_hunte,94,79,0	duplicate(ArmadilhaCaÃ§ador2)	79-2	-1,0,0
+job_hunte,95,78,0	duplicate(ArmadilhaCaÃ§ador2)	79-3	-1,0,0
+job_hunte,95,79,0	duplicate(ArmadilhaCaÃ§ador2)	79-4	-1,0,0
+job_hunte,101,80,0	duplicate(ArmadilhaCaÃ§ador2)	80-1	-1,1,0
+job_hunte,101,81,0	duplicate(ArmadilhaCaÃ§ador2)	80-2	-1,1,0
+job_hunte,103,81,0	duplicate(ArmadilhaCaÃ§ador2)	80-3	-1,0,0
+job_hunte,103,80,0	duplicate(ArmadilhaCaÃ§ador2)	80-4	-1,0,0
+job_hunte,104,78,0	duplicate(ArmadilhaCaÃ§ador2)	81-1	-1,0,0
+job_hunte,104,79,0	duplicate(ArmadilhaCaÃ§ador2)	81-2	-1,0,0
+job_hunte,105,78,0	duplicate(ArmadilhaCaÃ§ador2)	81-3	-1,0,0
+job_hunte,105,79,0	duplicate(ArmadilhaCaÃ§ador2)	81-4	-1,0,0
+job_hunte,110,78,0	duplicate(ArmadilhaCaÃ§ador2)	82-1	-1,0,0
+job_hunte,110,79,0	duplicate(ArmadilhaCaÃ§ador2)	82-2	-1,0,0
+job_hunte,111,78,0	duplicate(ArmadilhaCaÃ§ador2)	82-3	-1,0,0
+job_hunte,111,79,0	duplicate(ArmadilhaCaÃ§ador2)	82-4	-1,0,0
+job_hunte,114,80,0	duplicate(ArmadilhaCaÃ§ador2)	83-1	-1,0,0
+job_hunte,114,81,0	duplicate(ArmadilhaCaÃ§ador2)	83-2	-1,0,0
+job_hunte,115,80,0	duplicate(ArmadilhaCaÃ§ador2)	83-3	-1,0,0
+job_hunte,115,81,0	duplicate(ArmadilhaCaÃ§ador2)	83-4	-1,0,0
+job_hunte,124,78,0	duplicate(ArmadilhaCaÃ§ador2)	84-1	-1,0,0
+job_hunte,124,79,0	duplicate(ArmadilhaCaÃ§ador2)	84-2	-1,0,0
+job_hunte,125,78,0	duplicate(ArmadilhaCaÃ§ador2)	84-3	-1,0,0
+job_hunte,125,79,0	duplicate(ArmadilhaCaÃ§ador2)	84-4	-1,0,0
+job_hunte,126,82,0	duplicate(ArmadilhaCaÃ§ador2)	85-1	-1,0,0
+job_hunte,126,83,0	duplicate(ArmadilhaCaÃ§ador2)	85-2	-1,0,0
+job_hunte,127,82,0	duplicate(ArmadilhaCaÃ§ador2)	85-3	-1,0,0
+job_hunte,127,83,0	duplicate(ArmadilhaCaÃ§ador2)	85-4	-1,0,0
+job_hunte,52,68,0	duplicate(ArmadilhaCaÃ§ador2)	86-1	-1,0,1
+job_hunte,53,68,0	duplicate(ArmadilhaCaÃ§ador2)	86-2	-1,0,1
+job_hunte,52,66,0	duplicate(ArmadilhaCaÃ§ador2)	86-3	-1,0,0
+job_hunte,53,66,0	duplicate(ArmadilhaCaÃ§ador2)	86-4	-1,0,0
+job_hunte,54,70,0	duplicate(ArmadilhaCaÃ§ador2)	87-1	-1,0,1
+job_hunte,55,70,0	duplicate(ArmadilhaCaÃ§ador2)	87-2	-1,0,1
+job_hunte,54,68,0	duplicate(ArmadilhaCaÃ§ador2)	87-3	-1,0,0
+job_hunte,55,68,0	duplicate(ArmadilhaCaÃ§ador2)	87-4	-1,0,0
+job_hunte,59,66,0	duplicate(ArmadilhaCaÃ§ador2)	88-1	-1,1,0
+job_hunte,59,67,0	duplicate(ArmadilhaCaÃ§ador2)	88-2	-1,1,0
+job_hunte,61,67,0	duplicate(ArmadilhaCaÃ§ador2)	88-3	-1,0,0
+job_hunte,61,66,0	duplicate(ArmadilhaCaÃ§ador2)	88-4	-1,0,0
+job_hunte,68,68,0	duplicate(ArmadilhaCaÃ§ador2)	89-1	-1,0,1
+job_hunte,69,68,0	duplicate(ArmadilhaCaÃ§ador2)	89-2	-1,0,1
+job_hunte,68,66,0	duplicate(ArmadilhaCaÃ§ador2)	89-3	-1,0,0
+job_hunte,69,66,0	duplicate(ArmadilhaCaÃ§ador2)	89-4	-1,0,0
+job_hunte,76,66,0	duplicate(ArmadilhaCaÃ§ador2)	90-1	-1,0,0
+job_hunte,76,67,0	duplicate(ArmadilhaCaÃ§ador2)	90-2	-1,0,0
+job_hunte,77,66,0	duplicate(ArmadilhaCaÃ§ador2)	90-3	-1,0,0
+job_hunte,77,67,0	duplicate(ArmadilhaCaÃ§ador2)	90-4	-1,0,0
+job_hunte,82,68,0	duplicate(ArmadilhaCaÃ§ador2)	91-1	-1,0,0
+job_hunte,82,69,0	duplicate(ArmadilhaCaÃ§ador2)	91-2	-1,0,0
+job_hunte,83,68,0	duplicate(ArmadilhaCaÃ§ador2)	91-3	-1,0,0
+job_hunte,83,69,0	duplicate(ArmadilhaCaÃ§ador2)	91-4	-1,0,0
+job_hunte,96,66,0	duplicate(ArmadilhaCaÃ§ador2)	92-1	-1,0,0
+job_hunte,96,67,0	duplicate(ArmadilhaCaÃ§ador2)	92-2	-1,0,0
+job_hunte,97,66,0	duplicate(ArmadilhaCaÃ§ador2)	92-3	-1,0,0
+job_hunte,97,67,0	duplicate(ArmadilhaCaÃ§ador2)	92-4	-1,0,0
+job_hunte,100,68,0	duplicate(ArmadilhaCaÃ§ador2)	93-1	-1,0,0
+job_hunte,100,69,0	duplicate(ArmadilhaCaÃ§ador2)	93-2	-1,0,0
+job_hunte,101,68,0	duplicate(ArmadilhaCaÃ§ador2)	93-3	-1,0,0
+job_hunte,101,69,0	duplicate(ArmadilhaCaÃ§ador2)	93-4	-1,0,0
+job_hunte,107,66,0	duplicate(ArmadilhaCaÃ§ador2)	94-1	-1,1,0
+job_hunte,107,67,0	duplicate(ArmadilhaCaÃ§ador2)	94-2	-1,1,0
+job_hunte,109,67,0	duplicate(ArmadilhaCaÃ§ador2)	94-3	-1,0,0
+job_hunte,109,66,0	duplicate(ArmadilhaCaÃ§ador2)	94-4	-1,0,0
+job_hunte,117,69,0	duplicate(ArmadilhaCaÃ§ador2)	95-1	-1,1,0
+job_hunte,117,68,0	duplicate(ArmadilhaCaÃ§ador2)	95-2	-1,1,0
+job_hunte,119,69,0	duplicate(ArmadilhaCaÃ§ador2)	95-3	-1,0,0
+job_hunte,119,68,0	duplicate(ArmadilhaCaÃ§ador2)	95-4	-1,0,0
+job_hunte,124,66,0	duplicate(ArmadilhaCaÃ§ador2)	96-1	-1,0,0
+job_hunte,124,67,0	duplicate(ArmadilhaCaÃ§ador2)	96-2	-1,0,0
+job_hunte,125,66,0	duplicate(ArmadilhaCaÃ§ador2)	96-3	-1,0,0
+job_hunte,125,67,0	duplicate(ArmadilhaCaÃ§ador2)	96-4	-1,0,0
+job_hunte,126,70,0	duplicate(ArmadilhaCaÃ§ador2)	97-1	-1,0,0
+job_hunte,126,71,0	duplicate(ArmadilhaCaÃ§ador2)	97-2	-1,0,0
+job_hunte,127,70,0	duplicate(ArmadilhaCaÃ§ador2)	97-3	-1,0,0
+job_hunte,127,71,0	duplicate(ArmadilhaCaÃ§ador2)	97-4	-1,0,0

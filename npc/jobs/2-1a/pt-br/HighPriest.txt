@@ -14,32 +14,36 @@
 //= 1.2 Made numbers into constants. [Vicious]
 //= 1.3 Now saves/restores all the quest skills [Lupus]
 //============================================================ 
+//===================== Tradu√ß√£o PT-BR ==========
+// Tradu√ß√£o: Weed0
+// Revisado: HD Scripts - Projeto eaBrasil
+//=============================================== 
 
 valkyrie,44,42,5	script	High Priest#Valkyrie	60,{
 	if (ADVJOB == 0 || Upper != 1) {
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
 			mes "[High Priest]";
-			mes "ParabÈns.";
+			mes "Parab√©ns.";
 			mes "Honra os guerreiros!";
 			close;
 		}
 		mes "[High Priest]";
-		mes "AtravÈs do poder";
-		mes "da santidade, nÛs podemos";
-		mes "encontrar paz, forÁa";
-		mes "e proteÁao. Livra-nos";
-		mes "das forÁas do mal...";
+		mes "Atrav√©s do poder";
+		mes "da santidade, n√≥s podemos";
+		mes "encontrar paz, for√ßa";
+		mes "e prote√ßao. Livra-nos";
+		mes "das for√ßas do mal...";
 		close;
 	}
 	else if (ADVJOB == Job_High_Priest && Class == Job_Acolyte_High && JobLevel > 39) {
 		mes "[High Priest]";
-		mes "Nosso mundo est·";
+		mes "Nosso mundo est√°";
 		mes "precisando de pessoas com";
-		mes "talento e convicÁao.";
+		mes "talento e convic√ßao.";
 		mes "Por favor continue com";
 		mes "seu bom trabalho assim como um";
-		mes "grande herÛi da santidade...";
+		mes "grande her√≥i da santidade...";
 		next;
 		mes "[High Priest]";
 		mes "Voce deseja se";
@@ -54,16 +58,16 @@ valkyrie,44,42,5	script	High Priest#Valkyrie	60,{
 		}
 		if (SkillPoint) {
 			mes "[High Priest]";
-			mes "Ainda È possÌvel que voce aprenda mais habilidades. Por favor, use";
+			mes "Ainda √© poss√≠vel que voce aprenda mais habilidades. Por favor, use";
 			mes "todos os seus Pontos de Habilidades antes de voltar a falar comigo.";
 			close;
 		}
 		jobchange Job_High_Priest;
 		set ADVJOB,0;
 		mes "[High Priest]";
-		mes "ParabÈns.";
+		mes "Parab√©ns.";
 		mes "Como um Sumo-Sacerdote,";
-		mes "eu acredito que voce ir· guiar";
+		mes "eu acredito que voce ir√° guiar";
 		mes "outros para o caminho";
 		mes "da santidade...";
 		close;
@@ -75,7 +79,7 @@ valkyrie,44,42,5	script	High Priest#Valkyrie	60,{
 	next;
 	mes "[High Priest]";
 	mes "Por favor, sinta-se";
-	mes "confort·vel enquanto";
+	mes "confort√°vel enquanto";
 	mes "voce estiver aqui.";
 	mes "Honra os guerreiros.";
 	close;

@@ -41,6 +41,10 @@
 //= 3.2 More Renewal updates and some optimization. [Euphy]
 //= 3.3 Fixed missing changequest. [Joseph]
 //============================================================ 
+//===================== Tradução PT-BR ==========
+// Tradução: Weed0
+// Revisado: HD Scripts - Projeto eaBrasil
+//=============================================== 
 
 prt_in,88,101,4	script	Chefe dos Cavaleiros#knt	56,{
 	mes "[Chefe dos Cavaleiros]";

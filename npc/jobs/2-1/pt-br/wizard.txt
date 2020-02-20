@@ -28,6 +28,10 @@
 //= 3.2 Modified the quest to renewal. [Vali] (Thanks to Muad_Dib for the necessary info).
 //= 3.3 Fixed waitingroom bug. [Euphy]
 //============================================================ 
+//===================== Tradução PT-BR ==========
+// Tradução: Weed0
+// Revisado: HD Scripts - Projeto eaBrasil
+//=============================================== 
 
 gef_tower,111,37,4	script	Assistente de Mago	70,{
 	if (Upper == 1) {
