@@ -1020,7 +1020,7 @@ airplane_01,32,61,4	script	Nils#ein	49,1,1,{
 //============================================================ 
 //= Apple Gambling
 //============================================================ 
-airplane_01,33,68,4	script	Clarice	74_02,{
+airplane_01,33,68,4	script	Clarice	74,{
 	mes "[Clarice]";
 	mes "Oi, eu sou Clarice~";
 	mes "Você gostaria de apostar algumas maçãs no amigável Jogo dos Dados?";
@@ -1137,7 +1137,7 @@ function	script	applegamble	{
 		set .@player2, rand(1,6);
 		set .@playersub, .@player1 + .@player2;
 	}
-	set .@playertotal = .@playersub;
+	set .@playertotal, .@playersub;
 	next;
 	mes "["+ .@npc_name$ +"]";
 	mes "^FF0000" + strcharinfo(0) + "^000000, você possui ^FF0000" + .@player1 + "^000000 e ^FF0000" + .@player2 + "^000000. O total é ^FF0000" + .@playersub + "^000000 .";
