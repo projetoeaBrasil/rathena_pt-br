@@ -1,0 +1,72 @@
+//===== rAthena Script ======================================= 
+//= Advance Class jobchanger after kRO Normals.
+//===== By: ==================================================
+//= Nana
+//= finished, optimized and tested by Lupus
+//===== Current Version: ===================================== 
+//= 1.3
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Advance Class jobchanger after kRO Normals.
+//===== Additional Comments: ================================= 
+//= 1.1 Made all into functions, additional checks, etc. [Lupus]
+//= 1.2 Made numbers into constants. [Vicious]
+//= 1.3 Now saves/restores all the quest skills [Lupus]
+//= 1.3a Corrected a Little Typo error. [Samuray22]
+//=     Thanks to Myllena.
+//=============== Tradução PT-BR ================
+// HanzoBR - Disponibilizado para Projeto SOCERO
+//===============================================
+
+valkyrie,53,54,3	script	Menestrel#Valkyrie	741,{
+	if (ADVJOB == 0 || Upper != 1) {
+		set .@karma_d,rand(1,10);
+		if (.@karma_d > 4) {
+			mes "[Menestrel]";
+			mes "Parabéns";
+			mes "Honra aos guerreiros!";
+			close;
+		}
+		mes "[Menestrel]";
+		mes "Quer cantar comigo?";
+		mes "Sha la la la la~";
+		close;
+	}
+	else if (ADVJOB == Job_Clown && Class == Job_Archer_High && JobLevel > 39) {
+		mes "[Menestrel]";
+		mes "O mundo sombrio dos mortais precisa de uma música mais alegre.";
+        mes "Você irá trazer a música para eles e virar a maré na batalha contra o mal?";
+		next;
+		mes "[Menestrel]";
+		mes "Você fará isto por Rune-Midgard";
+		mes "Como Menestrel?";
+		next;
+		if (select("Não.:Sim.") == 1) {
+			mes "[Menestrel]";
+			mes "Quando você estiver pronto, volte e fale comigo.";
+			mes "Honra aos guerreiros!";
+			close;
+		}
+		if (SkillPoint) {
+			mes "[Menestrel]";
+			mes "Você ainda tem pontos de habilidades disponíveis.";
+			mes "Por favor, utilize todos, e torne a falar comigo.";
+			close;
+		}
+		jobchange Job_Clown;
+		set ADVJOB,0;
+		mes "[Menestrel]";
+		mes "Parabéns!";
+		mes "Como um Menestrel, suas suas músicas trarão esperança para seus aliados e desespero para seus inimigos.";
+		close;
+	}
+	mes "[Menestrel]";
+	mes "Bem vindo";
+	mes "Ao salão de Honra de Valhalla.";
+	next;
+	mes "[Menestrel]";
+	mes "Por favor, sinta-se a vontade enquanto estiver por aqui.";
+	mes "Honra aos Guerreiros!";
+	close;
+}

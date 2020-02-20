@@ -1,0 +1,76 @@
+//===== rAthena Script ======================================= 
+//= Advance Class jobchanger after kRO Normals.
+//===== By: ==================================================
+//= Nana
+//= finished, optimized and tested by Lupus
+//===== Current Version: ===================================== 
+//= 1.3
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Advance Class jobchanger after kRO Normals.
+//===== Additional Comments: ================================= 
+//= 1.1 Made all into functions, additional checks, etc. [Lupus]
+//= 1.2 Made numbers into constants. [Vicious]
+//= 1.3 Now saves/restores all the quest skills [Lupus]
+//=============== Tradução PT-BR ================
+// HanzoBR - Disponibilizado para Projeto SOCERO
+//===============================================
+
+valkyrie,53,42,3	script	Champion#Valkyrie	52,{
+	if (ADVJOB == 0 || Upper != 1) {
+		set .@karma_d,rand(1,10);
+		if (.@karma_d > 4) {
+			mes "[Champion]";
+			mes "Parabéns!";
+			mes "Honra aos guerreiros!";
+			close;
+		}
+		mes "[Champion]";
+		mes "Habilidade.";
+		mes "Velocidade.";
+		mes "Força.";
+		mes "Agilidade.";
+		next;
+		mes "[Champion]";
+		mes "O Champion, pode dominar todas estas coisas";
+		mes "Mas só se pode dominar tanto nesta vida se...";
+		close;
+	}
+	else if (ADVJOB == Job_Champion && Class == Job_Acolyte_High && JobLevel > 39) {
+		mes "[Champion]";
+		mes "É hora de grandes heróis se levantarem contra as forças do mal que assolam o mundo de Rune-Midgard!";
+		next;
+		mes "[Champion]";
+		mes "Você deseja";
+		mes "tornar-se um Champion?";
+		next;
+		if (select("Não.:Sim.") == 1) {
+			mes "[Champion]";
+			mes "Quando estiver pronto, volte a falar comigo.";
+			mes "Honra aos guerreiros!";
+			close;
+		}
+		if (SkillPoint) {
+			mes "[Champion]";
+			mes "Você ainda tem pontos de habilidades disponíveis.";
+			mes "Por favor, utilize todos, e torne a falar comigo.";
+			close;
+		}
+		jobchange Job_Champion;
+		set ADVJOB,0;
+		mes "[Champion]";
+		mes "Parabéns!!";
+		mes "Viva como um Champion.";
+		mes "E traga luz para o mundo através da força de seus punhos.";
+		close;
+	}
+	mes "[Champion]";
+	mes "Bem vindo";
+	mes "Ao salão de Honra de Valhalla.";
+	next;
+	mes "[Champion]";
+	mes "Por favor, sinta-se a vontade enquanto estiver por aqui.";
+	mes "Honra aos Guerreiros!";
+	close;
+}
